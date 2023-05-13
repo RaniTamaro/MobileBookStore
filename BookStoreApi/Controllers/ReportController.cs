@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookStoreApi.Data;
 using BookStoreApi.Models;
 
 namespace BookStoreApi.Controllers
 {
-    public class ReportController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class ReportController : ControllerBase
     {
         private readonly BookStoreContext _context;
 
@@ -19,145 +21,104 @@ namespace BookStoreApi.Controllers
             _context = context;
         }
 
-        // GET: Report
-        public async Task<IActionResult> Index()
+        // GET: api/Report
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Report>>> GetReport()
         {
-              return _context.Report != null ? 
-                          View(await _context.Report.ToListAsync()) :
-                          Problem("Entity set 'BookStoreContext.Report'  is null.");
+          if (_context.Report == null)
+          {
+              return NotFound();
+          }
+            return await _context.Report.ToListAsync();
         }
 
-        // GET: Report/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // GET: api/Report/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Report>> GetReport(int id)
         {
-            if (id == null || _context.Report == null)
-            {
-                return NotFound();
-            }
-
-            var report = await _context.Report
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (report == null)
-            {
-                return NotFound();
-            }
-
-            return View(report);
-        }
-
-        // GET: Report/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Report/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Title,LinqSql,Id,IsActive,CretionDate,MmodifDate")] Report report)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(report);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(report);
-        }
-
-        // GET: Report/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Report == null)
-            {
-                return NotFound();
-            }
-
+          if (_context.Report == null)
+          {
+              return NotFound();
+          }
             var report = await _context.Report.FindAsync(id);
+
             if (report == null)
             {
                 return NotFound();
             }
-            return View(report);
+
+            return report;
         }
 
-        // POST: Report/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Title,LinqSql,Id,IsActive,CretionDate,MmodifDate")] Report report)
+        // PUT: api/Report/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutReport(int id, Report report)
         {
             if (id != report.Id)
             {
-                return NotFound();
+                return BadRequest();
             }
 
-            if (ModelState.IsValid)
+            _context.Entry(report).State = EntityState.Modified;
+
+            try
             {
-                try
-                {
-                    _context.Update(report);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ReportExists(report.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                await _context.SaveChangesAsync();
             }
-            return View(report);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ReportExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
 
-        // GET: Report/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // POST: api/Report
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<Report>> PostReport(Report report)
         {
-            if (id == null || _context.Report == null)
+          if (_context.Report == null)
+          {
+              return Problem("Entity set 'BookStoreContext.Report'  is null.");
+          }
+            _context.Report.Add(report);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetReport", new { id = report.Id }, report);
+        }
+
+        // DELETE: api/Report/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteReport(int id)
+        {
+            if (_context.Report == null)
             {
                 return NotFound();
             }
-
-            var report = await _context.Report
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var report = await _context.Report.FindAsync(id);
             if (report == null)
             {
                 return NotFound();
             }
 
-            return View(report);
-        }
-
-        // POST: Report/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Report == null)
-            {
-                return Problem("Entity set 'BookStoreContext.Report'  is null.");
-            }
-            var report = await _context.Report.FindAsync(id);
-            if (report != null)
-            {
-                _context.Report.Remove(report);
-            }
-            
+            _context.Report.Remove(report);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+
+            return NoContent();
         }
 
         private bool ReportExists(int id)
         {
-          return (_context.Report?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Report?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
