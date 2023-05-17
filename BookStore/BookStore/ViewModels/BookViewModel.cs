@@ -7,23 +7,23 @@ using Xamarin.Forms;
 
 namespace BookStore.ViewModels
 {
-    public class AuthorViewModel : AListViewModel<Author>
+    public class BookViewModel : AListViewModel<Book>
     {
-        public AuthorViewModel() 
-            : base("Autorzy")
+        public BookViewModel() 
+            : base("Książki")
         {
         }
 
-        public async override void OnItemSelected(Author item)
+        public async override void OnItemSelected(Book item)
         {
             if (item == null)
                 return;
-            await Shell.Current.DisplayAlert("Wybrany autor", $"{item.Name} {item.Surname}", "Anuluj");
+            await Shell.Current.DisplayAlert("Wybrana książka", $"{item.Title}", "Anuluj");
         }
 
         public override void GoToAddPage()
         {
-            Shell.Current.GoToAsync(nameof(NewAuthorPage));
+            Shell.Current.GoToAsync(nameof(NewBookPage));
         }
     }
 }

@@ -1,7 +1,9 @@
-﻿using BookStore.Services.Abstract;
+﻿using BookStore.Helpers;
+using BookStore.Services.Abstract;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,34 +12,34 @@ namespace BookStore.Services
     //TODO: Wypełnić!
     public class BookDataStore : AListDataStore<Book>
     {
-        public override Task<Book> AddItemToService(Book item)
+        public override async Task<Book> AddItemToService(Book item)
         {
-            throw new NotImplementedException();
+            return await _service.BookPOSTAsync(item);
         }
 
-        public override Task<bool> DeleteItemFromService(Book item)
+        public override async Task<bool> DeleteItemFromService(Book item)
         {
-            throw new NotImplementedException();
+            return await _service.BookDELETEAsync(item.Id).HandleRequest();
         }
 
-        public override Task<Book> Find(Book item)
+        public override async Task<Book> Find(Book item)
         {
-            throw new NotImplementedException();
+            return await _service.BookGETAsync(item.Id);
         }
 
-        public override Task<Book> Find(int id)
+        public override async Task<Book> Find(int id)
         {
-            throw new NotImplementedException();
+            return await _service.BookGETAsync(id);
         }
 
-        public override Task RefreshListFromService()
+        public override async Task RefreshListFromService()
         {
-            throw new NotImplementedException();
+            items = (await _service.BookAllAsync()).ToList();
         }
 
-        public override Task<bool> UpdateItemInService(Book item)
+        public override async Task<bool> UpdateItemInService(Book item)
         {
-            throw new NotImplementedException();
+            return await _service.BookPUTAsync(item.Id, item).HandleRequest();
         }
     }
 }

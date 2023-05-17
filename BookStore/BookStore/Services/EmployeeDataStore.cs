@@ -1,7 +1,10 @@
-﻿using BookStore.Services.Abstract;
+﻿using BookStore.Helpers;
+using BookStore.Models;
+using BookStore.Services.Abstract;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,34 +13,34 @@ namespace BookStore.Services
     //TODO: Wypełnić!
     public class EmployeeDataStore : AListDataStore<Employee>
     {
-        public override Task<Employee> AddItemToService(Employee item)
+        public override async Task<Employee> AddItemToService(Employee item)
         {
-            throw new NotImplementedException();
+            return await _service.EmployeePOSTAsync(item);
         }
 
-        public override Task<bool> DeleteItemFromService(Employee item)
+        public override async Task<bool> DeleteItemFromService(Employee item)
         {
-            throw new NotImplementedException();
+            return await _service.EmployeeDELETEAsync(item.Id).HandleRequest();
         }
 
-        public override Task<Employee> Find(Employee item)
+        public override async Task<Employee> Find(Employee item)
         {
-            throw new NotImplementedException();
+            return await _service.EmployeeGETAsync(item.Id);
         }
 
-        public override Task<Employee> Find(int id)
+        public override async Task<Employee> Find(int id)
         {
-            throw new NotImplementedException();
+            return await _service.EmployeeGETAsync(id);
         }
 
-        public override Task RefreshListFromService()
+        public override async Task RefreshListFromService()
         {
-            throw new NotImplementedException();
+            items = (await _service.EmployeeAllAsync()).ToList();
         }
 
-        public override Task<bool> UpdateItemInService(Employee item)
+        public override async Task<bool> UpdateItemInService(Employee item)
         {
-            throw new NotImplementedException();
+            return await _service.EmployeePUTAsync(item.Id, item).HandleRequest();
         }
     }
 }

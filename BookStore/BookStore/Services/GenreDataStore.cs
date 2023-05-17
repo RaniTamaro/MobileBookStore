@@ -2,6 +2,7 @@
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,9 +31,9 @@ namespace BookStore.Services
             throw new NotImplementedException();
         }
 
-        public override Task RefreshListFromService()
+        public override async Task RefreshListFromService()
         {
-            throw new NotImplementedException();
+            items = (await _service.GenreAllAsync()).ToList();
         }
 
         public override Task<bool> UpdateItemInService(Genre item)
