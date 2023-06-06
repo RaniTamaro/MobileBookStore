@@ -4,6 +4,7 @@ using BookStoreApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStoreApi.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    partial class BookStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20230606120518_m1")]
+    partial class m1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -339,49 +341,6 @@ namespace BookStoreApi.Migrations
                     b.ToTable("Report");
                 });
 
-            modelBuilder.Entity("BookStoreApi.Models.Review", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<DateTime?>("CretionDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("IdBook")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IdCustomer")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("MmodifDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("Rating")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdBook");
-
-                    b.HasIndex("IdCustomer");
-
-                    b.ToTable("Review");
-                });
-
             modelBuilder.Entity("BookStoreApi.Models.Book", b =>
                 {
                     b.HasOne("BookStoreApi.Models.Author", "Author")
@@ -448,25 +407,6 @@ namespace BookStoreApi.Migrations
                     b.Navigation("Book");
 
                     b.Navigation("Order");
-                });
-
-            modelBuilder.Entity("BookStoreApi.Models.Review", b =>
-                {
-                    b.HasOne("BookStoreApi.Models.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("IdBook")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BookStoreApi.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("IdCustomer")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Book");
-
-                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.Author", b =>

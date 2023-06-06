@@ -14,6 +14,5 @@ namespace BookStoreApi.Models
         [ForeignKey("IdCustomer")]
         public virtual Customer? Customer { get; set; }
         public virtual ICollection<OrderBook> OrderBooks { get; set; }
-        public virtual ICollection<OrderEmployee> OrderEmployees { get; set; }
     }
 }

@@ -22,11 +22,14 @@ namespace BookStoreApi.Data
 
         public DbSet<BookStoreApi.Models.Customer>? Customer { get; set; }
 
-        public DbSet<BookStoreApi.Models.Employee>? Employee { get; set; }
-
         public DbSet<BookStoreApi.Models.Genre>? Genre { get; set; }
 
         public DbSet<BookStoreApi.Models.Order>? Order { get; set; }
+
         public DbSet<BookStoreApi.Models.Report>? Report { get; set; }
+        public DbSet<BookStoreApi.Models.Review>? Review { get; set; }
+
+        public DbSet<BookStoreApi.Models.BookGenre>? BookGenre { get; set; }
+        public DbSet<BookStoreApi.Models.OrderBook>? OrderBook { get; set; }
     }
 }

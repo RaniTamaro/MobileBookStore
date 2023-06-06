@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookStoreApi.Data;
 using BookStoreApi.Models;
+using BookStoreApi.ViewModels;
+using BookStoreApi.ViewModels.Helpers;
+using NuGet.Protocol;
 
 namespace BookStoreApi.Controllers
 {
@@ -23,44 +26,72 @@ namespace BookStoreApi.Controllers
 
         // GET: api/Books
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Book>>> GetBook()
+        public async Task<ActionResult<IEnumerable<BookForView>>> GetBook()
         {
-          if (_context.Book == null)
-          {
-              return NotFound();
-          }
-            return await _context.Book.ToListAsync();
+            if (_context.Book == null)
+            {
+                return NotFound();
+            }
+
+            var bookList = await _context.Book
+                .Where(x => x.IsActive == true)
+                .Include(x => x.BookGenres).ThenInclude(g => g.Genre).Include(x => x.Category).Include(x => x.Author)
+                .Select(y => (BookForView)y)
+                .ToListAsync();
+
+            return bookList;
         }
 
         // GET: api/Books/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Book>> GetBook(int id)
+        public async Task<ActionResult<BookForView>> GetBook(int id)
         {
-          if (_context.Book == null)
-          {
-              return NotFound();
-          }
-            var book = await _context.Book.FindAsync(id);
+            if (_context.Book == null)
+            {
+                return NotFound();
+            }
 
+            var book = await _context.Book
+                .Where(x => x.IsActive == true && x.Id == id)
+                .Include(x => x.BookGenres).ThenInclude(g => g.Genre).Include(x => x.Category).Include(x => x.Author)
+                .FirstOrDefaultAsync();
             if (book == null)
             {
                 return NotFound();
             }
 
-            return book;
+            return (BookForView)book;
         }
 
         // PUT: api/Books/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutBook(int id, Book book)
+        public async Task<IActionResult> PutBook(int id, BookForView book)
         {
             if (id != book.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(book).State = EntityState.Modified;
+            var bookDb = (Book)book;
+            bookDb.MmodifDate = DateTime.Now;
+            var bookGenreList = new List<BookGenre>();
+            foreach (var genre in book.BookGenres.ToList())
+            {
+                var existBookGenre = await _context.BookGenre.Where(x => x.IsActive == true && x.IdBook == bookDb.Id && x.IdGenre == genre.Id).FirstOrDefaultAsync();
+                bookGenreList.Add(existBookGenre == null ?
+                    new BookGenre
+                    {
+                        IdBook = bookDb.Id,
+                        Book = bookDb,
+                        IdGenre = genre.Id,
+                        Genre = await _context.Genre.FindAsync(genre.Id)
+                    }
+                : existBookGenre);
+            }
+
+            bookDb.BookGenres = bookGenreList;
+            _context.Entry(bookDb).State = EntityState.Modified;
 
             try
             {
@@ -84,16 +115,33 @@ namespace BookStoreApi.Controllers
         // POST: api/Books
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Book>> PostBook(Book book)
+        public async Task<ActionResult<BookForView>> PostBook(BookForView book)
         {
-          if (_context.Book == null)
-          {
-              return Problem("Entity set 'BookStoreContext.Book'  is null.");
-          }
-            _context.Book.Add(book);
+            if (_context.Book == null)
+            {
+                return Problem("Entity set 'BookStoreContext.Book'  is null.");
+            }
+
+            var bookDb = (Book)book;
+            _context.Book.Add(bookDb);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetBook", new { id = book.Id }, book);
+            var bookGenreList = new List<BookGenre>();
+            foreach (var genre in book.BookGenres.ToList())
+            {
+                bookGenreList.Add(new BookGenre
+                {
+                    IdBook = bookDb.Id,
+                    Book = bookDb,
+                    IdGenre = genre.Id,
+                    Genre = await _context.Genre.FindAsync(genre.Id)
+                });
+            }
+
+            bookDb.BookGenres = bookGenreList;
+            _context.Book.Update(bookDb);
+            await _context.SaveChangesAsync();
+            return Ok((BookForView)bookDb);
         }
 
         // DELETE: api/Books/5
@@ -110,7 +158,10 @@ namespace BookStoreApi.Controllers
                 return NotFound();
             }
 
-            _context.Book.Remove(book);
+            book.IsActive = false;
+            book.MmodifDate = DateTime.Now;
+
+            _context.Book.Update(book);
             await _context.SaveChangesAsync();
 
             return NoContent();

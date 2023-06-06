@@ -16,5 +16,6 @@ namespace BookStoreApi.Models
         public virtual Author? Author { get; set; }
         public virtual ICollection<BookGenre> BookGenres { get; set; }
         public virtual ICollection<OrderBook> OrderBooks { get; set; }
+
     }
 }

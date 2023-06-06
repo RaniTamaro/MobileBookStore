@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BookStoreApi.Data;
 using BookStoreApi.Models;
+using BookStoreApi.ViewModels;
 
 namespace BookStoreApi.Controllers
 {
@@ -23,44 +24,64 @@ namespace BookStoreApi.Controllers
 
         // GET: api/Author
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Author>>> GetAuthor()
+        public async Task<ActionResult<IEnumerable<AuthorForView>>> GetAuthor()
         {
-          if (_context.Author == null)
-          {
-              return NotFound();
-          }
-            return await _context.Author.ToListAsync();
+            if (_context.Author == null)
+            {
+                return NotFound();
+            }
+
+            var authorList = await _context.Author
+                .Where(x => x.IsActive == true)
+                .Include(x => x.Books)
+                .Select(y => (AuthorForView)y)
+                .ToListAsync();
+
+            return authorList;
         }
 
         // GET: api/Author/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Author>> GetAuthor(int id)
+        public async Task<ActionResult<AuthorForView>> GetAuthor(int id)
         {
-          if (_context.Author == null)
-          {
-              return NotFound();
-          }
-            var author = await _context.Author.FindAsync(id);
+            if (_context.Author == null)
+            {
+                return NotFound();
+            }
 
+            var author = await _context.Author
+                .Where(x => x.IsActive == true && x.Id == id)
+                .Include(x => x.Books)
+                .FirstOrDefaultAsync();
             if (author == null)
             {
                 return NotFound();
             }
 
-            return author;
+            return (AuthorForView)author;
         }
 
         // PUT: api/Author/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAuthor(int id, Author author)
+        public async Task<IActionResult> PutAuthor(int id, AuthorForView author)
         {
             if (id != author.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(author).State = EntityState.Modified;
+
+            var authorDb = (Author)author;
+            authorDb.MmodifDate = DateTime.Now;
+            var bookList = new List<Book>();
+            foreach (var book in author.Books.ToList())
+            {
+                bookList.Add(await _context.Book.FindAsync(book.Value));
+            }
+
+            authorDb.Books = bookList;
+            _context.Entry(authorDb).State = EntityState.Modified;
 
             try
             {
@@ -84,16 +105,26 @@ namespace BookStoreApi.Controllers
         // POST: api/Author
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Author>> PostAuthor(Author author)
+        public async Task<ActionResult<AuthorForView>> PostAuthor(AuthorForView author)
         {
-          if (_context.Author == null)
-          {
-              return Problem("Entity set 'BookStoreContext.Author'  is null.");
-          }
-            _context.Author.Add(author);
+            if (_context.Author == null)
+            {
+                return Problem("Entity set 'BookStoreContext.Author'  is null.");
+            }
+
+            var authorDb = (Author)author;
+            var bookList = new List<Book>();
+            foreach (var book in author.Books.ToList())
+            {
+                bookList.Add(await _context.Book.FindAsync(book.Value));
+            }
+
+            authorDb.Books = bookList;
+            _context.Author.Add(authorDb);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetAuthor", new { id = author.Id }, author);
+            //return CreatedAtAction("GetAuthor", new { id = author.Id }, author);
+            return Ok((AuthorForView)authorDb);
         }
 
         // DELETE: api/Author/5
@@ -110,7 +141,9 @@ namespace BookStoreApi.Controllers
                 return NotFound();
             }
 
-            _context.Author.Remove(author);
+            author.IsActive = false;
+            author.MmodifDate = DateTime.Now;
+            _context.Author.Update(author);
             await _context.SaveChangesAsync();
 
             return NoContent();
