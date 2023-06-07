@@ -13,7 +13,13 @@ namespace BookStore
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<AuthorDataStore>();
+            DependencyService.Register<BookDataStore>();
+            DependencyService.Register<CategoryDataStore>();
+            DependencyService.Register<CustomerDataStore>();
+            DependencyService.Register<GenreDataStore>();
+            DependencyService.Register<OrderDataStore>();
+            DependencyService.Register<ReviewDataStore>();
             MainPage = new AppShell();
         }
 

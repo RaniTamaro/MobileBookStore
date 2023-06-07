@@ -9,29 +9,29 @@ using System.Threading.Tasks;
 
 namespace BookStore.Services
 {
-    public class AuthorDataStore : AListDataStore<Author>
+    public class AuthorDataStore : AListDataStore<AuthorForView>
     {
         public AuthorDataStore()
             : base()
         {
         }
 
-        public override async Task<Author> AddItemToService(Author item)
+        public override async Task<AuthorForView> AddItemToService(AuthorForView item)
         {
             return await _service.AuthorPOSTAsync(item);
         }
 
-        public override async Task<bool> DeleteItemFromService(Author item)
+        public override async Task<bool> DeleteItemFromService(AuthorForView item)
         {
             return await _service.AuthorDELETEAsync(item.Id).HandleRequest();
         }
 
-        public override async Task<Author> Find(Author item)
+        public override async Task<AuthorForView> Find(AuthorForView item)
         {
             return await _service.AuthorGETAsync(item.Id);
         }
 
-        public override async Task<Author> Find(int id)
+        public override async Task<AuthorForView> Find(int id)
         {
             return await _service.AuthorGETAsync(id);
         }
@@ -41,7 +41,7 @@ namespace BookStore.Services
             items = (await _service.AuthorAllAsync()).ToList();
         }
 
-        public override async Task<bool> UpdateItemInService(Author item)
+        public override async Task<bool> UpdateItemInService(AuthorForView item)
         {
             return await _service.AuthorPUTAsync(item.Id, item).HandleRequest();
         }

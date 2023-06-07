@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace BookStore.ViewModels
+namespace BookStore.ViewModels.Book
 {
-    public class BookViewModel : AListViewModel<Book>
+    public class BookViewModel : AListViewModel<BookForView>
     {
-        public BookViewModel() 
+        public BookViewModel()
             : base("Książki")
         {
         }
 
-        public async override void OnItemSelected(Book item)
+        public async override void OnItemSelected(BookForView item)
         {
             if (item == null)
                 return;

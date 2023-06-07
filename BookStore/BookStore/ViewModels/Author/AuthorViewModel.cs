@@ -5,16 +5,16 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace BookStore.ViewModels
+namespace BookStore.ViewModels.Author
 {
-    public class AuthorViewModel : AListViewModel<Author>
+    public class AuthorViewModel : AListViewModel<AuthorForView>
     {
-        public AuthorViewModel() 
+        public AuthorViewModel()
             : base("Autorzy")
         {
         }
 
-        public async override void OnItemSelected(Author item)
+        public async override void OnItemSelected(AuthorForView item)
         {
             if (item == null)
                 return;

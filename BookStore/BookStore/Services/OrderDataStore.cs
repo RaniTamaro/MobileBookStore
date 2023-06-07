@@ -8,24 +8,24 @@ using System.Threading.Tasks;
 namespace BookStore.Services
 {
     //TODO: Wypełnić!
-    public class OrderDataStore : AListDataStore<Order>
+    public class OrderDataStore : AListDataStore<OrderForView>
     {
-        public override Task<Order> AddItemToService(Order item)
+        public override Task<OrderForView> AddItemToService(OrderForView item)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<bool> DeleteItemFromService(Order item)
+        public override Task<bool> DeleteItemFromService(OrderForView item)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<Order> Find(Order item)
+        public override Task<OrderForView> Find(OrderForView item)
         {
             throw new NotImplementedException();
         }
 
-        public override Task<Order> Find(int id)
+        public override Task<OrderForView> Find(int id)
         {
             throw new NotImplementedException();
         }
@@ -35,7 +35,7 @@ namespace BookStore.Services
             throw new NotImplementedException();
         }
 
-        public override Task<bool> UpdateItemInService(Order item)
+        public override Task<bool> UpdateItemInService(OrderForView item)
         {
             throw new NotImplementedException();
         }
