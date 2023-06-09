@@ -1,7 +1,9 @@
-﻿using BookStore.Services.Abstract;
+﻿using BookStore.Helpers;
+using BookStore.Services.Abstract;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,34 +12,34 @@ namespace BookStore.Services
     //TODO: Wypełnić!
     public class CategoryDataStore : AListDataStore<CategoryForView>
     {
-        public override Task<CategoryForView> AddItemToService(CategoryForView item)
+        public override async Task<CategoryForView> AddItemToService(CategoryForView item)
         {
-            throw new NotImplementedException();
+            return await _service.CategoryPOSTAsync(item);
         }
 
-        public override Task<bool> DeleteItemFromService(CategoryForView item)
+        public override async Task<bool> DeleteItemFromService(CategoryForView item)
         {
-            throw new NotImplementedException();
+            return await _service.CategoryDELETEAsync(item.Id).HandleRequest();
         }
 
-        public override Task<CategoryForView> Find(CategoryForView item)
+        public override async Task<CategoryForView> Find(CategoryForView item)
         {
-            throw new NotImplementedException();
+            return await _service.CategoryGETAsync(item.Id);
         }
 
-        public override Task<CategoryForView> Find(int id)
+        public override async Task<CategoryForView> Find(int id)
         {
-            throw new NotImplementedException();
+            return await _service.CategoryGETAsync(id);
         }
 
-        public override Task RefreshListFromService()
+        public override async Task RefreshListFromService()
         {
-            throw new NotImplementedException();
+            items = (await _service.CategoryAllAsync()).ToList();
         }
 
-        public override Task<bool> UpdateItemInService(CategoryForView item)
+        public override async Task<bool> UpdateItemInService(CategoryForView item)
         {
-            throw new NotImplementedException();
+            return await _service.CategoryPUTAsync(item.Id, item).HandleRequest();
         }
     }
 }

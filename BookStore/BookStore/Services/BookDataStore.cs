@@ -41,5 +41,10 @@ namespace BookStore.Services
         {
             return await _service.BookPUTAsync(item.Id, item).HandleRequest();
         }
+
+        public async Task<List<ReviewForView>> FindBookReview(BookForView item)
+        {
+            return (await _service.GetBookReviewAsync(item.Id)).ToList();
+        }
     }
 }

@@ -2852,26 +2852,22 @@ namespace BookStoreApi
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ReviewForView>> GetBookReviewAsync(int? bookId, string id)
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ReviewForView>> GetBookReviewAsync(int bookId)
         {
-            return GetBookReviewAsync(bookId, id, System.Threading.CancellationToken.None);
+            return GetBookReviewAsync(bookId, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ReviewForView>> GetBookReviewAsync(int? bookId, string id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ReviewForView>> GetBookReviewAsync(int bookId, System.Threading.CancellationToken cancellationToken)
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (bookId == null)
+                throw new System.ArgumentNullException("bookId");
 
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Review/GetBookReview/{id}?");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
-            if (bookId != null)
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("bookId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(bookId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Review/GetBookReview/{bookId}?");
+            urlBuilder_.Replace("{bookId}", System.Uri.EscapeDataString(ConvertToString(bookId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Length--;
 
             var client_ = _httpClient;
@@ -2935,26 +2931,22 @@ namespace BookStoreApi
 
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ReviewForView>> GetCustomerReviewAsync(int? customerId, string id)
+        public virtual System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ReviewForView>> GetCustomerReviewAsync(int customerId)
         {
-            return GetCustomerReviewAsync(customerId, id, System.Threading.CancellationToken.None);
+            return GetCustomerReviewAsync(customerId, System.Threading.CancellationToken.None);
         }
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>Success</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ReviewForView>> GetCustomerReviewAsync(int? customerId, string id, System.Threading.CancellationToken cancellationToken)
+        public virtual async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ReviewForView>> GetCustomerReviewAsync(int customerId, System.Threading.CancellationToken cancellationToken)
         {
-            if (id == null)
-                throw new System.ArgumentNullException("id");
+            if (customerId == null)
+                throw new System.ArgumentNullException("customerId");
 
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Review/GetCustomerReview/{id}?");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
-            if (customerId != null)
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("customerId") + "=").Append(System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Review/GetCustomerReview/{customerId}?");
+            urlBuilder_.Replace("{customerId}", System.Uri.EscapeDataString(ConvertToString(customerId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Length--;
 
             var client_ = _httpClient;

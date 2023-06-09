@@ -1,4 +1,5 @@
-﻿using BookStore.Services.Abstract;
+﻿using BookStore.Helpers;
+using BookStore.Services.Abstract;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
@@ -11,24 +12,24 @@ namespace BookStore.Services
     //TODO: Wypełnić!
     public class GenreDataStore : AListDataStore<Genre>
     {
-        public override Task<Genre> AddItemToService(Genre item)
+        public override async Task<Genre> AddItemToService(Genre item)
         {
-            throw new NotImplementedException();
+            return await _service.GenrePOSTAsync(item);
         }
 
-        public override Task<bool> DeleteItemFromService(Genre item)
+        public override async Task<bool> DeleteItemFromService(Genre item)
         {
-            throw new NotImplementedException();
+            return await _service.GenreDELETEAsync(item.Id).HandleRequest();
         }
 
-        public override Task<Genre> Find(Genre item)
+        public override async Task<Genre> Find(Genre item)
         {
-            throw new NotImplementedException();
+            return await _service.GenreGETAsync(item.Id);
         }
 
-        public override Task<Genre> Find(int id)
+        public override async Task<Genre> Find(int id)
         {
-            throw new NotImplementedException();
+            return await _service.GenreGETAsync(id);
         }
 
         public override async Task RefreshListFromService()
@@ -36,9 +37,9 @@ namespace BookStore.Services
             items = (await _service.GenreAllAsync()).ToList();
         }
 
-        public override Task<bool> UpdateItemInService(Genre item)
+        public override async Task<bool> UpdateItemInService(Genre item)
         {
-            throw new NotImplementedException();
+            return await _service.GenrePUTAsync(item.Id, item).HandleRequest();
         }
     }
 }

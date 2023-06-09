@@ -1,7 +1,9 @@
-﻿using BookStore.Services.Abstract;
+﻿using BookStore.Helpers;
+using BookStore.Services.Abstract;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,34 +12,34 @@ namespace BookStore.Services
     //TODO: Wypełnić!
     public class OrderDataStore : AListDataStore<OrderForView>
     {
-        public override Task<OrderForView> AddItemToService(OrderForView item)
+        public override async Task<OrderForView> AddItemToService(OrderForView item)
         {
-            throw new NotImplementedException();
+            return await _service.OrderPOSTAsync(item);
         }
 
-        public override Task<bool> DeleteItemFromService(OrderForView item)
+        public override async Task<bool> DeleteItemFromService(OrderForView item)
         {
-            throw new NotImplementedException();
+            return await _service.OrderDELETEAsync(item.Id).HandleRequest();
         }
 
-        public override Task<OrderForView> Find(OrderForView item)
+        public override async Task<OrderForView> Find(OrderForView item)
         {
-            throw new NotImplementedException();
+            return await _service.OrderGETAsync(item.Id);
         }
 
-        public override Task<OrderForView> Find(int id)
+        public override async Task<OrderForView> Find(int id)
         {
-            throw new NotImplementedException();
+            return await _service.OrderGETAsync(id);
         }
 
-        public override Task RefreshListFromService()
+        public override async Task RefreshListFromService()
         {
-            throw new NotImplementedException();
+            items = (await _service.OrderAllAsync()).ToList();
         }
 
-        public override Task<bool> UpdateItemInService(OrderForView item)
+        public override async Task<bool> UpdateItemInService(OrderForView item)
         {
-            throw new NotImplementedException();
+            return await _service.OrderPUTAsync(item.Id, item).HandleRequest();
         }
     }
 }
