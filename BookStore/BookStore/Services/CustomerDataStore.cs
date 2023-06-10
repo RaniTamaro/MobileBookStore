@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Services
 {
-    //TODO: Wypełnić!
+    //TODO: Prawdopodobnie do poprawie po zmianie na User!
     public class CustomerDataStore : AListDataStore<CustomerForView>
     {
         public override async Task<CustomerForView> AddItemToService(CustomerForView item)

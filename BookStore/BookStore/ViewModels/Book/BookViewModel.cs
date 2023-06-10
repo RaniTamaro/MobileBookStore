@@ -1,8 +1,5 @@
 ﻿using BookStore.ViewModels.Abstract;
 using BookStoreApi;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Book

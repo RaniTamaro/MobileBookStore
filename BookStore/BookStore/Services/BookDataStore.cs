@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace BookStore.Services
 {
-    //TODO: Wypełnić!
     public class BookDataStore : AListDataStore<BookForView>
     {
         public override async Task<BookForView> AddItemToService(BookForView item)

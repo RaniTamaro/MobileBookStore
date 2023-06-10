@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace BookStore.Services
 {
-    //TODO: Wypełnić!
     public class ReviewDataStore : AListDataStore<ReviewForView>
     {
         public override async Task<ReviewForView> AddItemToService(ReviewForView item)

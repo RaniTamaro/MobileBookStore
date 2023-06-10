@@ -4,7 +4,6 @@ using BookStoreApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Book
@@ -39,8 +38,8 @@ namespace BookStore.ViewModels.Book
         private double price = 0;
         private CategoryForView selectedCategory;
         private AuthorForView selectedAuthor;
-        private List<Genre> selectedGenres = new List<Genre>();
-        private List<Genre> genres;
+        private List<BookStoreApi.Genre> selectedGenres = new List<BookStoreApi.Genre>();
+        private List<BookStoreApi.Genre> genres;
         private List<CategoryForView> categories;
         private List<AuthorForView> authors;
         #endregion
@@ -82,13 +81,13 @@ namespace BookStore.ViewModels.Book
             set => SetProperty(ref selectedAuthor, value);
         }
 
-        public List<Genre> SelectedGenres
+        public List<BookStoreApi.Genre> SelectedGenres
         {
             get => selectedGenres;
             set => SetProperty(ref selectedGenres, value);
         }
 
-        public List<Genre> Genres
+        public List<BookStoreApi.Genre> Genres
         {
             get => genres;
             set => SetProperty(ref genres, value);
@@ -109,7 +108,7 @@ namespace BookStore.ViewModels.Book
 
         public override BookForView SetItem()
         {
-            List<Genre> bookGenresToSet = new List<Genre>();
+            List<BookStoreApi.Genre> bookGenresToSet = new List<BookStoreApi.Genre>();
 
             foreach (var genre in selectedGenres)
             {
