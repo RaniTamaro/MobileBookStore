@@ -1,4 +1,5 @@
-﻿using BookStore.Services;
+﻿using BookStore.Models;
+using BookStore.Services;
 using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System;
@@ -8,9 +9,10 @@ using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Book
 {
-    public class NewBookPage : ANewViewModel<BookForView>
+    [QueryProperty(nameof(ItemId), nameof(ItemId))]
+    public class NewBookViewModel : ANewViewModel<BookForView>
     {
-        public NewBookPage()
+        public NewBookViewModel()
             : base()
         {
             genreDataStore = new GenreDataStore();
@@ -29,6 +31,7 @@ namespace BookStore.ViewModels.Book
         }
 
         #region Fields
+        private int? itemId;
         private readonly GenreDataStore genreDataStore;
         private readonly CategoryDataStore categoryDataStore;
         private readonly AuthorDataStore authorDataStore;
@@ -104,6 +107,18 @@ namespace BookStore.ViewModels.Book
             get => authors;
             set => SetProperty(ref authors, value);
         }
+
+        public int? ItemId
+        {
+            get
+            {
+                return itemId;
+            }
+            set
+            {
+                itemId = value;
+            }
+        }
         #endregion
 
         public override BookForView SetItem()
@@ -129,7 +144,7 @@ namespace BookStore.ViewModels.Book
                 Price = Price,
                 IdCategory = selectedCategory.Id,
                 CategoryName = selectedCategory.Name,
-                IdAuthor = selectedAuthor.Id,
+                IdAuthor = ItemId ?? selectedAuthor.Id,
                 AuthorName = string.IsNullOrEmpty(selectedAuthor.Nickname) ? $"{selectedAuthor.Name} {selectedAuthor.Surname}" : selectedAuthor.Nickname,
                 BookGenres = bookGenresToSet,
             };

@@ -12,6 +12,7 @@ using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views
 {
+    //TODO: Do usunięcia!
     public partial class ItemsPage : ContentPage
     {
         ItemsViewModel _viewModel;

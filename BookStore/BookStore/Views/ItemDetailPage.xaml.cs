@@ -4,6 +4,7 @@ using Xamarin.Forms;
 
 namespace BookStore.Views
 {
+    //TODO: Do usunięcia!
     public partial class ItemDetailPage : ContentPage
     {
         public ItemDetailPage()

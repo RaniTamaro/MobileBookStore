@@ -1,4 +1,6 @@
 ﻿using BookStore.ViewModels.Abstract;
+using BookStore.ViewModels.Book;
+using BookStore.Views.Category;
 using BookStoreApi;
 using Xamarin.Forms;
 
@@ -15,7 +17,7 @@ namespace BookStore.ViewModels.Category
         {
             if (item == null)
                 return;
-            await Shell.Current.DisplayAlert("Wybrana kategoria", item.Name, "Anuluj");
+            await Shell.Current.GoToAsync($"{nameof(DetailsCategoryPage)}?{nameof(DetailsCategoryViewModel.ItemId)}={item.Id}");
         }
 
         public override void GoToAddPage()

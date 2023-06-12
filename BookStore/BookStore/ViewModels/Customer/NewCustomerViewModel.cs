@@ -4,9 +4,9 @@ using System;
 
 namespace BookStore.ViewModels.Customer
 {
-    public class NewCustomerPage : ANewViewModel<CustomerForView>
+    public class NewCustomerViewModel : ANewViewModel<CustomerForView>
     {
-        public NewCustomerPage()
+        public NewCustomerViewModel()
             : base()
         {
         }

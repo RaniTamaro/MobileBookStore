@@ -1,18 +1,19 @@
 ﻿using BookStore.ViewModels.Abstract;
+using BookStoreApi;
 using System;
 
-namespace BookStore.ViewModels.Genre
+namespace BookStore.ViewModels.Category
 {
-    public class NewGenrePage : ANewViewModel<BookStoreApi.Genre>
+    public class NewCategoryViewModel : ANewViewModel<CategoryForView>
     {
-        public NewGenrePage()
+        public NewCategoryViewModel()
             : base()
         {
         }
 
         #region Fields
-        private string name = "";
-        private string description = "";
+        private string name;
+        private string description;
         #endregion
 
         #region Properties
@@ -29,9 +30,9 @@ namespace BookStore.ViewModels.Genre
         }
         #endregion
 
-        public override BookStoreApi.Genre SetItem()
+        public override CategoryForView SetItem()
         {
-            return new BookStoreApi.Genre
+            return new CategoryForView
             {
                 CretionDate = DateTime.Now,
                 MmodifDate = DateTime.Now,

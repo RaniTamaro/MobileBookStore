@@ -1,15 +1,18 @@
-﻿using BookStore.Services;
+﻿using BookStore.Models;
+using BookStore.Services;
 using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Author
 {
-    public class NewAuthorPage : ANewViewModel<AuthorForView>
+    //TODO: Klaudia - tu możliwe, że będzie zmiania book, bo w api przyjmuje coś innego!
+    public class NewAuthorViewModel : ANewViewModel<AuthorForView>
     {
-        public NewAuthorPage()
+        public NewAuthorViewModel()
             : base()
         {
             bookDataStore = new BookDataStore();

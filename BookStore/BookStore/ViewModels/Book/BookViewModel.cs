@@ -1,4 +1,6 @@
 ﻿using BookStore.ViewModels.Abstract;
+using BookStore.ViewModels.Author;
+using BookStore.Views.Book;
 using BookStoreApi;
 using Xamarin.Forms;
 
@@ -15,7 +17,7 @@ namespace BookStore.ViewModels.Book
         {
             if (item == null)
                 return;
-            await Shell.Current.DisplayAlert("Wybrana książka", $"{item.Title}", "Anuluj");
+            await Shell.Current.GoToAsync($"{nameof(DetailsBookPage)}?{nameof(DetailsBookViewModel.ItemId)}={item.Id}");
         }
 
         public override void GoToAddPage()

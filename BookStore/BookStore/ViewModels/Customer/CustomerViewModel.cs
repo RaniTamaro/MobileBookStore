@@ -20,7 +20,7 @@ namespace BookStore.ViewModels.Customer
 
         public override void GoToAddPage()
         {
-            Shell.Current.GoToAsync(nameof(NewCustomerPage));
+            //Shell.Current.GoToAsync(nameof(NewCustomerPage));
         }
     }
 }

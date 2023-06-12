@@ -1,4 +1,7 @@
 ﻿using BookStore.ViewModels.Abstract;
+using BookStore.ViewModels.Author;
+using BookStore.Views.Author;
+using BookStore.Views.Genre;
 using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Genre
@@ -14,7 +17,7 @@ namespace BookStore.ViewModels.Genre
         {
             if (item == null)
                 return;
-            await Shell.Current.DisplayAlert("Wybrany gatunek", item.Name, "Anuluj");
+            await Shell.Current.GoToAsync($"{nameof(DetailsGenrePage)}?{nameof(DetailsGenreViewModel.ItemId)}={item.Id}");
         }
 
         public override void GoToAddPage()

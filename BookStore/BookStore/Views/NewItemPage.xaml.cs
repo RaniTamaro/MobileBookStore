@@ -8,6 +8,7 @@ using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views
 {
+    //TODO: Do usunięcia!
     public partial class NewItemPage : ContentPage
     {
         public Item Item { get; set; }
