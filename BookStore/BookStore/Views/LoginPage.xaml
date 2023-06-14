@@ -5,11 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="BookStore.Views.LoginPage"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="True"> <!-- TODO Tymczasowo True aby mozna było przechodzic pomiędzy zakładkami menu, az do ukończenia projektu--> 
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+        <StackLayout Orientation="Vertical" Padding="10" BackgroundColor="{StaticResource Background}">
             <BoxView HeightRequest="10"/>
-            <Image HorizontalOptions="Center" WidthRequest="300" Source="logo.png"/>
+            <Image HorizontalOptions="Center" WidthRequest="150" Source="Icons/logo.png"/>
+            <Label HorizontalOptions="Center" TextColor="Black" Text="Admin Panel"/>
             <Frame BackgroundColor="{StaticResource Background}" HasShadow="False">
                 <StackLayout Orientation="Vertical" Spacing="10">
                     <Label Text="Login" TextColor="Black"/>
@@ -19,13 +20,13 @@
                            TextColor="Black"/>
                     <Label Text="Password" TextColor="Black"/>
                     <Entry x:Name="Password" Text="" Placeholder="Password"   
-                           PlaceholderColor="White" HeightRequest="40"   
+                           PlaceholderColor="{StaticResource PlaceholderTextColor}" HeightRequest="40"   
                            IsPassword="True"  
                            TextColor="Black"/>
                 </StackLayout>
             </Frame>
             <!-- TODO Podpiąć Command do buttona -->
-            <Button Text="Sign In" TextColor="White" 
+            <Button Text="Sign In" TextColor="White" Command="{Binding LoginCommand}"
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="{StaticResource LightFiolet}" />
         </StackLayout>
