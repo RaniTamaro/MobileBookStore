@@ -34,14 +34,14 @@ namespace BookStoreApi.Controllers
 
             var reviewList = await _context.Review
                 .Where(x => x.IsActive == true)
-                .Include(x => x.Customer)
+                .Include(x => x.User)
                 .Include(x => x.Book)
                 .Select(y => (ReviewForView)y)
                 .ToListAsync();
             return reviewList;
         }
 
-        [HttpGet("GetBookReview/{id}")]
+        [HttpGet("GetBookReview/{bookId}")]
         public async Task<ActionResult<IEnumerable<ReviewForView>>> GetBookReview(int bookId)
         {
             if (_context.Review == null)
@@ -57,14 +57,14 @@ namespace BookStoreApi.Controllers
 
             var reviewList = await _context.Review
                 .Where(x => x.IsActive == true && x.IdBook == bookId)
-                .Include(x => x.Customer)
+                .Include(x => x.User)
                 .Include(x => x.Book)
                 .Select(y => (ReviewForView)y)
                 .ToListAsync();
             return reviewList;
         }
 
-        [HttpGet("GetCustomerReview/{id}")]
+        [HttpGet("GetCustomerReview/{customerId}")]
         public async Task<ActionResult<IEnumerable<ReviewForView>>> GetCustomerReview(int customerId)
         {
             if (_context.Review == null)
@@ -79,8 +79,8 @@ namespace BookStoreApi.Controllers
             }
 
             var reviewList = await _context.Review
-                .Where(x => x.IsActive == true && x.IdCustomer == customerId)
-                .Include(x => x.Customer)
+                .Where(x => x.IsActive == true && x.IdUser == customerId)
+                .Include(x => x.User)
                 .Include(x => x.Book)
                 .Select(y => (ReviewForView)y)
                 .ToListAsync();
@@ -97,7 +97,7 @@ namespace BookStoreApi.Controllers
             }
             var review = await _context.Review
                 .Where(x => x.IsActive == true && x.Id == id)
-                .Include(x => x.Customer)
+                .Include(x => x.User)
                 .Include(x => x.Book)
                 .FirstOrDefaultAsync();
 
@@ -156,7 +156,7 @@ namespace BookStoreApi.Controllers
             _context.Review.Add((Review)review);
             await _context.SaveChangesAsync();
 
-            return Ok((ReviewForView)await _context.Review.Include(x => x.Customer).Include(x => x.Book).Where(x => x.Id == review.Id).FirstOrDefaultAsync());
+            return Ok((ReviewForView)await _context.Review.Include(x => x.User).Include(x => x.Book).Where(x => x.Id == review.Id).FirstOrDefaultAsync());
         }
 
         // DELETE: api/Review/5

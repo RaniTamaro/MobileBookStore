@@ -1,5 +1,4 @@
-﻿using BookStore.Models;
-using BookStore.Services;
+﻿using BookStore.Services;
 using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System;

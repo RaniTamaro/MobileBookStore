@@ -9,8 +9,8 @@ namespace BookStoreApi.ViewModels
         public double Rating { get; set; }
         public string Title { get; set; }
         public string Text { get; set; }
-        public int IdCustomer { get; set; }
-        public virtual string? CustomerName { get; set; }
+        public int IdUser { get; set; }
+        public virtual string? UserFullName { get; set; }
         public int IdBook { get; set; }
         public virtual string? BookTitle { get; set; }
 
@@ -27,7 +27,7 @@ namespace BookStoreApi.ViewModels
         {
             var result = new ReviewForView
             {
-                CustomerName = $"{entity?.Customer?.Name} {entity?.Customer?.Surname}",
+                UserFullName = $"{entity?.User?.Name} {entity?.User?.Surname}",
                 BookTitle = entity?.Book?.Title ?? string.Empty
             }.CopyProperties(entity);
             return result;

@@ -1,5 +1,4 @@
 ﻿using BookStore.ViewModels.Abstract;
-using BookStore.ViewModels.Author;
 using BookStore.Views.Book;
 using BookStoreApi;
 using Xamarin.Forms;

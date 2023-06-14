@@ -13,18 +13,18 @@ namespace BookStoreApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly BookStoreContext _context;
 
-        public CustomerController(BookStoreContext context)
+        public UserController(BookStoreContext context)
         {
             _context = context;
         }
 
         // GET: api/Customer
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CustomerForView>>> GetCustomer()
+        public async Task<ActionResult<IEnumerable<UserForView>>> GetCustomer()
         {
             if (_context.Customer == null)
             {
@@ -34,7 +34,7 @@ namespace BookStoreApi.Controllers
             var customerList = await _context.Customer
                 .Where(x => x.IsActive == true)
                 .Include(x => x.Orders)
-                .Select(y => (CustomerForView)y)
+                .Select(y => (UserForView)y)
                 .ToListAsync();
 
             return customerList;
@@ -42,7 +42,7 @@ namespace BookStoreApi.Controllers
 
         // GET: api/Customer/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<CustomerForView>> GetCustomer(int id)
+        public async Task<ActionResult<UserForView>> GetCustomer(int id)
         {
             if (_context.Customer == null)
             {
@@ -58,25 +58,25 @@ namespace BookStoreApi.Controllers
                 return NotFound();
             }
 
-            return (CustomerForView)customer;
+            return (UserForView)customer;
         }
 
         // PUT: api/Customer/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCustomer(int id, CustomerForView customer)
+        public async Task<IActionResult> PutCustomer(int id, UserForView customer)
         {
             if (id != customer.Id)
             {
                 return BadRequest();
             }
 
-            var customerDb = (Customer)customer;
+            var customerDb = (User)customer;
             customerDb.MmodifDate = DateTime.Now;
             var orderList = new List<Order>();
-            foreach (var order in customer.OrdersNumber.ToList())
+            foreach (var order in customer.Orders.ToList())
             {
-                orderList.Add(await _context.Order.FindAsync(order.Value));
+                orderList.Add(await _context.Order.FindAsync(order.Number));
             }
 
             customerDb.Orders = orderList;
@@ -104,26 +104,26 @@ namespace BookStoreApi.Controllers
         // POST: api/Customer
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<CustomerForView>> PostCustomer(CustomerForView customer)
+        public async Task<ActionResult<UserForView>> PostCustomer(UserForView customer)
         {
             if (_context.Customer == null)
             {
                 return Problem("Entity set 'BookStoreContext.Customer'  is null.");
             }
 
-            var customerDb = (Customer)customer;
+            var customerDb = (User)customer;
             customerDb.MmodifDate = DateTime.Now;
             var orderList = new List<Order>();
-            foreach (var order in customer.OrdersNumber.ToList())
+            foreach (var order in customer.Orders.ToList())
             {
-                orderList.Add(await _context.Order.FindAsync(order.Value));
+                orderList.Add(await _context.Order.FindAsync(order.Number));
             }
 
             customerDb.Orders = orderList;
             _context.Customer.Add(customerDb);
             await _context.SaveChangesAsync();
 
-            return Ok((CustomerForView)customerDb);
+            return Ok((UserForView)customerDb);
             //return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
         }
 

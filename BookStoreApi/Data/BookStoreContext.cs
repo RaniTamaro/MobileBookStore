@@ -20,7 +20,7 @@ namespace BookStoreApi.Data
 
         public DbSet<BookStoreApi.Models.Category>? Category { get; set; }
 
-        public DbSet<BookStoreApi.Models.Customer>? Customer { get; set; }
+        public DbSet<BookStoreApi.Models.User>? Customer { get; set; }
 
         public DbSet<BookStoreApi.Models.Genre>? Genre { get; set; }
 

@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace BookStore.Views.Order
+namespace BookStore.Views.User
 {
     //TODO: Zrobić front + podpiąć model
-    //TODO: Front - Id nie może być wyświetlane! Przekazuje je dla dodawania książek!
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DetailsOrderPage : ContentPage
+    public partial class NewUserPage : ContentPage
     {
-        public DetailsOrderPage()
+        public NewUserPage()
         {
             InitializeComponent();
         }

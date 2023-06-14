@@ -12,8 +12,8 @@ namespace BookStoreApi.ViewModels
         public string Address { get; set; }
         public string? Status { get; set; }
         public string? TrackingNumber { get; set; }
-        public int IdCustomer { get; set; }
-        public string? CustomerFullName { get; set; }
+        public int IdUser { get; set; }
+        public string? UserFullName { get; set; }
         public virtual ICollection<BookForView> OrderBook { get; set; }
 
         public static explicit operator Order(OrderForView forView)
@@ -28,7 +28,7 @@ namespace BookStoreApi.ViewModels
         {
             var result = new OrderForView
             {
-                CustomerFullName = $"{entity?.Customer?.Name} {entity?.Customer?.Surname}",
+                UserFullName = $"{entity?.User?.Name} {entity?.User?.Surname}",
                 OrderBook = entity?.OrderBooks?.Select(x => (BookForView)x.Book).ToList()
             }
             .CopyProperties(entity);

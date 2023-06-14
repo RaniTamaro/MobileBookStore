@@ -4,31 +4,30 @@ using BookStoreApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace BookStore.ViewModels.Review
 {
-    public class NewReviewPage : ANewViewModel<ReviewForView>
+    public class NewReviewViewModel : ANewViewModel<ReviewForView>
     {
-        public NewReviewPage()
+        public NewReviewViewModel()
             : base()
         {
             var bookDataStore = new BookDataStore();
-            var customerDataStore = new CustomerDataStore();
+            var userDataStore = new UserDataStore();
             bookDataStore.RefreshListFromService();
-            customerDataStore.RefreshListFromService();
+            userDataStore.RefreshListFromService();
             books = bookDataStore.items;
-            customers = customerDataStore.items;
+            users = userDataStore.items;
             selectedBook = bookDataStore.items.FirstOrDefault() ?? new BookForView();
-            selectedCustomer = customerDataStore.items.FirstOrDefault() ?? new CustomerForView();
+            selectedUser = userDataStore.items.FirstOrDefault() ?? new UserForView();
         }
 
         #region Fields
         private double rating;
         private string title;
         private string text;
-        private CustomerForView selectedCustomer;
-        private List<CustomerForView> customers;
+        private UserForView selectedUser;
+        private List<UserForView> users;
         private BookForView selectedBook;
         private List<BookForView> books;
         #endregion
@@ -52,16 +51,16 @@ namespace BookStore.ViewModels.Review
             set => SetProperty(ref text, value);
         }
 
-        public CustomerForView SelectedCustomer
+        public UserForView SelectedCustomer
         {
-            get => selectedCustomer;
-            set => SetProperty(ref selectedCustomer, value);
+            get => selectedUser;
+            set => SetProperty(ref selectedUser, value);
         }
 
-        public List<CustomerForView> Customers
+        public List<UserForView> Users
         {
-            get => customers;
-            set => SetProperty(ref customers, value);
+            get => users;
+            set => SetProperty(ref users, value);
         }
 
         public BookForView SelectedBook
@@ -87,8 +86,8 @@ namespace BookStore.ViewModels.Review
                 Rating = this.Rating,
                 Title = this.Title,
                 Text = this.Text,
-                IdCustomer = selectedCustomer.Id,
-                CustomerName = $"{selectedCustomer.Name} {selectedCustomer.Surname}",
+                IdUser = selectedUser.Id,
+                UserFullName = $"{selectedUser.Name} {selectedUser.Surname}",
                 IdBook = selectedBook.Id,
                 BookTitle = selectedBook.Title
             };
@@ -99,7 +98,7 @@ namespace BookStore.ViewModels.Review
             return !string.IsNullOrEmpty(title)
                 && rating > 0
                 && selectedBook.Id > 0
-                && selectedCustomer.Id > 0;
+                && selectedUser.Id > 0;
         }
     }
 }

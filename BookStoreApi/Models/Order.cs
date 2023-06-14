@@ -10,9 +10,9 @@ namespace BookStoreApi.Models
         public string Address { get; set; }
         public string? Status { get; set; }
         public string? TrackingNumber { get; set; }
-        public int IdCustomer { get; set; }
-        [ForeignKey("IdCustomer")]
-        public virtual Customer? Customer { get; set; }
+        public int IdUser { get; set; }
+        [ForeignKey("IdUser")]
+        public virtual User? User { get; set; }
         public virtual ICollection<OrderBook> OrderBooks { get; set; }
     }
 }

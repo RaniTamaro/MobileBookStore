@@ -8,7 +8,7 @@ namespace BookStoreApi.ViewModels
     {
         public string Name { get; set; }
         public string? Description { get; set; }
-        public virtual List<SelectListItem> Books { get; set; }
+        public List<BookForView>? Books { get; set; }
 
         public static explicit operator Category(CategoryForView forView)
         {
@@ -22,11 +22,7 @@ namespace BookStoreApi.ViewModels
         {
             var result = new CategoryForView
             {
-                Books = entity.Books.Select(x => new SelectListItem
-                {
-                    Value = x.Id.ToString(),
-                    Text = x.Title
-                }).ToList()
+                Books = entity.Books.Select(x => (BookForView)x).ToList()
             }
             .CopyProperties(entity);
             return result;

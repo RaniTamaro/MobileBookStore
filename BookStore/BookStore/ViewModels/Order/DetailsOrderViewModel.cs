@@ -10,14 +10,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace BookStore.ViewModels.Category
+namespace BookStore.ViewModels.Order
 {
-    public class DetailsCategoryViewModel : AItemDetailsViewModel<CategoryForView>
+    public class DetailsOrderViewModel : AItemDetailsViewModel<OrderForView>
     {
         #region Fields
         private int id;
-        private string name;
-        private string description;
+        private string number;
+        private DateTime orderDate;
+        private double amount;
+        private string address;
+        private string status;
+        private string trackingNumber;
+        private string userFullName;
         private List<BookForView> books;
         #endregion
 
@@ -28,16 +33,46 @@ namespace BookStore.ViewModels.Category
             set => SetProperty(ref id, value);
         }
 
-        public string Name
+        public string Number
         {
-            get => name;
-            set => SetProperty(ref name, value);
+            get => number;
+            set => SetProperty(ref number, value);
         }
 
-        public string Description
+        public DateTime OrderDate
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => orderDate;
+            set => SetProperty(ref orderDate, value);
+        }
+
+        public double Amount
+        {
+            get => amount;
+            set => SetProperty(ref amount, value);
+        }
+
+        public string Address
+        {
+            get => address;
+            set => SetProperty(ref address, value);
+        }
+
+        public string Status
+        {
+            get => status;
+            set => SetProperty(ref status, value);
+        }
+
+        public string TrackingNumber
+        {
+            get => trackingNumber;
+            set => SetProperty(ref trackingNumber, value);
+        }
+
+        public string UserFullName
+        {
+            get => userFullName;
+            set => SetProperty(ref userFullName, value);
         }
 
         public ObservableCollection<BookForView> Items
@@ -49,7 +84,7 @@ namespace BookStore.ViewModels.Category
         public Command AddItemCommand { get; }
         #endregion
 
-        public DetailsCategoryViewModel()
+        public DetailsOrderViewModel()
             : base()
         {
             Items = new ObservableCollection<BookForView>();
@@ -84,11 +119,16 @@ namespace BookStore.ViewModels.Category
             await Shell.Current.GoToAsync($"{nameof(NewBookPage)}?{nameof(NewBookViewModel.ItemId)}={Id}");
         }
 
-        public override async void LoadProperties(CategoryForView item)
+        public override async void LoadProperties(OrderForView item)
         {
-            Name = item.Name;
-            Description = item.Description;
-            books = item.Books.ToList();
+            Number = item.Number;
+            OrderDate = item.OrderDate.DateTime;
+            Amount = item.Amount;
+            Address = item.Address;
+            Status = item.Status ?? "";
+            TrackingNumber = item.Number ?? "";
+            UserFullName = item.UserFullName;
+            books = item.OrderBook.ToList();
             await ExecuteLoadItemsCommand();
         }
     }

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BookStoreApi.Data;
 using BookStoreApi.Models;
 using BookStoreApi.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookStoreApi.Controllers
 {
@@ -24,6 +25,7 @@ namespace BookStoreApi.Controllers
 
         // GET: api/Category
         [HttpGet]
+        [Authorize(Roles = "Admin,User")]
         public async Task<ActionResult<IEnumerable<CategoryForView>>> GetCategory()
         {
             if (_context.Category == null)
@@ -42,6 +44,7 @@ namespace BookStoreApi.Controllers
 
         // GET: api/Category/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,User")]
         public async Task<ActionResult<CategoryForView>> GetCategory(int id)
         {
           if (_context.Category == null)
@@ -64,6 +67,7 @@ namespace BookStoreApi.Controllers
         // PUT: api/Category/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutCategory(int id, CategoryForView category)
         {
             if (id != category.Id)
@@ -76,7 +80,7 @@ namespace BookStoreApi.Controllers
             var bookList = new List<Book>();
             foreach (var book in category.Books.ToList())
             {
-                bookList.Add(await _context.Book.FindAsync(book.Value));
+                bookList.Add(await _context.Book.FindAsync(book.Title));
             }
 
             categoryDb.Books = bookList;
@@ -104,6 +108,7 @@ namespace BookStoreApi.Controllers
         // POST: api/Category
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<CategoryForView>> PostCategory(CategoryForView category)
         {
           if (_context.Category == null)
@@ -114,7 +119,7 @@ namespace BookStoreApi.Controllers
             var bookList = new List<Book>();
             foreach (var book in category.Books.ToList())
             {
-                bookList.Add(await _context.Book.FindAsync(book.Value));
+                bookList.Add(await _context.Book.FindAsync(book.Title));
             }
 
             categoryDb.Books = bookList;

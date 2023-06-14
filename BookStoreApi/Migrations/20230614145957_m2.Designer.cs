@@ -4,6 +4,7 @@ using BookStoreApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookStoreApi.Migrations
 {
     [DbContext(typeof(BookStoreContext))]
-    partial class BookStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20230614145957_m2")]
+    partial class m2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,7 +209,7 @@ namespace BookStoreApi.Migrations
                     b.Property<DateTime?>("CretionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("IdUser")
+                    b.Property<int>("IdCustomer")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
@@ -231,7 +233,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdUser");
+                    b.HasIndex("IdCustomer");
 
                     b.ToTable("Order");
                 });
@@ -312,7 +314,7 @@ namespace BookStoreApi.Migrations
                     b.Property<int>("IdBook")
                         .HasColumnType("int");
 
-                    b.Property<int>("IdUser")
+                    b.Property<int>("IdCustomer")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
@@ -336,7 +338,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasIndex("IdBook");
 
-                    b.HasIndex("IdUser");
+                    b.HasIndex("IdCustomer");
 
                     b.ToTable("Review");
                 });
@@ -434,13 +436,13 @@ namespace BookStoreApi.Migrations
 
             modelBuilder.Entity("BookStoreApi.Models.Order", b =>
                 {
-                    b.HasOne("BookStoreApi.Models.User", "User")
+                    b.HasOne("BookStoreApi.Models.User", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("IdUser")
+                        .HasForeignKey("IdCustomer")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.OrderBook", b =>
@@ -470,15 +472,15 @@ namespace BookStoreApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BookStoreApi.Models.User", "User")
+                    b.HasOne("BookStoreApi.Models.User", "Customer")
                         .WithMany()
-                        .HasForeignKey("IdUser")
+                        .HasForeignKey("IdCustomer")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
 
-                    b.Navigation("User");
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.Author", b =>

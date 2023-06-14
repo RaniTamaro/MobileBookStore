@@ -1,8 +1,6 @@
 ﻿using BookStore.ViewModels.Abstract;
+using BookStore.Views.Review;
 using BookStoreApi;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Review
@@ -18,7 +16,7 @@ namespace BookStore.ViewModels.Review
         {
             if (item == null)
                 return;
-            await Shell.Current.DisplayAlert("Wybrana recenzja", $"{item.Title}", "Anuluj");
+            await Shell.Current.GoToAsync($"{nameof(DetailsReviewPage)}?{nameof(DetailsReviewViewModel.ItemId)}={item.Id}");
         }
 
         public override void GoToAddPage()

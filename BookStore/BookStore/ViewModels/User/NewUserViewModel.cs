@@ -2,11 +2,11 @@
 using BookStoreApi;
 using System;
 
-namespace BookStore.ViewModels.Customer
+namespace BookStore.ViewModels.User
 {
-    public class NewCustomerViewModel : ANewViewModel<CustomerForView>
+    public class NewUserViewModel : ANewViewModel<UserForView>
     {
-        public NewCustomerViewModel()
+        public NewUserViewModel()
             : base()
         {
         }
@@ -51,9 +51,9 @@ namespace BookStore.ViewModels.Customer
         }
         #endregion
 
-        public override CustomerForView SetItem()
+        public override UserForView SetItem()
         {
-            return new CustomerForView
+            return new UserForView
             {
                 CretionDate = DateTime.Now,
                 MmodifDate = DateTime.Now,

@@ -33,7 +33,7 @@ namespace BookStoreApi.Controllers
 
             var orderList = await _context.Order
                 .Where(x => x.IsActive == true)
-                .Include(x => x.OrderBooks).ThenInclude(g => g.Book).Include(x => x.Customer)
+                .Include(x => x.OrderBooks).ThenInclude(g => g.Book).Include(x => x.User)
                 .Select(y => (OrderForView)y)
                 .ToListAsync();
 
@@ -50,7 +50,7 @@ namespace BookStoreApi.Controllers
             }
             var order = await _context.Order
                 .Where(x => x.IsActive == true)
-                .Include(x => x.OrderBooks).ThenInclude(g => g.Book).Include(x => x.Customer)
+                .Include(x => x.OrderBooks).ThenInclude(g => g.Book).Include(x => x.User)
                 .FirstOrDefaultAsync(); ;
 
             if (order == null)

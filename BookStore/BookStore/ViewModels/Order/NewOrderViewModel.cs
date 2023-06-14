@@ -3,36 +3,34 @@ using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace BookStore.ViewModels.Order
 {
-    public class NewOrderPage : ANewViewModel<OrderForView>
+    public class NewOrderViewModel : ANewViewModel<OrderForView>
     {
-        //TODO: Przyjmować Id Klienta, który będzie tworzyć to zamówienie, coś ala koszyk z webówki to będzie!
-        public NewOrderPage()
+        public NewOrderViewModel()
             : base()
         {
             bookDataStore = new BookDataStore();
-            customerDataStore = new CustomerDataStore();
+            userDataStore = new UserDataStore();
             bookDataStore.RefreshListFromService();
-            customerDataStore.RefreshListFromService();
+            userDataStore.RefreshListFromService();
             books = bookDataStore.items;
-            customers = customerDataStore.items;
+            users = userDataStore.items;
 
         }
 
         #region Fields
         private readonly BookDataStore bookDataStore;
-        private readonly CustomerDataStore customerDataStore;
+        private readonly UserDataStore userDataStore;
         private string number = "";
         private DateTime orderDate = new DateTime();
         private double amount = 0;
         private string address = "";
         private string status = "";
         private string trackingNumber = "";
-        private CustomerForView selectedCustomer;
-        private List<CustomerForView> customers;
+        private UserForView selectedUser;
+        private List<UserForView> users;
         private List<BookForView> selectedBooks = new List<BookForView>();
         private List<BookForView> books;
         #endregion
@@ -74,16 +72,16 @@ namespace BookStore.ViewModels.Order
             set => SetProperty(ref trackingNumber, value);
         }
 
-        public CustomerForView SelectedCustomer
+        public UserForView SelectedUser
         {
-            get => selectedCustomer;
-            set => SetProperty(ref selectedCustomer, value);
+            get => selectedUser;
+            set => SetProperty(ref selectedUser, value);
         }
 
-        public List<CustomerForView> Customers
+        public List<UserForView> Users
         {
-            get => customers;
-            set => SetProperty(ref customers, value);
+            get => users;
+            set => SetProperty(ref users, value);
         }
 
         public List<BookForView> SelectedBooks
@@ -101,17 +99,6 @@ namespace BookStore.ViewModels.Order
 
         public override OrderForView SetItem()
         {
-            //List<BookForView> booksToSet = new List<SelectListItem>();
-
-            //foreach (var book in selectedBooks)
-            //{
-            //    if (bookDataStore.items.Contains(book))
-            //    {
-            //        var findBook = bookDataStore.items.FirstOrDefault(x => x.Id == book.Id);
-            //        booksToSet.Add();
-            //    }
-            //}
-
             return new OrderForView
             {
                 CretionDate = DateTime.Now,
@@ -123,8 +110,8 @@ namespace BookStore.ViewModels.Order
                 Address = Address,
                 Status = Status,
                 TrackingNumber = TrackingNumber,
-                IdCustomer = selectedCustomer.Id,
-                CustomerFullName = $"{selectedCustomer.Name} {selectedCustomer.Surname}",
+                IdUser = selectedUser.Id,
+                UserFullName = $"{selectedUser.Name} {selectedUser.Surname}",
                 OrderBook = selectedBooks
             };
         }

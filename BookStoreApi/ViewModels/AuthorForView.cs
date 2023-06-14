@@ -7,9 +7,9 @@ namespace BookStoreApi.ViewModels
     public class AuthorForView : BaseTable
     {
         public string? Name { get; set; }
-        public string Surname { get; set; }
+        public string? Surname { get; set; }
         public string? Nickname { get; set; }
-        public virtual List<SelectListItem> Books { get; set; }
+        public virtual List<BookForView> Books { get; set; }
 
         public static explicit operator Author(AuthorForView forView)
         {
@@ -23,11 +23,7 @@ namespace BookStoreApi.ViewModels
         {
             var result = new AuthorForView
             {
-                Books = entity.Books.Select(x => new SelectListItem
-                {
-                    Value = x.Id.ToString(),
-                    Text = x.Title
-                }).ToList()
+                Books = entity.Books.Select(x => (BookForView)x).ToList()
             }
             .CopyProperties(entity);
             return result;

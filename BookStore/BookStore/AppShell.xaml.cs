@@ -1,7 +1,5 @@
-﻿using BookStore.ViewModels;
-using BookStore.Views;
+﻿using BookStore.Views;
 using System;
-using System.Collections.Generic;
 using Xamarin.Forms;
 
 namespace BookStore

@@ -16,7 +16,7 @@ namespace BookStore
             DependencyService.Register<AuthorDataStore>();
             DependencyService.Register<BookDataStore>();
             DependencyService.Register<CategoryDataStore>();
-            DependencyService.Register<CustomerDataStore>();
+            DependencyService.Register<UserDataStore>();
             DependencyService.Register<GenreDataStore>();
             DependencyService.Register<OrderDataStore>();
             DependencyService.Register<ReviewDataStore>();

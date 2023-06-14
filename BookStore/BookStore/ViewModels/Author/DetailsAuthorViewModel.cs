@@ -1,5 +1,4 @@
-﻿using BookStore.Services;
-using BookStore.ViewModels.Abstract;
+﻿using BookStore.ViewModels.Abstract;
 using BookStore.ViewModels.Book;
 using BookStore.Views.Book;
 using BookStoreApi;
@@ -8,13 +7,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Author
 {
-    //TODO: Klaudia - tu możliwe, że będzie zmiania book, bo w api przyjmuje coś innego!
     public class DetailsAuthorViewModel : AItemDetailsViewModel<AuthorForView>
     {
         #region Fields
@@ -96,18 +93,10 @@ namespace BookStore.ViewModels.Author
 
         public override async void LoadProperties(AuthorForView item)
         {
-            var bookDataStore = new BookDataStore();
-            var bookToSet = new List<BookForView>();
-
-            foreach (var book in item.Books)
-            {
-                bookToSet.Add(bookDataStore.items.Where(x => x.Id == int.Parse(book.Value)).First());
-            }
-
             Name = item.Name;
             Surname = item.Surname;
             Nickname = item.Nickname;
-            books = bookToSet;
+            books = item.Books.ToList();
             await ExecuteLoadItemsCommand();
         }
     }

@@ -77,7 +77,7 @@ namespace BookStoreApi.Controllers
             var bookList = new List<Book>();
             foreach (var book in author.Books.ToList())
             {
-                bookList.Add(await _context.Book.FindAsync(book.Value));
+                bookList.Add(await _context.Book.FindAsync(book.Title));
             }
 
             authorDb.Books = bookList;
@@ -116,7 +116,7 @@ namespace BookStoreApi.Controllers
             var bookList = new List<Book>();
             foreach (var book in author.Books.ToList())
             {
-                bookList.Add(await _context.Book.FindAsync(book.Value));
+                bookList.Add(await _context.Book.FindAsync(book.Title));
             }
 
             authorDb.Books = bookList;

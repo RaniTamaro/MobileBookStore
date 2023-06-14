@@ -1,11 +1,8 @@
-﻿using BookStore.Models;
-using BookStore.Services;
+﻿using BookStore.Services;
 using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Author
 {
@@ -63,21 +60,6 @@ namespace BookStore.ViewModels.Author
 
         public override AuthorForView SetItem()
         {
-            List<SelectListItem> booksToSet = new List<SelectListItem>();
-
-            foreach (var book in selectedBooks)
-            {
-                if (bookDataStore.items.Contains(book))
-                {
-                    var findBook = bookDataStore.items.FirstOrDefault(x => x.Id == book.Id);
-                    booksToSet.Add(new SelectListItem
-                    {
-                        Value = findBook.Id.ToString(),
-                        Text = findBook.Title
-                    });
-                }
-            }
-
             return new AuthorForView
             {
                 CretionDate = DateTime.Now,
@@ -86,7 +68,7 @@ namespace BookStore.ViewModels.Author
                 Name = Name,
                 Surname = Surname,
                 Nickname = Nickname,
-                Books = booksToSet
+                Books = SelectedBooks
             };
         }
 

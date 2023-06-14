@@ -4,32 +4,29 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BookStoreApi.ViewModels
 {
-    public class CustomerForView : BaseTable
+    public class UserForView : BaseTable
     {
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Address { get; set; }
         public string Email { get; set; }
         public string? PhoneNumber { get; set; }
-        public virtual ICollection<SelectListItem> OrdersNumber { get; set; }
+        public string Role { get; set; }
+        public virtual ICollection<OrderForView> Orders { get; set; }
 
-        public static explicit operator Customer(CustomerForView forView)
+        public static explicit operator User(UserForView forView)
         {
-            var result = new Customer
+            var result = new User
             {
             }
             .CopyProperties(forView);
             return result;
         }
-        public static implicit operator CustomerForView(Customer entity)
+        public static implicit operator UserForView(User entity)
         {
-            var result = new CustomerForView
+            var result = new UserForView
             {
-                OrdersNumber = entity.Orders.Select(x => new SelectListItem
-                {
-                    Value = x.Id.ToString(),
-                    Text = x.Number
-                }).ToList()
+                Orders = entity.Orders.Select(x => (OrderForView)x).ToList()
             }
             .CopyProperties(entity);
             return result;
