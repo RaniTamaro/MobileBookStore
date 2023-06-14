@@ -8,14 +8,24 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
+            <!-- Custom colors -->
+            <Color x:Key="Background">#F8F4EF</Color>
+            <Color x:Key="BackgroundComponent">White</Color>
+            <Color x:Key="LightFiolet">#7B82D8</Color>
+            <Color x:Key="Dark">#50548A</Color>
+            <Color x:Key="Font1">Black</Color>
+            <Color x:Key="Font2">#50548A</Color>
+            <Color x:Key="PlaceholderTextColor">Gray</Color>
+            <!-- Globalne style dla ListView -->
             <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource LightFiolet}"></Setter>
                 <Setter Property="TextColor" Value="White"></Setter>
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Background}" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Disabled">
@@ -27,6 +37,6 @@
                     </VisualStateGroupList>
                 </Setter>
             </Style>
-        </ResourceDictionary>        
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
