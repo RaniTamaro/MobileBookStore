@@ -7,8 +7,27 @@
              x:Class="BookStore.Views.LoginPage"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+            <BoxView HeightRequest="10"/>
+            <Image HorizontalOptions="Center" WidthRequest="300" Source="logo.png"/>
+            <Frame BackgroundColor="{StaticResource Background}" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Label Text="Login" TextColor="Black"/>
+                    <Entry x:Name="Login" Text="" Placeholder="Your login"   
+                           PlaceholderColor="{StaticResource PlaceholderTextColor}" HeightRequest="40"   
+                           Keyboard="Email"  
+                           TextColor="Black"/>
+                    <Label Text="Password" TextColor="Black"/>
+                    <Entry x:Name="Password" Text="" Placeholder="Password"   
+                           PlaceholderColor="White" HeightRequest="40"   
+                           IsPassword="True"  
+                           TextColor="Black"/>
+                </StackLayout>
+            </Frame>
+            <!-- TODO Podpiąć Command do buttona -->
+            <Button Text="Sign In" TextColor="White" 
+                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="{StaticResource LightFiolet}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

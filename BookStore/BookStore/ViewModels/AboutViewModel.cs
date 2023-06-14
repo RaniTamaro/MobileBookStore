@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BookStore.Views;
+using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -10,9 +12,14 @@ namespace BookStore.ViewModels
         public AboutViewModel()
         {
             Title = "About";
-            OpenWebCommand = new Command(async () => await Browser.OpenAsync("https://aka.ms/xamarin-quickstart"));
+            ToLoginCommand = new Command(async () => await OpenLoginPageAsync());
         }
 
-        public ICommand OpenWebCommand { get; }
+        public ICommand ToLoginCommand { get; }
+
+        private async Task OpenLoginPageAsync()
+        {
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+        }
     }
 }

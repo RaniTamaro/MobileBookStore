@@ -2,6 +2,12 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:BookStore.Views"
+        xmlns:order="clr-namespace:BookStore.Views.Order"
+        xmlns:book="clr-namespace:BookStore.Views.Book"
+        xmlns:author="clr-namespace:BookStore.Views.Author"
+        xmlns:category="clr-namespace:BookStore.Views.Category"
+        xmlns:genre="clr-namespace:BookStore.Views.Genre"
+        xmlns:review="clr-namespace:BookStore.Views.Review"
        Title="BookStore"
        x:Class="BookStore.AppShell">
 
@@ -14,13 +20,13 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Background}" />
+                <Setter Property="Shell.ForegroundColor" Value="Black" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Background}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="Black"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
             </Style>
@@ -63,7 +69,7 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="Black" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -78,17 +84,59 @@
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element    
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="About" Icon="icon_about.png">
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+<!-- ================================================================================= -->
+<!-- ==============================  MENU  =========================================== -->
+<!-- ================================================================================= -->
+
+    <FlyoutItem Title="About" Icon="Icons/icon_about.png">
+        <ShellContent Route="About" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Browse" Icon="icon_feed.png">
-        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
+    
+    <FlyoutItem Title="Orders" Icon="Icons/notifications.png">
+        <ShellContent Route="OrderPage" ContentTemplate="{DataTemplate order:OrderPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Books" Icon="Icons/local_mall.png">
+        <ShellContent Route="BooksPage" ContentTemplate="{DataTemplate book:BookPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Authors" Icon="Icons/bookmark.png">
+        <ShellContent Route="AuthorsPage" ContentTemplate="{DataTemplate author:AuthorPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Categories" Icon="Icons/category.png">
+        <ShellContent Route="CategoriesPage" ContentTemplate="{DataTemplate category:CategoryPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Genres" Icon="Icons/bookmark.png">
+        <ShellContent Route="GenrePage" ContentTemplate="{DataTemplate genre:GenrePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Customers" Icon="Icons/groups.png">
+        <ShellContent Route="CustomersPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Reviews" Icon="Icons/clinical_notes.png">
+        <ShellContent Route="ReviewsPage" ContentTemplate="{DataTemplate review:ReviewPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Reports" Icon="Icons/folder.png">
+        <ShellContent Route="ReportsPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Account &amp; Settings" Icon="Icons/manage_accounts.png">
+        <ShellContent Route="AccountSettingsPage" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Notifications" Icon="Icons/notifications.png">
+        <ShellContent Route="NotificationsPage" />
     </FlyoutItem>
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked" IconImageSource="Icons/logout.png">
     </MenuItem>
-
+    
+<!-- =============================================================================================================================-->
     <!--
         TabBar lets you define content that won't show up in a flyout menu. When this content is active
         the flyout menu won't be available. This is useful for creating areas of the application where 
@@ -99,7 +147,9 @@
     <TabBar>
         <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
     </TabBar>
-
+    <TabBar>
+        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    </TabBar>
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
 
