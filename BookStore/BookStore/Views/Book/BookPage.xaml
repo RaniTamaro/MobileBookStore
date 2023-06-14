@@ -1,12 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookStore.Views.Book.BookPage">
+             x:Class="BookStore.Views.Book.BookPage"
+             BackgroundColor="#F8F4EF"
+             >
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="335"/>
+                <ColumnDefinition Width="20" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Frame Grid.Column="1" Grid.Row="0" BorderColor="Black">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="110"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Column="0">
+                        <Label Text="9:41" TextColor="Black" FontSize="15" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="2">
+                        <Image Source="network.png"/>
+                    </StackLayout>
+                    <StackLayout Grid.Column="3">
+                        <Label Text="Internet" TextColor="Black" FontSize="15" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="4">
+                        <Label Text="Bateria" TextColor="Black" FontSize="15" />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+
+            <Frame Grid.Column="1" Grid.Row="1" BorderColor="Black">
+                <StackLayout>
+                <Label Text="Harry Potter and the Philosopher's Stone" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
+                <Label Text="Author: J.K. Rowling" TextColor="Black" />
+                <Label Text="Publishing house: Book Stores America" TextColor="Black" />
+                <Label Text="Category: Fantasy" TextColor="Black" />
+                <Label Text="Price: $29.99" TextColor="Black" />
+                <Button Text="MORE" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="15" WidthRequest="64" HeightRequest="32" Margin="10,0,0,0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
+
 </ContentPage>
