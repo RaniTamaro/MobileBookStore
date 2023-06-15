@@ -5,13 +5,16 @@
              BackgroundColor="#F8F4EF"
              >
     <ContentPage.Content>
-        <Grid HorizontalOptions="Center">
+        <ScrollView>
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="335"/>
-                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
@@ -31,7 +34,7 @@
                         <Label Text="9:41" TextColor="Black" FontSize="15" />
                     </StackLayout>
                     <StackLayout Grid.Column="2">
-                        <Image Source="network.png"/>
+                        <Image Source="Icons/network.png"/>
                     </StackLayout>
                     <StackLayout Grid.Column="3">
                         <Label Text="Internet" TextColor="Black" FontSize="15" />
@@ -41,8 +44,7 @@
                     </StackLayout>
                 </Grid>
             </Frame>
-
-            <Frame Grid.Column="1" Grid.Row="1" BorderColor="Black">
+            <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
                 <StackLayout>
                 <Label Text="Harry Potter and the Philosopher's Stone" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
                 <Label Text="Author: J.K. Rowling" TextColor="Black" />
@@ -52,7 +54,86 @@
                 <Button Text="MORE" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="15" WidthRequest="64" HeightRequest="32" Margin="10,0,0,0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"/>
                 </StackLayout>
             </Frame>
+                <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="White">
+                    <StackLayout>
+                        <Label Text="Harry Potter and the Philosopher's Stone" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
+                        <Label Text="Author: J.K. Rowling" TextColor="Black" />
+                        <Label Text="Publishing house: Book Stores America" TextColor="Black" />
+                        <Label Text="Category: Fantasy" TextColor="Black" />
+                        <Label Text="Price: $29.99" TextColor="Black" />
+                        <Label Text="Description" TextColor="Black" />
+                        <Label TextColor="Black" Text="Harry Potter and the Philosopher's Stone was J.K. Rowling's first novel, followed by the subsequent six titles in the Harry Potter series, as well as three books written for charity: Fantastic Beasts and Where to Find Them, Quidditch Through the Ages and The Tales of Beedle the Bard. The Harry Potter novels have now sold over 450 million copies worldwide and been translated into 77 languages."/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="90"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Text="EDIT" BackgroundColor="#707B81" TextColor="White" CornerRadius="18" WidthRequest="78" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
+                            <Button Text="DELETE" BackgroundColor="#F87265" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="1" Grid.Row="3" BackgroundColor="White">
+                <StackLayout >
+                    <Label Text="Title" FontSize="13" TextColor="Black"/>
+                    <Entry Text="Harry Potter and the Philosopher's Stone"
+                           TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White"
+                            >
+                    </Entry>
+                    <Label Text="Author" FontSize="13" TextColor="Black"/>
+                    <Picker Title="Wybierz opcję">
+                        <Picker.Items>
+                            <x:String>J.K.Rowling</x:String>
+                            <x:String>Suzanne Collins</x:String>
+                            <x:String>Nicolas Sparks</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label Text="Publishing house" FontSize="13" TextColor="Black"/>
+                    <Entry Text="Book Stores America"
+                           TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White"
+                            >
+                    </Entry>
+                        <Label Text="Category" FontSize="13" TextColor="Black"/>
+                        <Picker Title="Wybierz opcję">
+                            <Picker.Items>
+                                <x:String>Fantasy</x:String>
+                                <x:String>Adventure</x:String>
+                                <x:String>Sci-fi</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    <Label Text="Price" FontSize="13" TextColor="Black"/>
+                    <Entry Text="$29.99"
+                           TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White"
+                            >
+                    </Entry>
+                    <Label Text="Description" TextColor="Black" />
+                        <ScrollView>
+                            <Editor HeightRequest="150" VerticalOptions="StartAndExpand" BackgroundColor="White" TextColor="Black"
+                                    Text="Harry Potter and the Philosopher's Stone was J.K. Rowling's first novel, followed by the subsequent six titles in the Harry Potter series, as well as three books written for charity: Fantastic Beasts and Where to Find Them, Quidditch Through the Ages and The Tales of Beedle the Bard. The Harry Potter novels have now sold over 450 million copies worldwide and been translated into 77 languages."/>
+                        </ScrollView>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="115"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                        <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
+                        <Button Text="Save" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
+                        </Grid>
+                    </StackLayout>
+            </Frame>
         </Grid>
+        </ScrollView>
     </ContentPage.Content>
 
 </ContentPage>
