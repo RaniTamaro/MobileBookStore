@@ -5,47 +5,21 @@
              BackgroundColor="#F8F4EF"
              >
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView HorizontalOptions="Center">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40"/>
                 <ColumnDefinition Width="335"/>
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
-            </Grid.RowDefinitions>
-            <Frame Grid.Column="1" Grid.Row="0" BorderColor="Black">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="110"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"/>
-                    </Grid.RowDefinitions>
-                    <StackLayout Grid.Column="0">
-                        <Label Text="9:41" TextColor="Black" FontSize="15" />
-                    </StackLayout>
-                    <StackLayout Grid.Column="2">
-                        <Image Source="Icons/network.png"/>
-                    </StackLayout>
-                    <StackLayout Grid.Column="3">
-                        <Label Text="Internet" TextColor="Black" FontSize="15" />
-                    </StackLayout>
-                    <StackLayout Grid.Column="4">
-                        <Label Text="Bateria" TextColor="Black" FontSize="15" />
-                    </StackLayout>
-                </Grid>
-            </Frame>
-            <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="White">
                 <StackLayout>
                 <Label Text="Harry Potter and the Philosopher's Stone" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
                 <Label Text="Author: J.K. Rowling" TextColor="Black" />
@@ -55,7 +29,7 @@
                 <Button Text="MORE" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="15" WidthRequest="64" HeightRequest="32" Margin="10,0,0,0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"/>
                 </StackLayout>
             </Frame>
-                <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="White">
+                <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
                     <StackLayout>
                         <Label Text="Harry Potter and the Philosopher's Stone" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
                         <Label Text="Author: J.K. Rowling" TextColor="Black" />
@@ -75,7 +49,7 @@
                         </Grid>
                     </StackLayout>
                 </Frame>
-                <Frame Grid.Column="1" Grid.Row="3" BackgroundColor="White">
+                <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="White">
                 <StackLayout >
                     <Label Text="Title" FontSize="13" TextColor="Black"/>
                     <Entry Text="Harry Potter and the Philosopher's Stone"
@@ -133,7 +107,7 @@
                         </Grid>
                     </StackLayout>
             </Frame>
-                <Frame Grid.Column="1" Grid.Row="4" BackgroundColor="White">
+                <Frame Grid.Column="1" Grid.Row="3" BackgroundColor="White">
                     <StackLayout >
                         <Label Text="Title" FontSize="13" TextColor="Black"/>
                         <Entry
