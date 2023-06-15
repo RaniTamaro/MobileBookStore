@@ -17,6 +17,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Frame Grid.Column="1" Grid.Row="0" BorderColor="Black">
                 <Grid>
@@ -85,7 +86,7 @@
                             >
                     </Entry>
                     <Label Text="Author" FontSize="13" TextColor="Black"/>
-                    <Picker Title="Wybierz opcję">
+                        <Picker Title="Wybierz opcję"  BackgroundColor="#7B82D8">
                         <Picker.Items>
                             <x:String>J.K.Rowling</x:String>
                             <x:String>Suzanne Collins</x:String>
@@ -101,7 +102,7 @@
                             >
                     </Entry>
                         <Label Text="Category" FontSize="13" TextColor="Black"/>
-                        <Picker Title="Wybierz opcję">
+                        <Picker Title="Wybierz opcję"  BackgroundColor="#7B82D8">
                             <Picker.Items>
                                 <x:String>Fantasy</x:String>
                                 <x:String>Adventure</x:String>
@@ -132,7 +133,56 @@
                         </Grid>
                     </StackLayout>
             </Frame>
-        </Grid>
+                <Frame Grid.Column="1" Grid.Row="4" BackgroundColor="White">
+                    <StackLayout >
+                        <Label Text="Title" FontSize="13" TextColor="Black"/>
+                        <Entry
+                           TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White"
+                            >
+                        </Entry>
+                        <Label Text="Author" FontSize="13" TextColor="Black"/>
+                        <Picker Title="Wybierz opcję" BackgroundColor="#7B82D8">
+                            <Picker.Items>
+                                <x:String>J.K.Rowling</x:String>
+                                <x:String>Suzanne Collins</x:String>
+                                <x:String>Nicolas Sparks</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Publishing house" FontSize="13" TextColor="Black"/>
+                        <Entry
+                           TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White"
+                            >
+                        </Entry>
+                        <Label Text="Category" FontSize="13" TextColor="Black"/>
+                        <Picker Title="Wybierz opcję" BackgroundColor="#7B82D8">
+                            <Picker.Items>
+                                <x:String>Fantasy</x:String>
+                                <x:String>Adventure</x:String>
+                                <x:String>Sci-fi</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Price" FontSize="13" TextColor="Black"/>
+                        <Entry 
+                           TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White"
+                            >
+                        </Entry>
+                        <Label Text="Description" TextColor="Black" />
+                        <ScrollView>
+                            <Editor HeightRequest="150" VerticalOptions="StartAndExpand" BackgroundColor="White" TextColor="Black"/>
+                        </ScrollView>
+                        <Button Text="Add book" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="0,10,0,0" HorizontalOptions="End" VerticalOptions="Center"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
         </ScrollView>
     </ContentPage.Content>
 
