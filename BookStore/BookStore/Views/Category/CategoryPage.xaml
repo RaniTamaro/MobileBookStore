@@ -1,12 +1,99 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookStore.Views.Category.CategoryPage">
+             x:Class="BookStore.Views.Category.CategoryPage"
+             BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView HorizontalOptions="Center">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="335"/>
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="White">
+                    <StackLayout>
+                        <Label Text="Name" TextColor="Black"/>
+                        <Label Text="" FontSize="16" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
+                        <Label Text="Description" TextColor="Black"/>
+                        <Label Text="" TextColor="#7B82D8"/>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="90"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Text="Edit" BackgroundColor="#707B81" TextColor="White" CornerRadius="18" WidthRequest="78" HeightRequest="38" Margin="10,10,0,0" Grid.Column="1"/>
+                            <Button Text="Delete" BackgroundColor="#F87265" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
+                    <StackLayout >
+                        <Label Text="Name" FontSize="13" TextColor="Black"/>
+                        <Entry Text=""
+                           TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White"
+                            >
+                        </Entry>
+                        <Label Text="Description" FontSize="13" TextColor="Black"/>
+                        <Entry Text=""
+                           TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White"
+                            >
+                        </Entry>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="115"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
+                            <Button Text="Save" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="White">
+                    <StackLayout >
+                        <Label Text="Name" FontSize="13" TextColor="Black"/>
+                        <Entry
+                           TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White"
+                            >
+                        </Entry>
+                        <Label Text="Description" FontSize="13" TextColor="Black"/>
+                        <Entry
+                           TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White"
+                            >
+                        </Entry>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="90"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
+                            <Button Text="Add category" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="108" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

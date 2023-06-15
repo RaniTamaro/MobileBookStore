@@ -21,9 +21,9 @@
                 <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="White">
                     <StackLayout>
                         <Label Text="Name" TextColor="Black"/>
-                        <Label Text="fantasy" FontSize="16" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
+                        <Label Text="" FontSize="16" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
                         <Label Text="Description" TextColor="Black"/>
-                        <Label Text="Book's fantasy" TextColor="#7B82D8"/>
+                        <Label Text="" TextColor="#7B82D8"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="90"/>
@@ -38,7 +38,7 @@
                 <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
                     <StackLayout >
                         <Label Text="Name" FontSize="13" TextColor="Black"/>
-                        <Entry Text="Fantasy"
+                        <Entry 
                            TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
@@ -46,7 +46,7 @@
                             >
                         </Entry>
                         <Label Text="Description" FontSize="13" TextColor="Black"/>
-                        <Entry Text="Book's fantasy"
+                        <Entry 
                            TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
