@@ -1,12 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookStore.Views.Genre.NewGenrePage">
+             x:Class="BookStore.Views.Genre.NewGenrePage"
+              BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Frame HorizontalOptions="Center" BackgroundColor="White">
+            <StackLayout >
+                <Label Text="Name" FontSize="13" TextColor="Black"/>
+                <Entry
+                            Text="{Binding}"
+                            TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White">
+                </Entry>
+                <Label Text="Description" FontSize="13" TextColor="Black"/>
+                <Entry 
+                            Text="{Binding}"
+                            TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White">
+                </Entry>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="115"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                        <Button Text="Back" BackgroundColor="#7B82D8" Command="{Binding CancelCommand}" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
+                        <Button Text="Save" BackgroundColor="#7BD8C2" Command="{Binding SaveCommand}" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
+                </Grid>
+            </StackLayout>
+        </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
