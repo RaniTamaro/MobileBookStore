@@ -20,141 +20,189 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="White">
-                <StackLayout>
-                <Label Text="Harry Potter and the Philosopher's Stone" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
-                <Label Text="Author: J.K. Rowling" TextColor="Black" />
-                <Label Text="Publishing house: Book Stores America" TextColor="Black" />
-                <Label Text="Category: Fantasy" TextColor="Black" />
-                <Label Text="Price: $29.99" TextColor="Black" />
-                <Button Text="MORE" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="15" WidthRequest="64" HeightRequest="32" Margin="10,0,0,0" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"/>
-                </StackLayout>
-            </Frame>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <!-- Title -->
+                        <Label Text="{Binding}" Grid.Column="0" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
+                        <Label Text="Author: " TextColor="Black" Grid.Column="0" Grid.Row="1"/>
+                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"/>
+                        <Label Text="Publishing house: " TextColor="Black" Grid.Row="2"/>
+                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start"/>
+                        <Label Text="Category:" TextColor="Black" Grid.Row="3"/>
+                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start"/>
+                        <Label Text="Price:" TextColor="Black" Grid.Row="4"/>
+                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="4" HorizontalOptions="Start"/>
+                        <Button Text="MORE" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="15" WidthRequest="64" HeightRequest="32" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
+                    </Grid>
+                </Frame>
                 <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
-                    <StackLayout>
-                        <Label Text="Harry Potter and the Philosopher's Stone" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
-                        <Label Text="Author: J.K. Rowling" TextColor="Black" />
-                        <Label Text="Publishing house: Book Stores America" TextColor="Black" />
-                        <Label Text="Category: Fantasy" TextColor="Black" />
-                        <Label Text="Price: $29.99" TextColor="Black" />
-                        <Label Text="Description" TextColor="Black" />
-                        <Label TextColor="Black" Text="Harry Potter and the Philosopher's Stone was J.K. Rowling's first novel, followed by the subsequent six titles in the Harry Potter series, as well as three books written for charity: Fantastic Beasts and Where to Find Them, Quidditch Through the Ages and The Tales of Beedle the Bard. The Harry Potter novels have now sold over 450 million copies worldwide and been translated into 77 languages."/>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="90"/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Text="EDIT" BackgroundColor="#707B81" TextColor="White" CornerRadius="18" WidthRequest="78" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
-                            <Button Text="DELETE" BackgroundColor="#F87265" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
-                        </Grid>
-                    </StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <!-- Title -->
+                        <Label Text="{Binding}" Grid.Column="0" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
+                        <Label Text="Author: " TextColor="Black" Grid.Column="0" Grid.Row="1"/>
+                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"/>
+                        <Label Text="Publishing house: " TextColor="Black" Grid.Row="2"/>
+                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start"/>
+                        <Label Text="Category:" TextColor="Black" Grid.Row="3"/>
+                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start"/>
+                        <Label Text="Price:" TextColor="Black" Grid.Row="4"/>
+                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="4" HorizontalOptions="Start"/>
+                        <Label Text="Description:" TextColor="Black" Grid.Row="5"/>
+                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="5" HorizontalOptions="Start"/>
+                        <Button Text="EDIT" BackgroundColor="#707B81" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
+                        <Button Text="DELETE" BackgroundColor="#F87265" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
+                    </Grid>
                 </Frame>
                 <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="White">
-                <StackLayout >
-                    <Label Text="Title" FontSize="13" TextColor="Black"/>
-                    <Entry Text="Harry Potter and the Philosopher's Stone"
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Title" FontSize="13" HorizontalOptions="Start" TextColor="Black" Grid.Column="0" Grid.Row="0"/>
+                        <Entry Text="{Binding}"
                            TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
                             BackgroundColor="White"
-                            >
-                    </Entry>
-                    <Label Text="Author" FontSize="13" TextColor="Black"/>
-                        <Picker Title="Wybierz opcję"  BackgroundColor="#7B82D8">
-                        <Picker.Items>
-                            <x:String>J.K.Rowling</x:String>
-                            <x:String>Suzanne Collins</x:String>
-                            <x:String>Nicolas Sparks</x:String>
-                        </Picker.Items>
-                    </Picker>
-                    <Label Text="Publishing house" FontSize="13" TextColor="Black"/>
-                    <Entry Text="Book Stores America"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            >
-                    </Entry>
-                        <Label Text="Category" FontSize="13" TextColor="Black"/>
-                        <Picker Title="Wybierz opcję"  BackgroundColor="#7B82D8">
+                            Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4">
+                        </Entry>
+                        <Label Text="Author" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="2"/>
+                        <Picker Title="{Binding}" TextColor="Black" BackgroundColor="#7B82D8" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4">
                             <Picker.Items>
-                                <x:String>Fantasy</x:String>
-                                <x:String>Adventure</x:String>
-                                <x:String>Sci-fi</x:String>
+                                <x:String>Will Smith</x:String>
                             </Picker.Items>
                         </Picker>
-                    <Label Text="Price" FontSize="13" TextColor="Black"/>
-                    <Entry Text="$29.99"
+                        <Label Text="Publishing house" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="4"/>
+                        <Entry Text="{Binding}"
                            TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
                             BackgroundColor="White"
-                            >
-                    </Entry>
-                    <Label Text="Description" TextColor="Black" />
-                        <ScrollView>
-                            <Editor HeightRequest="150" VerticalOptions="StartAndExpand" BackgroundColor="White" TextColor="Black"
-                                    Text="Harry Potter and the Philosopher's Stone was J.K. Rowling's first novel, followed by the subsequent six titles in the Harry Potter series, as well as three books written for charity: Fantastic Beasts and Where to Find Them, Quidditch Through the Ages and The Tales of Beedle the Bard. The Harry Potter novels have now sold over 450 million copies worldwide and been translated into 77 languages."/>
-                        </ScrollView>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="115"/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                        <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
-                        <Button Text="Save" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
-                        </Grid>
-                    </StackLayout>
-            </Frame>
+                            Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4">
+                        </Entry>
+                        <Label Text="Category" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="6"/>
+                        <Picker Title="{Binding}" TextColor="Black" BackgroundColor="#7B82D8" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="4">
+                            <Picker.Items>
+                                <x:String>Will Smith</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Label Text="Price" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="8"/>
+                        <Entry Text="{Binding}"
+                           TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White"
+                            Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="4">
+                        </Entry>
+                        <Label Text="Description" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="10"/>
+                        <Editor HeightRequest="150" VerticalOptions="StartAndExpand" BackgroundColor="White" TextColor="Black"  Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="4"/>
+                        <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
+                        <Button Text="Save" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
+                    </Grid>
+                </Frame>
                 <Frame Grid.Column="1" Grid.Row="3" BackgroundColor="White">
-                    <StackLayout >
-                        <Label Text="Title" FontSize="13" TextColor="Black"/>
-                        <Entry
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Text="Title" FontSize="13" HorizontalOptions="Start" TextColor="Black" Grid.Column="0" Grid.Row="0"/>
+                        <Entry Text="{Binding}"
                            TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
                             BackgroundColor="White"
-                            >
+                            Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4">
                         </Entry>
-                        <Label Text="Author" FontSize="13" TextColor="Black"/>
-                        <Picker Title="Wybierz opcję" BackgroundColor="#7B82D8">
+                        <Label Text="Author" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="2"/>
+                        <Picker Title="{Binding}" TextColor="Black" BackgroundColor="#7B82D8" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4">
                             <Picker.Items>
-                                <x:String>J.K.Rowling</x:String>
-                                <x:String>Suzanne Collins</x:String>
-                                <x:String>Nicolas Sparks</x:String>
+                                <x:String>Will Smith</x:String>
                             </Picker.Items>
                         </Picker>
-                        <Label Text="Publishing house" FontSize="13" TextColor="Black"/>
-                        <Entry
+                        <Label Text="Publishing house" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="4"/>
+                        <Entry Text="{Binding}"
                            TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
                             BackgroundColor="White"
-                            >
+                            Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4">
                         </Entry>
-                        <Label Text="Category" FontSize="13" TextColor="Black"/>
-                        <Picker Title="Wybierz opcję" BackgroundColor="#7B82D8">
+                        <Label Text="Category" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="6"/>
+                        <Picker Title="{Binding}" TextColor="Black" BackgroundColor="#7B82D8" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="4">
                             <Picker.Items>
-                                <x:String>Fantasy</x:String>
-                                <x:String>Adventure</x:String>
-                                <x:String>Sci-fi</x:String>
+                                <x:String>Will Smith</x:String>
                             </Picker.Items>
                         </Picker>
-                        <Label Text="Price" FontSize="13" TextColor="Black"/>
-                        <Entry 
+                        <Label Text="Price" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="8"/>
+                        <Entry Text="{Binding}"
                            TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
                             BackgroundColor="White"
-                            >
+                            Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="4">
                         </Entry>
-                        <Label Text="Description" TextColor="Black" />
-                        <ScrollView>
-                            <Editor HeightRequest="150" VerticalOptions="StartAndExpand" BackgroundColor="White" TextColor="Black"/>
-                        </ScrollView>
-                        <Button Text="Add book" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="0,10,0,0" HorizontalOptions="End" VerticalOptions="Center"/>
-                    </StackLayout>
+                        <Label Text="Description" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="10"/>
+                        <Editor HeightRequest="150" VerticalOptions="StartAndExpand" BackgroundColor="White" TextColor="Black"  Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="4"/>
+                        <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
+                        <Button Text="Add book" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="0, 10" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
+                    </Grid>
                 </Frame>
             </Grid>
         </ScrollView>
