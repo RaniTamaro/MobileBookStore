@@ -8,6 +8,7 @@
         xmlns:category="clr-namespace:BookStore.Views.Category"
         xmlns:genre="clr-namespace:BookStore.Views.Genre"
         xmlns:review="clr-namespace:BookStore.Views.Review"
+        xmlns:user="clr-namespace:BookStore.Views.User"
        Title="BookStore"
        x:Class="BookStore.AppShell">
 
@@ -113,8 +114,8 @@
         <ShellContent Route="GenrePage" ContentTemplate="{DataTemplate genre:GenrePage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Customers" Icon="Icons/groups.png">
-        <ShellContent Route="CustomersPage" />
+    <FlyoutItem Title="Users" Icon="Icons/groups.png">
+        <ShellContent Route="UsersPage" ContentTemplate="{DataTemplate user:UserPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Reviews" Icon="Icons/clinical_notes.png">
