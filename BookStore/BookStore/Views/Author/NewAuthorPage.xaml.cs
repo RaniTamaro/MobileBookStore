@@ -6,16 +6,18 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using BookStore.ViewModels.Author;
 
 namespace BookStore.Views.Author
 {
-    //TODO: Zrobić front + podpiąć model
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewAuthorPage : ContentPage
     {
+        public BookStoreApi.AuthorForView Item { get; set; }
         public NewAuthorPage()
         {
             InitializeComponent();
+            BindingContext = new NewAuthorViewModel();
         }
     }
 }

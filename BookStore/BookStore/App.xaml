@@ -16,7 +16,7 @@
             <Color x:Key="Font1">Black</Color>
             <Color x:Key="Font2">#50548A</Color>
             <Color x:Key="PlaceholderTextColor">Gray</Color>
-            <!-- Globalne style dla ListView -->
+            <!-- Globalne style-->
             <Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource LightFiolet}"></Setter>
                 <Setter Property="TextColor" Value="White"></Setter>

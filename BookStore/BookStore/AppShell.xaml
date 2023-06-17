@@ -22,7 +22,7 @@
         <ResourceDictionary>
             <Color x:Key="Purple">#7B82D8</Color>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="Black" />
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource LightFiolet}" />
                 <Setter Property="Shell.ForegroundColor" Value="Black" />
                 <Setter Property="Shell.TitleColor" Value="Black" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
