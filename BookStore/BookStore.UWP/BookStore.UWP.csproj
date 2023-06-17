@@ -104,6 +104,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icons\add.png" />
     <Content Include="Icons\bookmark.png" />
     <Content Include="Icons\category.png" />
     <Content Include="Icons\clinical_notes.png" />
