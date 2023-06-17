@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using BookStoreApi.Data;
+﻿using BookStoreApi.Data;
 using BookStoreApi.Models;
 using BookStoreApi.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStoreApi.Controllers
 {
@@ -22,65 +17,78 @@ namespace BookStoreApi.Controllers
             _context = context;
         }
 
-        // GET: api/Customer
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserForView>>> GetCustomer()
+        [HttpGet("Login/nickname={nickname}/password={password}")]
+        public async Task<ActionResult<UserForView>> Login(string nickname, string password)
         {
-            if (_context.Customer == null)
+            var login = await _context.User.Where(x => x.Nickname == nickname && x.Password == password).SingleOrDefaultAsync();
+
+            if (login is null)
+            {
+                return new UserForView();
+            }
+
+            return (UserForView)login;
+        }
+
+        // GET: api/User
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<UserForView>>> GetUser()
+        {
+            if (_context.User == null)
             {
                 return NotFound();
             }
 
-            var customerList = await _context.Customer
+            var userList = await _context.User
                 .Where(x => x.IsActive == true)
                 .Include(x => x.Orders)
                 .Select(y => (UserForView)y)
                 .ToListAsync();
 
-            return customerList;
+            return userList;
         }
 
-        // GET: api/Customer/5
+        // GET: api/User/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserForView>> GetCustomer(int id)
+        public async Task<ActionResult<UserForView>> GetUser(int id)
         {
-            if (_context.Customer == null)
+            if (_context.User == null)
             {
                 return NotFound();
             }
-            var customer = await _context.Customer
+            var user = await _context.User
                 .Where(x => x.IsActive == true)
                 .Include(x => x.Orders)
                 .FirstOrDefaultAsync();
 
-            if (customer == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return (UserForView)customer;
+            return (UserForView)user;
         }
 
-        // PUT: api/Customer/5
+        // PUT: api/User/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCustomer(int id, UserForView customer)
+        public async Task<IActionResult> PutUser(int id, UserForView user)
         {
-            if (id != customer.Id)
+            if (id != user.Id)
             {
                 return BadRequest();
             }
 
-            var customerDb = (User)customer;
-            customerDb.MmodifDate = DateTime.Now;
+            var userDb = (User)user;
+            userDb.MmodifDate = DateTime.Now;
             var orderList = new List<Order>();
-            foreach (var order in customer.Orders.ToList())
+            foreach (var order in user.Orders.ToList())
             {
                 orderList.Add(await _context.Order.FindAsync(order.Number));
             }
 
-            customerDb.Orders = orderList;
-            _context.Entry(customer).State = EntityState.Modified;
+            userDb.Orders = orderList;
+            _context.Entry(user).State = EntityState.Modified;
 
             try
             {
@@ -88,7 +96,7 @@ namespace BookStoreApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CustomerExists(id))
+                if (!UserExists(id))
                 {
                     return NotFound();
                 }
@@ -101,57 +109,56 @@ namespace BookStoreApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Customer
+        // POST: api/User
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<UserForView>> PostCustomer(UserForView customer)
+        public async Task<ActionResult<UserForView>> PostUser(UserForView user)
         {
-            if (_context.Customer == null)
+            if (_context.User == null)
             {
-                return Problem("Entity set 'BookStoreContext.Customer'  is null.");
+                return Problem("Entity set 'BookStoreContext.User'  is null.");
             }
 
-            var customerDb = (User)customer;
-            customerDb.MmodifDate = DateTime.Now;
+            var userDb = (User)user;
+            userDb.MmodifDate = DateTime.Now;
             var orderList = new List<Order>();
-            foreach (var order in customer.Orders.ToList())
+            foreach (var order in user.Orders.ToList())
             {
                 orderList.Add(await _context.Order.FindAsync(order.Number));
             }
 
-            customerDb.Orders = orderList;
-            _context.Customer.Add(customerDb);
+            userDb.Orders = orderList;
+            _context.User.Add(userDb);
             await _context.SaveChangesAsync();
 
-            return Ok((UserForView)customerDb);
-            //return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
+            return Ok((UserForView)userDb);
         }
 
-        // DELETE: api/Customer/5
+        // DELETE: api/User/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCustomer(int id)
+        public async Task<IActionResult> DeleteUser(int id)
         {
-            if (_context.Customer == null)
+            if (_context.User == null)
             {
                 return NotFound();
             }
-            var customer = await _context.Customer.FindAsync(id);
-            if (customer == null)
+            var user = await _context.User.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            customer.IsActive = false;
-            customer.MmodifDate = DateTime.Now;
-            _context.Customer.Update(customer);
+            user.IsActive = false;
+            user.MmodifDate = DateTime.Now;
+            _context.User.Update(user);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool CustomerExists(int id)
+        private bool UserExists(int id)
         {
-            return (_context.Customer?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.User?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

@@ -72,7 +72,7 @@ namespace BookStoreApi.Controllers
                 return NotFound();
             }
 
-            var customer = await _context.Customer.FindAsync(customerId);
+            var customer = await _context.User.FindAsync(customerId);
             if (customer is null)
             {
                 return NotFound();

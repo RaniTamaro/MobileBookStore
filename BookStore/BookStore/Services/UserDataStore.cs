@@ -9,6 +9,13 @@ namespace BookStore.Services
 {
     public class UserDataStore : AListDataStore<UserForView>
     {
+        public async Task<string> CheckLogin(string username, string password)
+        {
+            var login = await _service.LoginAsync(username, password);
+
+            return string.IsNullOrEmpty(login.Role) ? "" : login.Role;
+        }
+
         public override async Task<UserForView> AddItemToService(UserForView item)
         {
             return await _service.UserPOSTAsync(item);

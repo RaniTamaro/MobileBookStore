@@ -93,7 +93,7 @@ namespace BookStoreApi.Controllers
             _context.Report.Add(report);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetReport", new { id = report.Id }, report);
+            return Ok(report);
         }
 
         // DELETE: api/Report/5

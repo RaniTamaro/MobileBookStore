@@ -93,7 +93,7 @@ namespace BookStoreApi.Controllers
             _context.Genre.Add(genre);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGenre", new { id = genre.Id }, genre);
+            return Ok(genre);
         }
 
         // DELETE: api/Genre/5
