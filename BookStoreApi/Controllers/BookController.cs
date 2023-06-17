@@ -27,7 +27,6 @@ namespace BookStoreApi.Controllers
 
         // GET: api/Books
         [HttpGet]
-        [Authorize(Roles = "Admin,User")]
         public async Task<ActionResult<IEnumerable<BookForView>>> GetBook()
         {
             if (_context.Book == null)
@@ -46,7 +45,6 @@ namespace BookStoreApi.Controllers
 
         // GET: api/Books/5
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,User")]
         public async Task<ActionResult<BookForView>> GetBook(int id)
         {
             if (_context.Book == null)
@@ -69,7 +67,6 @@ namespace BookStoreApi.Controllers
         // PUT: api/Books/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutBook(int id, BookForView book)
         {
             if (id != book.Id)
@@ -119,7 +116,6 @@ namespace BookStoreApi.Controllers
         // POST: api/Books
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<BookForView>> PostBook(BookForView book)
         {
             if (_context.Book == null)
@@ -151,7 +147,6 @@ namespace BookStoreApi.Controllers
 
         // DELETE: api/Books/5
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteBook(int id)
         {
             if (_context.Book == null)

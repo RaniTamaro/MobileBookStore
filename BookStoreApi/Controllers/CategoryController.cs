@@ -25,7 +25,6 @@ namespace BookStoreApi.Controllers
 
         // GET: api/Category
         [HttpGet]
-        [Authorize(Roles = "Admin,User")]
         public async Task<ActionResult<IEnumerable<CategoryForView>>> GetCategory()
         {
             if (_context.Category == null)
@@ -44,7 +43,6 @@ namespace BookStoreApi.Controllers
 
         // GET: api/Category/5
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin,User")]
         public async Task<ActionResult<CategoryForView>> GetCategory(int id)
         {
           if (_context.Category == null)
@@ -67,7 +65,6 @@ namespace BookStoreApi.Controllers
         // PUT: api/Category/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutCategory(int id, CategoryForView category)
         {
             if (id != category.Id)
@@ -108,7 +105,6 @@ namespace BookStoreApi.Controllers
         // POST: api/Category
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<CategoryForView>> PostCategory(CategoryForView category)
         {
           if (_context.Category == null)
