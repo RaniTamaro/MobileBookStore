@@ -9,7 +9,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="40"/>
                     <ColumnDefinition Width="335"/>
-                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
@@ -21,9 +21,9 @@
                 <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="White">
                     <StackLayout>
                         <Label Text="Name" TextColor="Black"/>
-                        <Label Text="" FontSize="16" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
+                        <Label Text="{Binding}" FontSize="16" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
                         <Label Text="Description" TextColor="Black"/>
-                        <Label Text="" TextColor="#7B82D8"/>
+                        <Label Text="{Binding}" TextColor="#7B82D8"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="90"/>
@@ -38,20 +38,20 @@
                 <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
                     <StackLayout >
                         <Label Text="Name" FontSize="13" TextColor="Black"/>
-                        <Entry 
-                           TextColor="Black"
+                        <Entry
+                            Text="{Binding}"
+                            TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            >
+                            BackgroundColor="White">
                         </Entry>
                         <Label Text="Description" FontSize="13" TextColor="Black"/>
                         <Entry 
-                           TextColor="Black"
+                            Text="{Binding}"
+                            TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            >
+                            BackgroundColor="White">
                         </Entry>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -68,19 +68,19 @@
                     <StackLayout >
                         <Label Text="Name" FontSize="13" TextColor="Black"/>
                         <Entry
-                           TextColor="Black"
+                            Text="{Binding}"
+                            TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            >
+                            BackgroundColor="White">
                         </Entry>
                         <Label Text="Description" FontSize="13" TextColor="Black"/>
                         <Entry
-                           TextColor="Black"
+                            Text="{Binding}"
+                            TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            >
+                            BackgroundColor="White">
                         </Entry>
                         <Grid>
                             <Grid.ColumnDefinitions>
