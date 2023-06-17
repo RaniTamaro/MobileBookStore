@@ -2,10 +2,52 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BookStore.Views.Author.NewAuthorPage"
-             Shell.PresentationMode="ModalAnimated"
-             Title="New Author">
+             Title="New Author" 
+             BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <StackLayout Spacing="3" Padding="15">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Frame HorizontalOptions="Center" BackgroundColor="White">
+                <StackLayout >
+                    <Label Text="Name" FontSize="13" TextColor="Black"/>
+                    <Entry
+                            Text="{Binding Name, Mode=TwoWay}"
+                            TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White">
+                    </Entry>
+                    <Label Text="Surname" FontSize="13" TextColor="Black"/>
+                    <Entry 
+                            Text="{Binding Surname, Mode=TwoWay}"
+                            TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White">
+                    </Entry>
+                    <Label Text="Nickname" FontSize="13" TextColor="Black"/>
+                    <Entry 
+                            Text="{Binding Nickname, Mode=TwoWay}"
+                            TextColor="Black"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            BackgroundColor="White">
+                    </Entry>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="115"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Text="Cancel" BackgroundColor="#7B82D8" Command="{Binding CancelCommand}" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
+                        <Button Text="Add" BackgroundColor="#7BD8C2" Command="{Binding SaveCommand}" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </Grid>
+        <!--<StackLayout Spacing="3" Padding="15">
             <Label Text="Name" FontSize="Medium" />
             <Entry Text="{Binding Name, Mode=TwoWay}" FontSize="Medium" />
 
@@ -18,6 +60,6 @@
                 <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
                 <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>
-        </StackLayout>
+        </StackLayout>-->
     </ContentPage.Content>
 </ContentPage>

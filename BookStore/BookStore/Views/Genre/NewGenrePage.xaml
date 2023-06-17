@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BookStore.Views.Genre.NewGenrePage"
+             Title="New genre"
               BackgroundColor="#F8F4EF">
     <ContentPage.Content>
         <Grid>
@@ -32,8 +33,8 @@
                         <ColumnDefinition Width="115"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                        <Button Text="Back" BackgroundColor="#7B82D8" Command="{Binding CancelCommand}" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
-                        <Button Text="Save" BackgroundColor="#7BD8C2" Command="{Binding SaveCommand}" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
+                        <Button Text="Cancel" BackgroundColor="#7B82D8" Command="{Binding CancelCommand}" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
+                        <Button Text="Add" BackgroundColor="#7BD8C2" Command="{Binding SaveCommand}" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
                 </Grid>
             </StackLayout>
         </Frame>
