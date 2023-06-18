@@ -11,7 +11,7 @@
                 <StackLayout >
                     <Label Text="Name" FontSize="13" TextColor="Black"/>
                     <Entry
-                            Text="{Binding}"
+                            Text="{Binding Name}"
                             TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
@@ -19,7 +19,7 @@
                     </Entry>
                     <Label Text="Description" FontSize="13" TextColor="Black"/>
                     <Entry 
-                            Text="{Binding}"
+                            Text="{Binding Description}"
                             TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
