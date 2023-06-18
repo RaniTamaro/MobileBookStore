@@ -77,7 +77,7 @@ namespace BookStoreApi.Controllers
             var bookDb = (Book)book;
             bookDb.MmodifDate = DateTime.Now;
             var bookGenreList = new List<BookGenre>();
-            foreach (var genre in book.BookGenres.ToList())
+            foreach (var genre in book.BookGenres)
             {
                 var existBookGenre = await _context.BookGenre.Where(x => x.IsActive == true && x.IdBook == bookDb.Id && x.IdGenre == genre.Id).FirstOrDefaultAsync();
                 bookGenreList.Add(existBookGenre == null ?
@@ -128,15 +128,18 @@ namespace BookStoreApi.Controllers
             await _context.SaveChangesAsync();
 
             var bookGenreList = new List<BookGenre>();
-            foreach (var genre in book.BookGenres.ToList())
+            if (book.BookGenres != null)
             {
-                bookGenreList.Add(new BookGenre
+                foreach (var genre in book.BookGenres)
                 {
-                    IdBook = bookDb.Id,
-                    Book = bookDb,
-                    IdGenre = genre.Id,
-                    Genre = await _context.Genre.FindAsync(genre.Id)
-                });
+                    bookGenreList.Add(new BookGenre
+                    {
+                        IdBook = bookDb.Id,
+                        Book = bookDb,
+                        IdGenre = genre.Id,
+                        Genre = await _context.Genre.FindAsync(genre.Id)
+                    });
+                }
             }
 
             bookDb.BookGenres = bookGenreList;

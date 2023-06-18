@@ -75,9 +75,12 @@ namespace BookStoreApi.Controllers
             var authorDb = (Author)author;
             authorDb.MmodifDate = DateTime.Now;
             var bookList = new List<Book>();
-            foreach (var book in author.Books.ToList())
+            if (author.Books != null)
             {
-                bookList.Add(await _context.Book.FindAsync(book.Title));
+                foreach (var book in author.Books)
+                {
+                    bookList.Add(await _context.Book.FindAsync(book.Id));
+                }
             }
 
             authorDb.Books = bookList;
@@ -114,9 +117,12 @@ namespace BookStoreApi.Controllers
 
             var authorDb = (Author)author;
             var bookList = new List<Book>();
-            foreach (var book in author.Books.ToList())
+            if (author.Books != null)
             {
-                bookList.Add(await _context.Book.FindAsync(book.Title));
+                foreach (var book in author.Books)
+                {
+                    bookList.Add(await _context.Book.FindAsync(book.Id));
+                }
             }
 
             authorDb.Books = bookList;

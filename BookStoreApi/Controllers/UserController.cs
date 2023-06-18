@@ -82,9 +82,12 @@ namespace BookStoreApi.Controllers
             var userDb = (User)user;
             userDb.MmodifDate = DateTime.Now;
             var orderList = new List<Order>();
-            foreach (var order in user.Orders.ToList())
+            if (user.Orders != null)
             {
-                orderList.Add(await _context.Order.FindAsync(order.Number));
+                foreach (var order in user.Orders)
+                {
+                    orderList.Add(await _context.Order.FindAsync(order.Id));
+                }
             }
 
             userDb.Orders = orderList;
@@ -122,9 +125,12 @@ namespace BookStoreApi.Controllers
             var userDb = (User)user;
             userDb.MmodifDate = DateTime.Now;
             var orderList = new List<Order>();
-            foreach (var order in user.Orders.ToList())
+            if (user.Orders != null)
             {
-                orderList.Add(await _context.Order.FindAsync(order.Number));
+                foreach (var order in user.Orders.ToList())
+                {
+                    orderList.Add(await _context.Order.FindAsync(order.Id));
+                }
             }
 
             userDb.Orders = orderList;

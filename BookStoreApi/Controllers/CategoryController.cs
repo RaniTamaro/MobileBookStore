@@ -75,9 +75,12 @@ namespace BookStoreApi.Controllers
             var categoryDb = (Category)category;
             categoryDb.MmodifDate = DateTime.Now;
             var bookList = new List<Book>();
-            foreach (var book in category.Books.ToList())
+            if (category.Books != null)
             {
-                bookList.Add(await _context.Book.FindAsync(book.Title));
+                foreach (var book in category.Books)
+                {
+                    bookList.Add(await _context.Book.FindAsync(book.Id));
+                }
             }
 
             categoryDb.Books = bookList;
@@ -114,16 +117,19 @@ namespace BookStoreApi.Controllers
 
             var categoryDb = (Category)category;
             var bookList = new List<Book>();
-            foreach (var book in category.Books?.ToList())
+            if (category.Books != null)
             {
-                if (book.Id != 0)
+                foreach (var book in category.Books)
                 {
-                    bookList.Add(await _context.Book.FindAsync(book.Id));
+                    if (book.Id != 0)
+                    {
+                        bookList.Add(await _context.Book.FindAsync(book.Id));
+                    }
                 }
             }
 
             categoryDb.Books = bookList;
-            _context.Category.Update(categoryDb);
+            _context.Category.Add(categoryDb);
             await _context.SaveChangesAsync();
 
             //return CreatedAtAction("GetCategory", new { id = category.Id }, category);

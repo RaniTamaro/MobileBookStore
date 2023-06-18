@@ -74,18 +74,21 @@ namespace BookStoreApi.Controllers
             var orderDb = (Order)order;
             orderDb.MmodifDate = DateTime.Now;
             var orderBookList = new List<OrderBook>();
-            foreach (var book in order.OrderBook.ToList())
+            if(order.OrderBook != null)
             {
-                var existOrderBook = await _context.OrderBook.Where(x => x.IsActive == true && x.IdOrder == orderDb.Id && x.IdBook == book.Id).FirstOrDefaultAsync();
-                orderBookList.Add(existOrderBook == null ?
-                    new OrderBook
-                    {
-                        IdOrder = orderDb.Id,
-                        Order = orderDb,
-                        IdBook = book.Id,
-                        Book = await _context.Book.FindAsync(book.Id)
-                    }
-                : existOrderBook);
+                foreach (var book in order.OrderBook)
+                {
+                    var existOrderBook = await _context.OrderBook.Where(x => x.IsActive == true && x.IdOrder == orderDb.Id && x.IdBook == book.Id).FirstOrDefaultAsync();
+                    orderBookList.Add(existOrderBook == null ?
+                        new OrderBook
+                        {
+                            IdOrder = orderDb.Id,
+                            Order = orderDb,
+                            IdBook = book.Id,
+                            Book = await _context.Book.FindAsync(book.Id)
+                        }
+                    : existOrderBook);
+                }
             }
 
             orderDb.OrderBooks = orderBookList;
@@ -125,15 +128,18 @@ namespace BookStoreApi.Controllers
             await _context.SaveChangesAsync();
 
             var orderBookList = new List<OrderBook>();
-            foreach (var book in order.OrderBook.ToList())
+            if (order.OrderBook != null)
             {
-                orderBookList.Add(new OrderBook
+                foreach (var book in order.OrderBook)
                 {
-                    IdOrder = orderDb.Id,
-                    Order = orderDb,
-                    IdBook = book.Id,
-                    Book = await _context.Book.FindAsync(book.Id)
-                });
+                    orderBookList.Add(new OrderBook
+                    {
+                        IdOrder = orderDb.Id,
+                        Order = orderDb,
+                        IdBook = book.Id,
+                        Book = await _context.Book.FindAsync(book.Id)
+                    });
+                }
             }
 
             orderDb.OrderBooks = orderBookList;
