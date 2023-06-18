@@ -1,6 +1,8 @@
-﻿using BookStore.ViewModels.Abstract;
+﻿using BookStore.Helpers.Constants;
+using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System;
+using System.Collections.Generic;
 
 namespace BookStore.ViewModels.User
 {
@@ -9,6 +11,7 @@ namespace BookStore.ViewModels.User
         public NewUserViewModel()
             : base()
         {
+            roles = RoleConstants.GetRoles();
         }
 
         #region Fields
@@ -17,6 +20,10 @@ namespace BookStore.ViewModels.User
         private string address = "";
         private string email = "";
         private string phoneNumber = "";
+        private string nickname = "";
+        private string password = "";
+        private string selectedRole = "";
+        private List<string> roles;
         #endregion
 
         #region Properties
@@ -49,6 +56,30 @@ namespace BookStore.ViewModels.User
             get => phoneNumber;
             set => SetProperty(ref phoneNumber, value);
         }
+
+        public string Nickname
+        {
+            get => nickname;
+            set => SetProperty(ref nickname, value);
+        }
+
+        public string Password
+        {
+            get => password;
+            set => SetProperty(ref password, value);
+        }
+
+        public string SelectedRole
+        {
+            get => selectedRole;
+            set => SetProperty(ref selectedRole, value);
+        }
+
+        public List<string> Roles
+        {
+            get => roles;
+            set => SetProperty(ref roles, value);
+        }
         #endregion
 
         public override UserForView SetItem()
@@ -62,7 +93,10 @@ namespace BookStore.ViewModels.User
                 Surname = Surname,
                 Address = Address,
                 Email = Email,
-                PhoneNumber = PhoneNumber
+                PhoneNumber = PhoneNumber,
+                Nickname = Nickname,
+                Password = Password,
+                Role = SelectedRole
             };
         }
 
@@ -71,7 +105,9 @@ namespace BookStore.ViewModels.User
             return !string.IsNullOrEmpty(name)
                 && !string.IsNullOrEmpty(surname)
                 && !string.IsNullOrEmpty(address)
-                && !string.IsNullOrEmpty(email);
+                && !string.IsNullOrEmpty(email)
+                && !string.IsNullOrEmpty(nickname)
+                && !string.IsNullOrEmpty(password);
         }
     }
 }

@@ -12,6 +12,8 @@ namespace BookStore.ViewModels.User
         private string address;
         private string email;
         private string phoneNumber;
+        private string nickname;
+        private string role;
         private List<OrderForView> orders;
         #endregion
 
@@ -46,6 +48,18 @@ namespace BookStore.ViewModels.User
             set => SetProperty(ref phoneNumber, value);
         }
 
+        public string Nickname
+        {
+            get => nickname;
+            set => SetProperty(ref nickname, value);
+        }
+
+        public string Role
+        {
+            get => role;
+            set => SetProperty(ref role, value);
+        }
+
         public List<OrderForView> Orders
         {
             get => orders;
@@ -60,12 +74,14 @@ namespace BookStore.ViewModels.User
 
         public override void LoadProperties(UserForView item)
         {
-            Name = this.Name;
-            Surname = this.Surname;
-            Address = this.Address;
-            Email = this.Email;
-            PhoneNumber = this.PhoneNumber;
-            Orders = this.Orders;
+            Name = Name;
+            Surname = Surname;
+            Address = Address;
+            Email = Email;
+            PhoneNumber = PhoneNumber;
+            Nickname = Nickname;
+            Role = Role;
+            Orders = Orders;
         }
     }
 }
