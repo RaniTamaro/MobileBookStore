@@ -1,12 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookStore.Views.Category.DetailsCategoryPage">
+<ContentPage
+    x:Class="BookStore.Views.Category.DetailsCategoryPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BookStore.ViewModels.Category"
+    xmlns:model="clr-namespace:BookStoreApi"
+    Title="Category"
+    BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="335" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Frame BackgroundColor="White" HorizontalOptions="Center">
+                <StackLayout>
+                    <Label
+                        FontSize="13"
+                        Text="Name"
+                        TextColor="Black" />
+                    <Label
+                        HorizontalOptions="Start"
+                        Text="{Binding Name}"
+                        TextColor="Black" />
+                    <Label
+                        FontSize="13"
+                        Text="Description"
+                        TextColor="Black" />
+                    <Label
+                        HorizontalOptions="Start"
+                        Text="{Binding Description}"
+                        TextColor="Black" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                        </Grid.RowDefinitions>
+                        <Button
+                            Margin="10"
+                            BackgroundColor="#7B82D8"
+                            Command="{Binding CancelCommand}"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            HorizontalOptions="Start"
+                            Text="Cancel"
+                            TextColor="White"
+                            WidthRequest="78" />
+                        <Button
+                            Margin="10"
+                            BackgroundColor="#F87265"
+                            Command="{Binding DeleteCommand}"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            HorizontalOptions="End"
+                            Text="Delete"
+                            TextColor="White"
+                            WidthRequest="98" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

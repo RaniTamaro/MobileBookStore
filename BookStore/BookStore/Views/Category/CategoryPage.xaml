@@ -22,23 +22,27 @@
                         <DataTemplate>
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="200"/>
+                                    <RowDefinition Height="140"/>
                                     <RowDefinition Height="10"/>
                                 </Grid.RowDefinitions>
                                 <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout x:DataType="model:CategoryForView">
                                         <Label Text="Name" TextColor="Black"/>
                                         <Label Text="{Binding Name}" FontSize="16" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
-                                        <Label Text="Description" TextColor="Black"/>
-                                        <Label Text="{Binding Description}" TextColor="#7B82D8"/>
                                         <StackLayout>
                                             <Grid>
                                                 <Grid.RowDefinitions>
                                                     <RowDefinition Height="60"/>
                                                 </Grid.RowDefinitions>
-                                                <Button Text="Edit" BackgroundColor="#707B81" TextColor="White" CornerRadius="18" WidthRequest="78" HeightRequest="38" Margin="10" HorizontalOptions="Start"/>
-                                                <Button Text="Delete" BackgroundColor="#F87265" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="10" HorizontalOptions="End"/>
-                                            </Grid>
+                                                <Button
+                                                    Margin="10"
+                                                    BackgroundColor="#7B82D8"
+                                                    CornerRadius="18"
+                                                    HeightRequest="38"
+                                                    HorizontalOptions="End"
+                                                    Text="More"
+                                                    TextColor="White"
+                                                    WidthRequest="98"/></Grid>
                                         </StackLayout>
                                         <StackLayout.GestureRecognizers>
                                             <TapGestureRecognizer 
