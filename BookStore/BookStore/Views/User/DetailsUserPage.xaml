@@ -27,71 +27,64 @@
                         Text="Name"
                         TextColor="Black" />
                     <Label
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
+                        HorizontalOptions="Start"
                         Text="{Binding Name}"
                         TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                         />
                     <Label
                         FontSize="13"
                         Text="Surname"
                         TextColor="Black" />
                     <Label
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
+                        HorizontalOptions="Start"
                         Text="{Binding Surname}"
                         TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                         />
                     <Label
                         FontSize="13"
                         Text="Role"
                         TextColor="Black" />
                     <Label
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
+                        HorizontalOptions="Start"
                         Text="{Binding Role}"
                         TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                         />
                     <Label
                         FontSize="13"
                         Text="Address"
                         TextColor="Black" />
                     <Label
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
+                        HorizontalOptions="Start"
                         Text="{Binding Address}"
                         TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                         />
                     <Label
                         FontSize="13"
                         Text="Phone number"
                         TextColor="Black" />
                     <Label
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
+                       HorizontalOptions="Start"
                         Text="{Binding PhoneNumber}"
                         TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                         />
                     <Label
                         FontSize="13"
                         Text="E-mail"
                         TextColor="Black" />
                     <Label
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
+                        HorizontalOptions="Start"
                         Text="{Binding Email}"
                         TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                        />
                     <Label
                         FontSize="13"
                         Text="Nickname"
                         TextColor="Black" />
                     <Label
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
+                        HorizontalOptions="Start"
                         Text="{Binding Nickname}"
                         TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                        />
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60" />

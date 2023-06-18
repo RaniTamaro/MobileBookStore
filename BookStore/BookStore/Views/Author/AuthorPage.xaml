@@ -1,89 +1,120 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:BookStore.ViewModels.Author"
-             xmlns:model="clr-namespace:BookStoreApi"
-             x:Class="BookStore.Views.Author.AuthorPage"
-             Title="Authors" BackgroundColor="#F8F4EF">
+<ContentPage
+    x:Class="BookStore.Views.Author.AuthorPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BookStore.ViewModels.Author"
+    xmlns:model="clr-namespace:BookStoreApi"
+    Title="Authors"
+    BackgroundColor="#F8F4EF">
 
     <ContentPage.Content>
         <Grid HorizontalOptions="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="335"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="335" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
-            <RefreshView x:DataType="local:AuthorViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-        <CollectionView x:Name="ItemsListView"
-                ItemsSource="{Binding Items}"
-                SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="10"/>
-                        </Grid.RowDefinitions>
-                        <Frame BackgroundColor="White" CornerRadius="20">
-                        <StackLayout Padding="10" x:DataType="model:AuthorForView">
-                            <Label Text="{Binding Id}" 
-                                FormattedText="{Binding Id, StringFormat='#{0}'}"
-                                LineBreakMode="NoWrap" 
-                                TextColor="Black"
-                                FontSize="12" />
-                            <Label Text="{Binding Name}" 
-                                LineBreakMode="NoWrap" 
-                                TextColor="Black"
-                                FontSize="16" />
-                            <Label Text="{Binding Surname}" 
-                                LineBreakMode="NoWrap"
-                                TextColor="Black"
-                                FontSize="16" />
-                            <Label Text="{Binding Nickname}" 
-                                LineBreakMode="NoWrap"
-                                TextColor="Black"
-                                FontSize="13" />
-                            <!--<Label Text="Books" FontSize="Medium" />-->
-                            <!--<ListView ItemsSource="{Binding Books}">
-                                <ListView.ItemTemplate>
-                                    <DataTemplate>
-                                        <ViewCell>
-                                            <StackLayout>
-                                                --><!-- Define the appearance of each book item in the ListView -->
-                                                <!-- For example, display the book title --><!--
-                                                <Label Text="{Binding Name}" />
-                                            </StackLayout>
-                                        </ViewCell>
-                                    </DataTemplate>
-                                </ListView.ItemTemplate>
-                            </ListView>-->
-                            <StackLayout>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="60"/>
-                                    </Grid.RowDefinitions>
-                                    <Button Text="More" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="10" HorizontalOptions="End"/>
-                                 </Grid>
-                            </StackLayout>
-                        <StackLayout.GestureRecognizers>
-                            <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:AuthorViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                            </TapGestureRecognizer>
-                        </StackLayout.GestureRecognizers>
-                    </StackLayout>
-                    </Frame>
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        </RefreshView>
+            <RefreshView
+                x:DataType="local:AuthorViewModel"
+                Command="{Binding LoadItemsCommand}"
+                IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                <CollectionView
+                    x:Name="ItemsListView"
+                    ItemsSource="{Binding Items}"
+                    SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="10" />
+                                </Grid.RowDefinitions>
+                                <Frame BackgroundColor="White" CornerRadius="20">
+                                    <StackLayout Padding="10" x:DataType="model:AuthorForView">
+                                        <Label
+                                            FontSize="12"
+                                            FormattedText="{Binding Id, StringFormat='# {0}'}"
+                                            LineBreakMode="NoWrap"
+                                            Text="{Binding Id}"
+                                            TextColor="Black" />
+                                        <Label Text="Name" TextColor="Black" />
+                                        <Label
+                                            FontSize="16"
+                                            LineBreakMode="NoWrap"
+                                            Text="{Binding Name}"
+                                            TextColor="#7B82D8" />
+                                        <Label Text="Surname" TextColor="Black" />
+                                        <Label
+                                            FontSize="16"
+                                            LineBreakMode="NoWrap"
+                                            Text="{Binding Surname}"
+                                            TextColor="#7B82D8" />
+                                        <Label Text="Nickname" TextColor="Black" />
+                                        <Label
+                                            FontSize="13"
+                                            LineBreakMode="NoWrap"
+                                            Text="{Binding Nickname}"
+                                            TextColor="#7B82D8" />
+                                        <Label FontSize="Medium" Text="Books" />
+                                        <!--<ListView ItemsSource="{Binding Books}">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <ViewCell>
+                                                        <StackLayout>
+
+                                                            --><!--
+                                                                Define the appearance of each book item in the ListView
+                                                                For example, display the book title
+                                                            --><!--
+
+                                                            <Label Text="{Binding Name}" />
+                                                        </StackLayout>
+                                                    </ViewCell>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>-->
+                                        <StackLayout>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="60" />
+                                                </Grid.RowDefinitions>
+                                                <Button
+                                                    Margin="10"
+                                                    BackgroundColor="#7B82D8"
+                                                    CornerRadius="18"
+                                                    HeightRequest="38"
+                                                    HorizontalOptions="End"
+                                                    Text="More"
+                                                    TextColor="White"
+                                                    WidthRequest="98" />
+                                            </Grid>
+                                        </StackLayout>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:AuthorViewModel}}, Path=ItemTapped}"
+                                                CommandParameter="{Binding .}"
+                                                NumberOfTapsRequired="1" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
             <AbsoluteLayout Grid.Column="1">
-                <Button Text="Add new" FontSize="16" TextTransform="Uppercase" FontAttributes="Bold" BackgroundColor="{StaticResource LightFiolet}" CornerRadius="18"
-                 AbsoluteLayout.LayoutFlags="PositionProportional"
-                 AbsoluteLayout.LayoutBounds=".90,.95,100,48" Command="{Binding AddItemCommand}"/>
+                <Button
+                    AbsoluteLayout.LayoutBounds=".90,.95,100,48"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    BackgroundColor="{StaticResource LightFiolet}"
+                    Command="{Binding AddItemCommand}"
+                    CornerRadius="18"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="Add new"
+                    TextTransform="Uppercase" />
             </AbsoluteLayout>
-            <!-- Clicked="" i zamknąć ImageButton"-->
+            <!--  Clicked="" i zamknąć ImageButton"  -->
         </Grid>
     </ContentPage.Content>
 </ContentPage>
