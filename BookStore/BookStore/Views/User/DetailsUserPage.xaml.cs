@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BookStore.ViewModels.User;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.User
 {
-    //TODO: Zrobić front + podpiąć model
+    //TODO: Zrobić front
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailsUserPage : ContentPage
     {
         public DetailsUserPage()
         {
             InitializeComponent();
+            BindingContext = new DetailsUserViewModel();
         }
     }
 }

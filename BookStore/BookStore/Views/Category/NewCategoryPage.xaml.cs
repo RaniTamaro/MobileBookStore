@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BookStore.ViewModels.Category;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.Category
 {
-    //TODO: Zrobić front + podpiąć model
+    //TODO: Zrobić front
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewCategoryPage : ContentPage
     {
+        public BookStoreApi.CategoryForView Item { get; set; }
+
         public NewCategoryPage()
         {
             InitializeComponent();
+            BindingContext = new NewCategoryViewModel();
         }
     }
 }

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BookStore.Views.Genre.NewGenrePage"
+             Shell.PresentationMode="ModalAnimated"
              Title="New genre"
               BackgroundColor="#F8F4EF">
     <ContentPage.Content>
@@ -13,7 +14,7 @@
             <StackLayout >
                 <Label Text="Name" FontSize="13" TextColor="Black"/>
                 <Entry
-                            Text="{Binding}"
+                            Text="{Binding Name, Mode=TwoWay}"
                             TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"
@@ -21,7 +22,7 @@
                 </Entry>
                 <Label Text="Description" FontSize="13" TextColor="Black"/>
                 <Entry 
-                            Text="{Binding}"
+                            Text="{Binding Description, Mode=TwoWay}"
                             TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand"

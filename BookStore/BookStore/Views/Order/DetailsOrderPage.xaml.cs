@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BookStore.ViewModels.Order;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,6 +13,7 @@ namespace BookStore.Views.Order
         public DetailsOrderPage()
         {
             InitializeComponent();
+            BindingContext = new DetailsOrderViewModel();
         }
     }
 }

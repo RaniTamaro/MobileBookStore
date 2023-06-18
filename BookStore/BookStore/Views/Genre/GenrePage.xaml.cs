@@ -1,18 +1,10 @@
-﻿using BookStore.ViewModels.Abstract;
-using BookStore.ViewModels.Author;
-using BookStore.ViewModels.Genre;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BookStore.ViewModels.Genre;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.Genre
 {
-    //TODO: Zrobić front + podpiąć model
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GenrePage : ContentPage
     {

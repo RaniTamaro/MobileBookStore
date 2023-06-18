@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BookStore.ViewModels.Abstract;
+using BookStore.ViewModels.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,13 +11,22 @@ using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.User
 {
-    //TODO: Zrobić front + podpiąć model
+    //TODO: Zrobić front
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserPage : ContentPage
     {
+        private UserViewModel _viewModel;
+
         public UserPage()
         {
             InitializeComponent();
+            BindingContext = _viewModel = new UserViewModel();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            _viewModel.OnAppearing();
         }
     }
 }
