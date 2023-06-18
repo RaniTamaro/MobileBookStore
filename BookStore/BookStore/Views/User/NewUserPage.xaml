@@ -26,14 +26,11 @@
                             VerticalOptions="CenterAndExpand"
                             BackgroundColor="White">
                     </Entry>
-                    <Label Text="Role" FontSize="13" TextColor="Black"/>
-                    <Entry 
-                            Text="{Binding Role}"
-                            TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White">
-                    </Entry>
+                    <Picker Title="Role" TitleColor="Black" TextColor="White" BackgroundColor="#7B82D8" SelectedItem="{Binding SelectedRole}">
+                        <Picker.ItemsSource>
+                            <Binding Path="Roles" />
+                        </Picker.ItemsSource>
+                    </Picker>
                     <Label Text="Address" FontSize="13" TextColor="Black"/>
                     <Entry 
                             Text="{Binding Address}"
