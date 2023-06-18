@@ -51,7 +51,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Author");
+                    b.ToTable("Author", (string)null);
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.Book", b =>
@@ -96,7 +96,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasIndex("IdCategory");
 
-                    b.ToTable("Book");
+                    b.ToTable("Book", (string)null);
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.BookGenre", b =>
@@ -128,7 +128,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasIndex("IdGenre");
 
-                    b.ToTable("BookGenre");
+                    b.ToTable("BookGenre", (string)null);
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.Category", b =>
@@ -157,7 +157,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Category");
+                    b.ToTable("Category", (string)null);
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.Genre", b =>
@@ -186,7 +186,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Genre");
+                    b.ToTable("Genre", (string)null);
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.Order", b =>
@@ -233,7 +233,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasIndex("IdUser");
 
-                    b.ToTable("Order");
+                    b.ToTable("Order", (string)null);
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.OrderBook", b =>
@@ -265,7 +265,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasIndex("IdOrder");
 
-                    b.ToTable("OrderBook");
+                    b.ToTable("OrderBook", (string)null);
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.Report", b =>
@@ -295,7 +295,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Report");
+                    b.ToTable("Report", (string)null);
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.Review", b =>
@@ -338,7 +338,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasIndex("IdUser");
 
-                    b.ToTable("Review");
+                    b.ToTable("Review", (string)null);
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.User", b =>
@@ -391,7 +391,7 @@ namespace BookStoreApi.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("User", (string)null);
                 });
 
             modelBuilder.Entity("BookStoreApi.Models.Book", b =>

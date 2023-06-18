@@ -14,7 +14,7 @@ namespace BookStoreApi.ViewModels
         public string Nickname { get; set; }
         public string Password { get; set; }
         public string Role { get; set; }
-        public virtual ICollection<OrderForView> Orders { get; set; }
+        public virtual ICollection<OrderForView>? Orders { get; set; }
 
         public static explicit operator User(UserForView forView)
         {
