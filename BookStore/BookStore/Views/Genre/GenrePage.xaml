@@ -1,51 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:BookStore.ViewModels.Genre"
-             xmlns:model="clr-namespace:BookStoreApi"
-             x:Class="BookStore.Views.Genre.GenrePage"
-             Title="Genres"
-              BackgroundColor="#F8F4EF">
+<ContentPage
+    x:Class="BookStore.Views.Genre.GenrePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BookStore.ViewModels.Genre"
+    xmlns:model="clr-namespace:BookStoreApi"
+    Title="Genres"
+    BackgroundColor="#F8F4EF">
     <ContentPage.Content>
 
         <Grid HorizontalOptions="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="335"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="335" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
-            <RefreshView x:DataType="local:GenreViewModel" Command="{Binding LoadItemsCommand}"  IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-                <CollectionView 
-                            x:Name="ItemsListView"
-                            ItemsSource="{Binding Items}"
-                            SelectionMode="None">
+            <RefreshView
+                x:DataType="local:GenreViewModel"
+                Command="{Binding LoadItemsCommand}"
+                IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                <CollectionView
+                    x:Name="ItemsListView"
+                    ItemsSource="{Binding Items}"
+                    SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="200"/>
-                                    <RowDefinition Height="10"/>
+                                    <RowDefinition Height="140" />
+                                    <RowDefinition Height="10" />
                                 </Grid.RowDefinitions>
                                 <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout x:DataType="model:Genre">
-                                        <Label Text="Name" TextColor="Black"/>
-                                        <Label Text="{Binding Name}" FontSize="16" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
-                                        <Label Text="Description" TextColor="Black"/>
-                                        <Label Text="{Binding Description}" TextColor="#7B82D8"/>
+                                        <Label Text="Name" TextColor="Black" />
+                                        <Label
+                                            FontFamily="Roboto"
+                                            FontSize="16"
+                                            Text="{Binding Name}"
+                                            TextColor="#7B82D8"
+                                            TextTransform="Uppercase" />
+
                                         <StackLayout>
                                             <Grid>
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition Height="60"/>
+                                                    <RowDefinition Height="60" />
                                                 </Grid.RowDefinitions>
-                                                <Button Text="Edit" BackgroundColor="#707B81" TextColor="White" CornerRadius="18" WidthRequest="78" HeightRequest="38" Margin="10" HorizontalOptions="Start"/>
-                                                <Button Text="Delete" BackgroundColor="#F87265" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="10" HorizontalOptions="End"/>
+                                                <Button
+                                                    Margin="10"
+                                                    BackgroundColor="#7B82D8"
+                                                    CornerRadius="18"
+                                                    HeightRequest="38"
+                                                    HorizontalOptions="End"
+                                                    Text="More"
+                                                    TextColor="White"
+                                                    WidthRequest="98"/>
                                             </Grid>
                                         </StackLayout>
                                         <StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer 
-                                                NumberOfTapsRequired="1"
-                                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:GenreViewModel}}, Path=ItemTapped}"		
-                                                CommandParameter="{Binding .}">
-                                            </TapGestureRecognizer>
+                                            <TapGestureRecognizer
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:GenreViewModel}}, Path=ItemTapped}"
+                                                CommandParameter="{Binding .}"
+                                                NumberOfTapsRequired="1" />
                                         </StackLayout.GestureRecognizers>
                                     </StackLayout>
                                 </Frame>
@@ -55,11 +69,18 @@
                 </CollectionView>
             </RefreshView>
             <AbsoluteLayout Grid.Column="1">
-                <Button Text="Add new" FontSize="16" TextTransform="Uppercase" FontAttributes="Bold" BackgroundColor="{StaticResource LightFiolet}" CornerRadius="18"
-                 AbsoluteLayout.LayoutFlags="PositionProportional"
-                 AbsoluteLayout.LayoutBounds=".90,.95,100,48" Command="{Binding AddItemCommand}"/>
+                <Button
+                    AbsoluteLayout.LayoutBounds=".90,.95,100,48"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    BackgroundColor="{StaticResource LightFiolet}"
+                    Command="{Binding AddItemCommand}"
+                    CornerRadius="18"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="Add new"
+                    TextTransform="Uppercase" />
             </AbsoluteLayout>
-            
+
             <!--</Frame>-->
 
             <!--<Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
@@ -73,7 +94,7 @@
                             BackgroundColor="White">
                         </Entry>
                         <Label Text="Description" FontSize="13" TextColor="Black"/>
-                        <Entry 
+                        <Entry
                             Text="{Binding}"
                             TextColor="Black"
                             HorizontalOptions="FillAndExpand"
