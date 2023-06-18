@@ -26,7 +26,7 @@ namespace BookStoreApi.ViewModels
         {
             var result = new UserForView
             {
-                Orders = entity.Orders.Select(x => (OrderForView)x).ToList()
+                Orders = entity.Orders?.Select(x => (OrderForView)x).ToList()
             }
             .CopyProperties(entity);
             return result;

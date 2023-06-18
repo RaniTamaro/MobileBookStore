@@ -107,19 +107,23 @@ namespace BookStoreApi.Controllers
         [HttpPost]
         public async Task<ActionResult<CategoryForView>> PostCategory(CategoryForView category)
         {
-          if (_context.Category == null)
-          {
-              return Problem("Entity set 'BookStoreContext.Category'  is null.");
-          }
+            if (_context.Category == null)
+            {
+                return Problem("Entity set 'BookStoreContext.Category'  is null.");
+            }
+
             var categoryDb = (Category)category;
             var bookList = new List<Book>();
-            foreach (var book in category.Books.ToList())
+            foreach (var book in category.Books?.ToList())
             {
-                bookList.Add(await _context.Book.FindAsync(book.Title));
+                if (book.Id != 0)
+                {
+                    bookList.Add(await _context.Book.FindAsync(book.Id));
+                }
             }
 
             categoryDb.Books = bookList;
-            _context.Category.Add(categoryDb);
+            _context.Category.Update(categoryDb);
             await _context.SaveChangesAsync();
 
             //return CreatedAtAction("GetCategory", new { id = category.Id }, category);
