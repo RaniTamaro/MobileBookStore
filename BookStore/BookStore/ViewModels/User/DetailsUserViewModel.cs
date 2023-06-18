@@ -1,6 +1,7 @@
 ﻿using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BookStore.ViewModels.User
 {
@@ -74,14 +75,14 @@ namespace BookStore.ViewModels.User
 
         public override void LoadProperties(UserForView item)
         {
-            Name = Name;
-            Surname = Surname;
-            Address = Address;
-            Email = Email;
-            PhoneNumber = PhoneNumber;
-            Nickname = Nickname;
-            Role = Role;
-            Orders = Orders;
+            Name = item.Name;
+            Surname = item.Surname;
+            Address = item.Address;
+            Email = item.Email;
+            PhoneNumber = item.PhoneNumber;
+            Nickname = item.Nickname;
+            Role = item.Role;
+            Orders = item.Orders.ToList();
         }
     }
 }
