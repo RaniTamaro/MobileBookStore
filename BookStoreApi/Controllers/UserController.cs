@@ -57,7 +57,7 @@ namespace BookStoreApi.Controllers
                 return NotFound();
             }
             var user = await _context.User
-                .Where(x => x.IsActive == true)
+                .Where(x => x.IsActive == true && x.Id == id)
                 .Include(x => x.Orders)
                 .FirstOrDefaultAsync();
 
