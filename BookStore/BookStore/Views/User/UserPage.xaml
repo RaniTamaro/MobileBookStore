@@ -1,42 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:BookStore.ViewModels.User"
-             xmlns:model="clr-namespace:BookStoreApi"
-             x:Class="BookStore.Views.User.UserPage"
-             Title="Users"
-             BackgroundColor="#F8F4EF"
-             >
+<ContentPage
+    x:Class="BookStore.Views.User.UserPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BookStore.ViewModels.User"
+    xmlns:model="clr-namespace:BookStoreApi"
+    Title="Users"
+    BackgroundColor="#F8F4EF">
     <ContentPage.Content>
         <Grid HorizontalOptions="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="335"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="335" />
+                <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
-            <RefreshView x:DataType="local:UserViewModel" Command="{Binding LoadItemsCommand}"  IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-                <CollectionView 
-                            x:Name="ItemsListView"
-                            ItemsSource="{Binding Items}"
-                            SelectionMode="None">
+            <RefreshView
+                x:DataType="local:UserViewModel"
+                Command="{Binding LoadItemsCommand}"
+                IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                <CollectionView
+                    x:Name="ItemsListView"
+                    ItemsSource="{Binding Items}"
+                    SelectionMode="None">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="240"/>
-                                    <RowDefinition Height="10"/>
+                                    <RowDefinition Height="240" />
+                                    <RowDefinition Height="10" />
                                 </Grid.RowDefinitions>
                                 <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout x:DataType="model:UserForView">
-                                        <Label Text="Name" TextColor="Black"/>
-                                        <Label Text="{Binding Name}" FontSize="16" TextColor="#7B82D8" FontFamily="Roboto"/>
-                                        <Label Text="Surname" TextColor="Black"/>
-                                        <Label Text="{Binding Surname}" TextColor="#7B82D8"/>
-                                        <Label Text="Role" TextColor="Black"/>
-                                        <Label Text="{Binding Role}" TextColor="#7B82D8"/>
+                                        <Label Text="Name" TextColor="Black" />
+                                        <Label
+                                            FontFamily="Roboto"
+                                            FontSize="16"
+                                            Text="{Binding Name}"
+                                            TextColor="#7B82D8" />
+                                        <Label Text="Surname" TextColor="Black" />
+                                        <Label Text="{Binding Surname}" TextColor="#7B82D8" />
+                                        <Label Text="Role" TextColor="Black" />
+                                        <Label Text="{Binding Role}" TextColor="#7B82D8" />
                                         <StackLayout>
                                             <Grid>
                                                 <Grid.RowDefinitions>
-                                                    <RowDefinition Height="60"/>
+                                                    <RowDefinition Height="60" />
                                                 </Grid.RowDefinitions>
                                                 <Button
                                                     Margin="10"
@@ -46,15 +53,14 @@
                                                     HorizontalOptions="End"
                                                     Text="More"
                                                     TextColor="White"
-                                                    WidthRequest="98"/>
+                                                    WidthRequest="98" />
                                             </Grid>
                                         </StackLayout>
                                         <StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer 
-                                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserViewModel}}, Path=ItemTapped}"		
+                                            <TapGestureRecognizer
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:UserViewModel}}, Path=ItemTapped}"
                                                 CommandParameter="{Binding .}"
-                                                NumberOfTapsRequired="1">
-                                            </TapGestureRecognizer>
+                                                NumberOfTapsRequired="1" />
                                         </StackLayout.GestureRecognizers>
                                     </StackLayout>
                                 </Frame>
@@ -64,270 +70,17 @@
                 </CollectionView>
             </RefreshView>
             <AbsoluteLayout Grid.Column="1">
-                <Button Text="Add new" FontSize="16" TextTransform="Uppercase" FontAttributes="Bold" BackgroundColor="{StaticResource LightFiolet}" CornerRadius="18"
-                 AbsoluteLayout.LayoutFlags="PositionProportional"
-                 AbsoluteLayout.LayoutBounds=".90,.95,100,48" Command="{Binding AddItemCommand}"/>
+                <Button
+                    AbsoluteLayout.LayoutBounds=".90,.95,100,48"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    BackgroundColor="{StaticResource LightFiolet}"
+                    Command="{Binding AddItemCommand}"
+                    CornerRadius="18"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="Add new"
+                    TextTransform="Uppercase" />
             </AbsoluteLayout>
-            <!--<ScrollView HorizontalOptions="Center">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="335"/>
-                    <ColumnDefinition Width="auto" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-                <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="White">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Label Text="Name: " TextColor="Black" Grid.Column="0" Grid.Row="0"/>
-                        <Label Text="{Binding}" Grid.Column="0" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
-                        <Label Text="Surname: " TextColor="Black" Grid.Column="0" Grid.Row="1"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"/>
-                        <Label Text="Role: " TextColor="Black" Grid.Row="2"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start"/>
-                        <Button Text="MORE" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="15" WidthRequest="64" HeightRequest="32" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
-                    </Grid>
-                </Frame>
-                <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Label Text="Name: " TextColor="Black" Grid.Column="0" Grid.Row="0"/>
-                        <Label Text="{Binding}" Grid.Column="0" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
-                        <Label Text="Surname: " TextColor="Black" Grid.Column="0" Grid.Row="1"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"/>
-                        <Label Text="Address: " TextColor="Black" Grid.Row="2"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start"/>
-                        <Label Text="Phone number:" TextColor="Black" Grid.Row="3"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start"/>
-                        <Label Text="Email:" TextColor="Black" Grid.Row="4"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="4" HorizontalOptions="Start"/>
-                        <Label Text="Nickname:" TextColor="Black" Grid.Row="5"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="5" HorizontalOptions="Start"/>
-                        <Label Text="Role:" TextColor="Black" Grid.Row="6"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="6" HorizontalOptions="Start"/>
-                        <Button Text="EDIT" BackgroundColor="#707B81" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
-                        <Button Text="DELETE" BackgroundColor="#F87265" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
-                    </Grid>
-                </Frame>
-                <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="White">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Label Text="Name" FontSize="13" HorizontalOptions="Start" TextColor="Black" Grid.Column="0" Grid.Row="0"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Surname" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="2"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Address" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="4"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Phone number" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="6"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="E-mail" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="8"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Nickname" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="10"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Password" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="12"/>
-                        <Entry Text="{Binding}"
-                               IsPassword="True"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Role" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="14"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="15" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
-                        <Button Text="Save" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
-                    </Grid>
-                </Frame>
-                <Frame Grid.Column="1" Grid.Row="3" BackgroundColor="White">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Label Text="Name" FontSize="13" HorizontalOptions="Start" TextColor="Black" Grid.Column="0" Grid.Row="0"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Surname" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="2"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Address" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="4"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Phone number" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="6"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="E-mail" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="8"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Nickname" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="10"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Password" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="12"/>
-                        <Entry Text="{Binding}"
-                               IsPassword="True"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="13" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Role" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="14"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="15" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
-                        <Button Text="Add user" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="0, 10" Grid.Row="16" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
-                    </Grid>
-                </Frame>
-            </Grid>
-        </ScrollView>-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>
