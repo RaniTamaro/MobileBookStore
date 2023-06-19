@@ -1,211 +1,119 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookStore.Views.Book.BookPage"
-             BackgroundColor="#F8F4EF"
-             >
+<ContentPage
+    x:Class="BookStore.Views.Book.BookPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BookStore.ViewModels.Book"
+    xmlns:model="clr-namespace:BookStoreApi"
+    Title="{Binding Title}"
+    BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <ScrollView HorizontalOptions="Center">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40"/>
-                <ColumnDefinition Width="335"/>
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
-                <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="White">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <!-- Title -->
-                        <Label Text="{Binding}" Grid.Column="0" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
-                        <Label Text="Author: " TextColor="Black" Grid.Column="0" Grid.Row="1"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"/>
-                        <Label Text="Publishing house: " TextColor="Black" Grid.Row="2"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start"/>
-                        <Label Text="Category:" TextColor="Black" Grid.Row="3"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start"/>
-                        <Label Text="Price:" TextColor="Black" Grid.Row="4"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="4" HorizontalOptions="Start"/>
-                        <Button Text="MORE" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="15" WidthRequest="64" HeightRequest="32" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
-                    </Grid>
-                </Frame>
-                <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <!-- Title -->
-                        <Label Text="{Binding}" Grid.Column="0" FontAttributes="Bold" FontSize="18" TextColor="#7B82D8" TextTransform="Uppercase" FontFamily="Roboto"/>
-                        <Label Text="Author: " TextColor="Black" Grid.Column="0" Grid.Row="1"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"/>
-                        <Label Text="Publishing house: " TextColor="Black" Grid.Row="2"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start"/>
-                        <Label Text="Category:" TextColor="Black" Grid.Row="3"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start"/>
-                        <Label Text="Price:" TextColor="Black" Grid.Row="4"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="4" HorizontalOptions="Start"/>
-                        <Label Text="Description:" TextColor="Black" Grid.Row="5"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="5" HorizontalOptions="Start"/>
-                        <Button Text="EDIT" BackgroundColor="#707B81" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
-                        <Button Text="DELETE" BackgroundColor="#F87265" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
-                    </Grid>
-                </Frame>
-                <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="White">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Label Text="Title" FontSize="13" HorizontalOptions="Start" TextColor="Black" Grid.Column="0" Grid.Row="0"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Author" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="2"/>
-                        <Picker Title="{Binding}" TextColor="Black" BackgroundColor="#7B82D8" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4">
-                            <Picker.Items>
-                                <x:String>Will Smith</x:String>
-                            </Picker.Items>
-                        </Picker>
-                        <Label Text="Publishing house" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="4"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Category" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="6"/>
-                        <Picker Title="{Binding}" TextColor="Black" BackgroundColor="#7B82D8" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="4">
-                            <Picker.Items>
-                                <x:String>Will Smith</x:String>
-                            </Picker.Items>
-                        </Picker>
-                        <Label Text="Price" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="8"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Description" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="10"/>
-                        <Editor HeightRequest="150" VerticalOptions="StartAndExpand" BackgroundColor="White" TextColor="Black"  Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="4"/>
-                        <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
-                        <Button Text="Save" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
-                    </Grid>
-                </Frame>
-                <Frame Grid.Column="1" Grid.Row="3" BackgroundColor="White">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Label Text="Title" FontSize="13" HorizontalOptions="Start" TextColor="Black" Grid.Column="0" Grid.Row="0"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Author" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="2"/>
-                        <Picker Title="{Binding}" TextColor="Black" BackgroundColor="#7B82D8" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="4">
-                            <Picker.Items>
-                                <x:String>Will Smith</x:String>
-                            </Picker.Items>
-                        </Picker>
-                        <Label Text="Publishing house" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="4"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Category" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="6"/>
-                        <Picker Title="{Binding}" TextColor="Black" BackgroundColor="#7B82D8" Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="4">
-                            <Picker.Items>
-                                <x:String>Will Smith</x:String>
-                            </Picker.Items>
-                        </Picker>
-                        <Label Text="Price" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="8"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="4">
-                        </Entry>
-                        <Label Text="Description" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="10"/>
-                        <Editor HeightRequest="150" VerticalOptions="StartAndExpand" BackgroundColor="White" TextColor="Black"  Grid.Column="0" Grid.Row="11" Grid.ColumnSpan="4"/>
-                        <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
-                        <Button Text="Add book" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="0, 10" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
-                    </Grid>
-                </Frame>
-            </Grid>
-        </ScrollView>
+        <RefreshView x:DataType="local:BookViewModel" Command="{Binding LoadItemsCommand}"  IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+            <CollectionView 
+                            x:Name="ItemsListView"
+                            ItemsSource="{Binding Items}"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="335" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Frame
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BackgroundColor="White">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                    </Grid.RowDefinitions>
+                                    <StackLayout x:DataType="model:BookForView">
+                                        <!--  Title  -->
+                                        <Label
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                FontFamily="Roboto"
+                                FontSize="18"
+                                Text="{Binding Title}"
+                                TextColor="#7B82D8"
+                                TextTransform="Uppercase" />
+                                        <Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                Text="Author: "
+                                TextColor="Black" />
+                                        <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Text="{Binding AuthorName}"
+                                TextColor="Black" />
+                                        <Label
+                                Grid.Row="2"
+                                Text="Publishing house: "
+                                TextColor="Black" />
+                                        <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Text="{Binding PublishingHouse}"
+                                TextColor="Black" />
+                                        <Label
+                                Grid.Row="3"
+                                Text="Category:"
+                                TextColor="Black" />
+                                        <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Text="{Binding CategoryName}"
+                                TextColor="Black" />
+                                        <Label
+                                Grid.Row="4"
+                                Text="Price:"
+                                TextColor="Black" />
+                                        <Label
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Text="{Binding Price}"
+                                TextColor="Black" />
+                                        <Button
+                                Grid.Row="5"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="4"
+                                BackgroundColor="#7B82D8"
+                                CornerRadius="15"
+                                HeightRequest="32"
+                                HorizontalOptions="End"
+                                Text="MORE"
+                                TextColor="White"
+                                WidthRequest="64" />
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
     </ContentPage.Content>
-
 </ContentPage>
