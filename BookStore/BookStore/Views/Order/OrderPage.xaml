@@ -1,218 +1,504 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookStore.Views.Order.OrderPage"
-             BackgroundColor="#F8F4EF">
+<ContentPage
+    x:Class="BookStore.Views.Order.OrderPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BookStore.ViewModels.Order"
+    BackgroundColor="#F8F4EF">
     <ContentPage.Content>
         <ScrollView HorizontalOptions="Center">
+            <StackLayout>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="335"/>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="335" />
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
-                <Frame Grid.Column="1" Grid.Row="0" BackgroundColor="White">
+                <Frame
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    BackgroundColor="White">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="0"/>
-                        <Label Text="Order date: " TextColor="Black" Grid.Column="0" Grid.Row="1"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"/>
-                        <Label Text="Status: " TextColor="Black" Grid.Row="2"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start"/>
-                        <Label Text="Customer:" TextColor="Black" Grid.Row="3"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start"/>
-                        <Label Text="Total:" TextColor="Black" Grid.Row="4"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="4" HorizontalOptions="Start"/>
-                        <Button Text="MORE" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="15" WidthRequest="64" HeightRequest="32" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
+                        <Label
+                            Grid.Column="0"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Text="Order date: "
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            HorizontalOptions="Start"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="2"
+                            Text="Status: "
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            HorizontalOptions="Start"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="3"
+                            Text="Customer:"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            HorizontalOptions="Start"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="4"
+                            Text="Total:"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            HorizontalOptions="Start"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Button
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            BackgroundColor="#7B82D8"
+                            CornerRadius="15"
+                            HeightRequest="32"
+                            HorizontalOptions="End"
+                            Text="MORE"
+                            TextColor="White"
+                            WidthRequest="64" />
                     </Grid>
                 </Frame>
 
-                <Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
+                <Frame
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    BackgroundColor="White">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="0"/>
-                        <Label Text="Order date: " TextColor="Black" Grid.Column="0" Grid.Row="1"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"/>
-                        <Label Text="Status: " TextColor="Black" Grid.Row="2"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start"/>
-                        <Label Text="Address:" TextColor="Black" Grid.Row="3"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start"/>
-                        <Label Text="Customer:" TextColor="Black" Grid.Row="4"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start"/>
-                        <Label Text="Tracking number:" TextColor="Black" Grid.Row="5"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="5" HorizontalOptions="Start"/>
-                        <Label Text="Total:" TextColor="Black" Grid.Row="6"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="6" HorizontalOptions="Start"/>
-                        <Button Text="EDIT" BackgroundColor="#707B81" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
-                        <Button Text="DELETE" BackgroundColor="#F87265" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
+                        <Label
+                            Grid.Column="0"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Text="Order date: "
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            HorizontalOptions="Start"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="2"
+                            Text="Status: "
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            HorizontalOptions="Start"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="3"
+                            Text="Address:"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            HorizontalOptions="Start"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="4"
+                            Text="Customer:"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            HorizontalOptions="Start"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="5"
+                            Text="Tracking number:"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            HorizontalOptions="Start"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="6"
+                            Text="Total:"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            HorizontalOptions="Start"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Button
+                            Grid.Row="7"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Margin="0,10"
+                            BackgroundColor="#707B81"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            HorizontalOptions="Start"
+                            Text="EDIT"
+                            TextColor="White"
+                            WidthRequest="68" />
+                        <Button
+                            Grid.Row="7"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Margin="0,10"
+                            BackgroundColor="#F87265"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            HorizontalOptions="End"
+                            Text="DELETE"
+                            TextColor="White"
+                            WidthRequest="68" />
                     </Grid>
                 </Frame>
-                <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="White">
+                <Frame
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    BackgroundColor="White">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="auto" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="auto" />
                         </Grid.RowDefinitions>
-                        <Label Text="Order" FontSize="16" HorizontalOptions="Center" TextColor="#7B82D8" TextTransform="Uppercase" Grid.Column="0" Grid.Row="0"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="0"/>
-                        <Label Text="Order date" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="1"/>
-                        <DatePicker Grid.Column="0" Grid.Row="2"></DatePicker>
-                        <Label Text="Status" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="3"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            Text="Order"
+                            TextColor="#7B82D8"
+                            TextTransform="Uppercase" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Order date"
+                            TextColor="Black" />
+                        <DatePicker Grid.Row="2" Grid.Column="0" />
+                        <Label
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Status"
+                            TextColor="Black" />
+                        <Entry
+                            Grid.Row="4"
+                            Grid.Column="0"
                             BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="4">
-                        </Entry>
-                        <Label Text="Address" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="5"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
                             HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
+                            Text="{Binding}"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand" />
+                        <Label
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Address"
+                            TextColor="Black" />
+                        <Entry
+                            Grid.Row="6"
+                            Grid.Column="0"
                             BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="6">
-                        </Entry>
-                        <Label Text="Customer" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="7"/>
-                        <Picker Title="{Binding}" TextColor="Black" BackgroundColor="#7B82D8" Grid.Column="0" Grid.Row="8">
+                            HorizontalOptions="FillAndExpand"
+                            Text="{Binding}"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand" />
+                        <Label
+                            Grid.Row="7"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Customer"
+                            TextColor="Black" />
+                        <Picker
+                            Title="{Binding}"
+                            Grid.Row="8"
+                            Grid.Column="0"
+                            BackgroundColor="#7B82D8"
+                            TextColor="Black">
                             <Picker.Items>
                                 <x:String>Will Smith</x:String>
                             </Picker.Items>
                         </Picker>
-                        <Label Text="Tracking number" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="9"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
+                        <Label
+                            Grid.Row="9"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Tracking number"
+                            TextColor="Black" />
+                        <Entry
+                            Grid.Row="10"
+                            Grid.Column="0"
                             BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="10">
-                        </Entry>
-                        <Label Text="Total" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="11"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
                             HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
+                            Text="{Binding}"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand" />
+                        <Label
+                            Grid.Row="11"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Total"
+                            TextColor="Black" />
+                        <Entry
+                            Grid.Row="12"
+                            Grid.Column="0"
                             BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="12">
-                        </Entry>
-                        <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
-                        <Button Text="Save" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
+                            HorizontalOptions="FillAndExpand"
+                            Text="{Binding}"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand" />
+                        <Button
+                            Grid.Row="13"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Margin="0,10"
+                            BackgroundColor="#7B82D8"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            HorizontalOptions="Start"
+                            Text="Back"
+                            TextColor="White"
+                            WidthRequest="68" />
+                        <Button
+                            Grid.Row="13"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Margin="0,10"
+                            BackgroundColor="#7BD8C2"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            HorizontalOptions="End"
+                            Text="Save"
+                            TextColor="White"
+                            WidthRequest="68" />
                     </Grid>
                 </Frame>
-                <Frame Grid.Column="1" Grid.Row="4" BackgroundColor="White">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="auto"/>
-                        </Grid.RowDefinitions>
-                        <Label Text="Order" FontSize="16" HorizontalOptions="Center" TextColor="#7B82D8" TextTransform="Uppercase" Grid.Column="0" Grid.Row="0"/>
-                        <Label Text="{Binding}" TextColor="Black" Grid.Column="1" Grid.Row="0"/>
-                        <Label Text="Order date" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="1"/>
-                        <DatePicker Grid.Column="0" Grid.Row="2"></DatePicker>
-                        <Label Text="Status" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="3"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
+                <Frame
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    BackgroundColor="White">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontSize="16"
+                            HorizontalOptions="Center"
+                            Text="Order"
+                            TextColor="#7B82D8"
+                            TextTransform="Uppercase" />
+                            <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="{Binding}"
+                            TextColor="Black" />
+                            <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Order date"
+                            TextColor="Black" />
+                            <DatePicker Grid.Row="2" Grid.Column="0" />
+                            <Label
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Status"
+                            TextColor="Black" />
+                            <Entry
+                            Grid.Row="4"
+                            Grid.Column="0"
                             BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="4">
-                        </Entry>
-                        <Label Text="Address" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="5"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
                             HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
+                            Text="{Binding}"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand" />
+                            <Label
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Address"
+                            TextColor="Black" />
+                            <Entry
+                            Grid.Row="6"
+                            Grid.Column="0"
                             BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="6">
-                        </Entry>
-                        <Label Text="Customer" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="7"/>
-                        <Picker Title="{Binding}" TextColor="Black" BackgroundColor="#7B82D8" Grid.Column="0" Grid.Row="8">
-                            <Picker.Items>
-                                <x:String>Will Smith</x:String>
-                            </Picker.Items>
-                        </Picker>
-                        <Label Text="Tracking number" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="9"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
                             HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
+                            Text="{Binding}"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand" />
+                            <Label
+                            Grid.Row="7"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Customer"
+                            TextColor="Black" />
+                            <Picker
+                            Title="{Binding}"
+                            Grid.Row="8"
+                            Grid.Column="0"
+                            BackgroundColor="#7B82D8"
+                            TextColor="Black">
+                                <Picker.Items>
+                                    <x:String>Will Smith</x:String>
+                                </Picker.Items>
+                            </Picker>
+                            <Label
+                            Grid.Row="9"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Tracking number"
+                            TextColor="Black" />
+                            <Entry
+                            Grid.Row="10"
+                            Grid.Column="0"
                             BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="10">
-                        </Entry>
-                        <Label Text="Total" FontSize="13" TextColor="Black" Grid.Column="0" Grid.Row="11"/>
-                        <Entry Text="{Binding}"
-                           TextColor="Black"
                             HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
+                            Text="{Binding}"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand" />
+                            <Label
+                            Grid.Row="11"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Total"
+                            TextColor="Black" />
+                            <Entry
+                            Grid.Row="12"
+                            Grid.Column="0"
                             BackgroundColor="White"
-                            Grid.Column="0" Grid.Row="12">
-                        </Entry>
-                        <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="0, 10" Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="Start"/>
-                        <Button Text="Add order" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="0, 10" Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="4" HorizontalOptions="End"/>
-                    </Grid>
-                </Frame>
+                            HorizontalOptions="FillAndExpand"
+                            Text="{Binding}"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand" />
+                            <Button
+                            Grid.Row="13"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Margin="0,10"
+                            BackgroundColor="#7B82D8"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            HorizontalOptions="Start"
+                            Text="Back"
+                            TextColor="White"
+                            WidthRequest="68" />
+                            <Button
+                            Grid.Row="13"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Margin="0,10"
+                            BackgroundColor="#7BD8C2"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            HorizontalOptions="End"
+                            Text="Add order"
+                            TextColor="White"
+                            WidthRequest="98" />
+                        </Grid>
+                    </Frame>
             </Grid>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type local:OrderViewModel}}, Path=ItemTapped}"
+                            CommandParameter="{Binding .}"
+                            NumberOfTapsRequired="1" />
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
