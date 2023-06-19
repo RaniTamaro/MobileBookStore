@@ -4,6 +4,7 @@ using BookStoreApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Book
@@ -27,6 +28,7 @@ namespace BookStore.ViewModels.Book
 
             selectedCategory = categoryDataStore.items.FirstOrDefault() ?? new CategoryForView();
             selectedAuthor = authorDataStore.items.FirstOrDefault() ?? new AuthorForView();
+            selectedGenre = genreDataStore.items.FirstOrDefault() ?? new BookStoreApi.Genre();
         }
 
         #region Fields
@@ -40,7 +42,7 @@ namespace BookStore.ViewModels.Book
         private double price = 0;
         private CategoryForView selectedCategory;
         private AuthorForView selectedAuthor;
-        private List<BookStoreApi.Genre> selectedGenres = new List<BookStoreApi.Genre>();
+        private BookStoreApi.Genre selectedGenre;
         private List<BookStoreApi.Genre> genres;
         private List<CategoryForView> categories;
         private List<AuthorForView> authors;
@@ -83,28 +85,25 @@ namespace BookStore.ViewModels.Book
             set => SetProperty(ref selectedAuthor, value);
         }
 
-        public List<BookStoreApi.Genre> SelectedGenres
+        public BookStoreApi.Genre SelectedGenre
         {
-            get => selectedGenres;
-            set => SetProperty(ref selectedGenres, value);
+            get => selectedGenre;
+            set => SetProperty(ref selectedGenre, value);
         }
 
         public List<BookStoreApi.Genre> Genres
         {
             get => genres;
-            set => SetProperty(ref genres, value);
         }
 
         public List<CategoryForView> Categories
         {
             get => categories;
-            set => SetProperty(ref categories, value);
         }
 
         public List<AuthorForView> Authors
         {
             get => authors;
-            set => SetProperty(ref authors, value);
         }
 
         public int? ItemId
@@ -118,18 +117,16 @@ namespace BookStore.ViewModels.Book
                 itemId = value;
             }
         }
+
+        public ICommand ItemSelectedCommand { get; }
         #endregion
 
         public override BookForView SetItem()
         {
             List<BookStoreApi.Genre> bookGenresToSet = new List<BookStoreApi.Genre>();
-
-            foreach (var genre in selectedGenres)
+            if (genreDataStore.items.Contains(SelectedGenre))
             {
-                if (genreDataStore.items.Contains(genre))
-                {
-                    bookGenresToSet.Add(genreDataStore.items.Where(x => x.Id == genre.Id).First());
-                }
+                bookGenresToSet.Add(genreDataStore.items.Where(x => x.Id == SelectedGenre.Id).First());
             }
 
             return new BookForView

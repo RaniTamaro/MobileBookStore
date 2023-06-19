@@ -99,8 +99,8 @@ namespace BookStore.ViewModels.Review
         {
             return !string.IsNullOrEmpty(title)
                 && rating > 0
-                && selectedBook.Id > 0
-                && selectedUser.Id > 0;
+                && selectedBook?.Id > 0
+                && selectedUser?.Id > 0;
         }
     }
 }

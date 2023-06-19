@@ -3,6 +3,7 @@ using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BookStore.ViewModels.Order
 {
@@ -18,6 +19,7 @@ namespace BookStore.ViewModels.Order
             books = bookDataStore.items;
             users = userDataStore.items;
 
+            selectedBook = bookDataStore.items.FirstOrDefault() ?? new BookForView();
         }
 
         #region Fields
@@ -31,7 +33,7 @@ namespace BookStore.ViewModels.Order
         private string trackingNumber = "";
         private UserForView selectedUser;
         private List<UserForView> users;
-        private List<BookForView> selectedBooks = new List<BookForView>();
+        private BookForView selectedBook;
         private List<BookForView> books;
         #endregion
 
@@ -84,10 +86,10 @@ namespace BookStore.ViewModels.Order
             set => SetProperty(ref users, value);
         }
 
-        public List<BookForView> SelectedBooks
+        public BookForView SelectedBook
         {
-            get => selectedBooks;
-            set => SetProperty(ref selectedBooks, value);
+            get => selectedBook;
+            set => SetProperty(ref selectedBook, value);
         }
 
         public List<BookForView> Books
@@ -112,7 +114,7 @@ namespace BookStore.ViewModels.Order
                 TrackingNumber = TrackingNumber,
                 IdUser = selectedUser.Id,
                 UserFullName = $"{selectedUser.Name} {selectedUser.Surname}",
-                OrderBook = selectedBooks
+                OrderBook = new List<BookForView>() { SelectedBook }
             };
         }
 

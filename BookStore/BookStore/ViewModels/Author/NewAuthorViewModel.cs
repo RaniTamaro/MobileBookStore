@@ -3,6 +3,7 @@ using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BookStore.ViewModels.Author
 {
@@ -15,6 +16,8 @@ namespace BookStore.ViewModels.Author
             bookDataStore = new BookDataStore();
             bookDataStore.RefreshListFromService();
             books = bookDataStore.items;
+
+            selectedBook = bookDataStore.items.FirstOrDefault() ?? new BookForView();
         }
 
         #region Fields
@@ -22,7 +25,7 @@ namespace BookStore.ViewModels.Author
         private string name = "";
         private string surname = "";
         private string nickname = "";
-        private List<BookForView> selectedBooks = new List<BookForView>();
+        private BookForView selectedBook;
         private List<BookForView> books;
         #endregion
 
@@ -45,16 +48,15 @@ namespace BookStore.ViewModels.Author
             set => SetProperty(ref nickname, value);
         }
 
-        public List<BookForView> SelectedBooks
+        public BookForView SelectedBook
         {
-            get => selectedBooks;
-            set => SetProperty(ref selectedBooks, value);
+            get => selectedBook;
+            set => SetProperty(ref selectedBook, value);
         }
 
         public List<BookForView> Books
         {
             get => books;
-            set => SetProperty(ref books, value);
         }
         #endregion
 
@@ -68,7 +70,7 @@ namespace BookStore.ViewModels.Author
                 Name = Name,
                 Surname = Surname,
                 Nickname = Nickname,
-                Books = SelectedBooks
+                Books = new List<BookForView>() { SelectedBook }
             };
         }
 
