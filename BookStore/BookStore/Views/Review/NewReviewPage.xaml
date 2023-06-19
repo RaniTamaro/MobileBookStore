@@ -24,7 +24,7 @@
                             <Binding Path="Books" />
                         </Picker.ItemsSource>
                         <Picker.ItemDisplayBinding>
-                            <Binding Path="BookTitle" />
+                            <Binding Path="Title" />
                         </Picker.ItemDisplayBinding>
                     </Picker>
                     <Label Text="Rating" FontSize="13" TextColor="Black"/>
@@ -49,7 +49,7 @@
                             <Binding Path="Users" />
                         </Picker.ItemsSource>
                         <Picker.ItemDisplayBinding>
-                            <Binding Path="UserFullName" />
+                            <Binding Path="Nickname" />
                         </Picker.ItemDisplayBinding>
                     </Picker>
                     <Grid>

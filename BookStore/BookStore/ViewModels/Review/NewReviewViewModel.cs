@@ -71,8 +71,10 @@ namespace BookStore.ViewModels.Review
 
         public List<BookForView> Books
         {
-            get => books;
-            set => SetProperty(ref books, value);
+            get
+            {
+                return books;
+            }
         }
         #endregion
 
