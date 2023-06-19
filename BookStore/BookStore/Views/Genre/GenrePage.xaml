@@ -52,7 +52,7 @@
                                                     HorizontalOptions="End"
                                                     Text="More"
                                                     TextColor="White"
-                                                    WidthRequest="98"/>
+                                                    WidthRequest="98" />
                                             </Grid>
                                         </StackLayout>
                                         <StackLayout.GestureRecognizers>
@@ -80,67 +80,6 @@
                     Text="Add new"
                     TextTransform="Uppercase" />
             </AbsoluteLayout>
-
-            <!--</Frame>-->
-
-            <!--<Frame Grid.Column="1" Grid.Row="1" BackgroundColor="White">
-                    <StackLayout >
-                        <Label Text="Name" FontSize="13" TextColor="Black"/>
-                        <Entry
-                            Text="{Binding}"
-                            TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White">
-                        </Entry>
-                        <Label Text="Description" FontSize="13" TextColor="Black"/>
-                        <Entry
-                            Text="{Binding}"
-                            TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White">
-                        </Entry>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="115"/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
-                            <Button Text="Save" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
-                        </Grid>
-                    </StackLayout>
-                </Frame>
-                <Frame Grid.Column="1" Grid.Row="2" BackgroundColor="White">
-                    <StackLayout >
-                        <Label Text="Name" FontSize="13" TextColor="Black"/>
-                        <Entry
-                            Text="{Binding}"
-                            TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White">
-                        </Entry>
-                        <Label Text="Description" FontSize="13" TextColor="Black"/>
-                        <Entry
-                            Text="{Binding}"
-                            TextColor="Black"
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="CenterAndExpand"
-                            BackgroundColor="White">
-                        </Entry>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto"/>
-                                <ColumnDefinition Width="90"/>
-                                <ColumnDefinition Width="auto"/>
-                            </Grid.ColumnDefinitions>
-                            <Button Text="Back" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="68" HeightRequest="38" Margin="10,10,0,0" Grid.Column="0"/>
-                            <Button Text="Add genre" BackgroundColor="#7BD8C2" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="10,10,0,0" Grid.Column="2"/>
-                        </Grid>
-                    </StackLayout>
-                </Frame>-->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

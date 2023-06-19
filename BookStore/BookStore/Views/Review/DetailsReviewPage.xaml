@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookStore.Views.Review.DetailsReviewPage" 
-             xmlns:local="clr-namespace:BookStore.ViewModels.Review"
-             xmlns:model="clr-namespace:BookStoreApi"
-             Title="Review"
-             BackgroundColor="#F8F4EF">
+<ContentPage
+    x:Class="BookStore.Views.Review.DetailsReviewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BookStore.ViewModels.Review"
+    xmlns:model="clr-namespace:BookStoreApi"
+    Title="Review"
+    BackgroundColor="#F8F4EF">
     <ContentPage.Content>
         <Grid HorizontalOptions="Center">
             <Grid.ColumnDefinitions>

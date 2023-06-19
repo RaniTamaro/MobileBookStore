@@ -8,112 +8,120 @@
     Title="{Binding Title}"
     BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <RefreshView x:DataType="local:BookViewModel" Command="{Binding LoadItemsCommand}"  IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-            <CollectionView 
-                            x:Name="ItemsListView"
-                            ItemsSource="{Binding Items}"
-                            SelectionMode="None">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="40" />
-                                <ColumnDefinition Width="335" />
-                                <ColumnDefinition Width="auto" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                                <RowDefinition Height="auto" />
-                            </Grid.RowDefinitions>
-                            <Frame
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    BackgroundColor="White">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="auto" />
-                                        <ColumnDefinition Width="auto" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                        <RowDefinition Height="auto" />
-                                    </Grid.RowDefinitions>
+        <Grid HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="335" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <RefreshView
+                x:DataType="local:BookViewModel"
+                Command="{Binding LoadItemsCommand}"
+                IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                <CollectionView
+                    x:Name="ItemsListView"
+                    ItemsSource="{Binding Items}"
+                    SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="10" />
+                                </Grid.RowDefinitions>
+                                <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout x:DataType="model:BookForView">
                                         <!--  Title  -->
                                         <Label
-                                Grid.Column="0"
-                                FontAttributes="Bold"
-                                FontFamily="Roboto"
-                                FontSize="18"
-                                Text="{Binding Title}"
-                                TextColor="#7B82D8"
-                                TextTransform="Uppercase" />
+                                            Grid.Column="0"
+                                            FontAttributes="Bold"
+                                            FontFamily="Roboto"
+                                            FontSize="18"
+                                            Text="{Binding Title}"
+                                            TextColor="#7B82D8"
+                                            TextTransform="Uppercase" />
                                         <Label
-                                Grid.Row="1"
-                                Grid.Column="0"
-                                Text="Author: "
-                                TextColor="Black" />
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Text="Author: "
+                                            TextColor="Black" />
                                         <Label
-                                Grid.Row="1"
-                                Grid.Column="1"
-                                HorizontalOptions="Start"
-                                Text="{Binding AuthorName}"
-                                TextColor="Black" />
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            HorizontalOptions="Start"
+                                            Text="{Binding AuthorName}"
+                                            TextColor="Black" />
                                         <Label
-                                Grid.Row="2"
-                                Text="Publishing house: "
-                                TextColor="Black" />
+                                            Grid.Row="2"
+                                            Text="Publishing house: "
+                                            TextColor="Black" />
                                         <Label
-                                Grid.Row="2"
-                                Grid.Column="1"
-                                HorizontalOptions="Start"
-                                Text="{Binding PublishingHouse}"
-                                TextColor="Black" />
+                                            Grid.Row="2"
+                                            Grid.Column="1"
+                                            HorizontalOptions="Start"
+                                            Text="{Binding PublishingHouse}"
+                                            TextColor="Black" />
                                         <Label
-                                Grid.Row="3"
-                                Text="Category:"
-                                TextColor="Black" />
+                                            Grid.Row="3"
+                                            Text="Category:"
+                                            TextColor="Black" />
                                         <Label
-                                Grid.Row="3"
-                                Grid.Column="1"
-                                HorizontalOptions="Start"
-                                Text="{Binding CategoryName}"
-                                TextColor="Black" />
+                                            Grid.Row="3"
+                                            Grid.Column="1"
+                                            HorizontalOptions="Start"
+                                            Text="{Binding CategoryName}"
+                                            TextColor="Black" />
                                         <Label
-                                Grid.Row="4"
-                                Text="Price:"
-                                TextColor="Black" />
+                                            Grid.Row="4"
+                                            Text="Price:"
+                                            TextColor="Black" />
                                         <Label
-                                Grid.Row="4"
-                                Grid.Column="1"
-                                HorizontalOptions="Start"
-                                Text="{Binding Price}"
-                                TextColor="Black" />
-                                        <Button
-                                Grid.Row="5"
-                                Grid.Column="0"
-                                Grid.ColumnSpan="4"
-                                BackgroundColor="#7B82D8"
-                                CornerRadius="15"
-                                HeightRequest="32"
-                                HorizontalOptions="End"
-                                Text="MORE"
-                                TextColor="White"
-                                WidthRequest="64" />
+                                            Grid.Row="4"
+                                            Grid.Column="1"
+                                            HorizontalOptions="Start"
+                                            Text="{Binding Price}"
+                                            TextColor="Black" />
+                                        <StackLayout>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="60" />
+                                                </Grid.RowDefinitions>
+                                                <Button
+                                                    Margin="10"
+                                                    BackgroundColor="#7B82D8"
+                                                    CornerRadius="18"
+                                                    HeightRequest="38"
+                                                    HorizontalOptions="End"
+                                                    Text="More"
+                                                    TextColor="White"
+                                                    WidthRequest="98" />
+                                            </Grid>
+                                        </StackLayout>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:BookViewModel}}, Path=ItemTapped}"
+                                                CommandParameter="{Binding .}"
+                                                NumberOfTapsRequired="1" />
+                                        </StackLayout.GestureRecognizers>
                                     </StackLayout>
-                                </Grid>
-                            </Frame>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </RefreshView>
+                                </Frame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+            <AbsoluteLayout Grid.Column="1">
+                <Button
+                    AbsoluteLayout.LayoutBounds=".90,.95,100,48"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    BackgroundColor="{StaticResource LightFiolet}"
+                    Command="{Binding AddItemCommand}"
+                    CornerRadius="18"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Text="Add new"
+                    TextTransform="Uppercase" />
+            </AbsoluteLayout>
+            <!--  Clicked="" i zamknąć ImageButton"  -->
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

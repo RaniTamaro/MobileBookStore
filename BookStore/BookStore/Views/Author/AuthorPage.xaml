@@ -56,23 +56,6 @@
                                             Text="{Binding Nickname}"
                                             TextColor="#7B82D8" />
                                         <Label FontSize="Medium" Text="Books" />
-                                        <!--<ListView ItemsSource="{Binding Books}">
-                                            <ListView.ItemTemplate>
-                                                <DataTemplate>
-                                                    <ViewCell>
-                                                        <StackLayout>
-
-                                                            --><!--
-                                                                Define the appearance of each book item in the ListView
-                                                                For example, display the book title
-                                                            --><!--
-
-                                                            <Label Text="{Binding Name}" />
-                                                        </StackLayout>
-                                                    </ViewCell>
-                                                </DataTemplate>
-                                            </ListView.ItemTemplate>
-                                        </ListView>-->
                                         <StackLayout>
                                             <Grid>
                                                 <Grid.RowDefinitions>

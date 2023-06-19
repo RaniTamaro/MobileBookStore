@@ -29,8 +29,7 @@
                     <Label
                         HorizontalOptions="Start"
                         Text="{Binding Name}"
-                        TextColor="Black"
-                         />
+                        TextColor="Black" />
                     <Label
                         FontSize="13"
                         Text="Surname"
@@ -38,8 +37,7 @@
                     <Label
                         HorizontalOptions="Start"
                         Text="{Binding Surname}"
-                        TextColor="Black"
-                         />
+                        TextColor="Black" />
                     <Label
                         FontSize="13"
                         Text="Role"
@@ -47,8 +45,7 @@
                     <Label
                         HorizontalOptions="Start"
                         Text="{Binding Role}"
-                        TextColor="Black"
-                         />
+                        TextColor="Black" />
                     <Label
                         FontSize="13"
                         Text="Address"
@@ -56,17 +53,15 @@
                     <Label
                         HorizontalOptions="Start"
                         Text="{Binding Address}"
-                        TextColor="Black"
-                         />
+                        TextColor="Black" />
                     <Label
                         FontSize="13"
                         Text="Phone number"
                         TextColor="Black" />
                     <Label
-                       HorizontalOptions="Start"
+                        HorizontalOptions="Start"
                         Text="{Binding PhoneNumber}"
-                        TextColor="Black"
-                         />
+                        TextColor="Black" />
                     <Label
                         FontSize="13"
                         Text="E-mail"
@@ -74,8 +69,7 @@
                     <Label
                         HorizontalOptions="Start"
                         Text="{Binding Email}"
-                        TextColor="Black"
-                        />
+                        TextColor="Black" />
                     <Label
                         FontSize="13"
                         Text="Nickname"
@@ -83,8 +77,7 @@
                     <Label
                         HorizontalOptions="Start"
                         Text="{Binding Nickname}"
-                        TextColor="Black"
-                        />
+                        TextColor="Black" />
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60" />

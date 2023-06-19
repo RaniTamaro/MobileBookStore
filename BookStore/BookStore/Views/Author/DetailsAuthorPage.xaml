@@ -25,41 +25,41 @@
             <Frame BackgroundColor="White" HorizontalOptions="Center">
                 <StackLayout>
                     <Label
-                    FontSize="13"
-                    HorizontalOptions="Start"
-                    Text="Name"
-                    TextColor="Black" />
+                        FontSize="13"
+                        HorizontalOptions="Start"
+                        Text="Name"
+                        TextColor="Black" />
                     <Label
-                    FontSize="16"
-                    HorizontalOptions="Start"
-                    Text="{Binding Name}"
-                    TextColor="#7B82D8" 
-                    TextTransform="Uppercase"
-                        FontAttributes="Bold"/>
+                        FontAttributes="Bold"
+                        FontSize="16"
+                        HorizontalOptions="Start"
+                        Text="{Binding Name}"
+                        TextColor="#7B82D8"
+                        TextTransform="Uppercase" />
 
                     <Label
                         FontSize="13"
-                    HorizontalOptions="Start"
-                    Text="Surname"
-                    TextColor="Black" />
+                        HorizontalOptions="Start"
+                        Text="Surname"
+                        TextColor="Black" />
                     <Label
-                    HorizontalOptions="Start"
-                    Text="{Binding Surname}"
-                    TextColor="#7B82D8" />
+                        HorizontalOptions="Start"
+                        Text="{Binding Surname}"
+                        TextColor="#7B82D8" />
 
                     <Label
-                    HorizontalOptions="Start"
-                    Text="Nickname"
-                    TextColor="Black" />
+                        HorizontalOptions="Start"
+                        Text="Nickname"
+                        TextColor="Black" />
                     <Label
-                    HorizontalOptions="Start"
-                    Text="{Binding Nickname}"
-                    TextColor="#7B82D8" />
+                        HorizontalOptions="Start"
+                        Text="{Binding Nickname}"
+                        TextColor="#7B82D8" />
 
                     <Label
-                    HorizontalOptions="Start"
-                    Text="Books"
-                    TextColor="Black" />
+                        HorizontalOptions="Start"
+                        Text="Books"
+                        TextColor="Black" />
 
                     <!--<RefreshView
                     x:DataType="local:DetailsAuthorViewModel"
@@ -90,10 +90,28 @@
                     <StackLayout>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="60"/>
+                                <RowDefinition Height="60" />
                             </Grid.RowDefinitions>
-                            <Button Text="Cancel" Command="{Binding CancelCommand}" BackgroundColor="#7B82D8" TextColor="White" CornerRadius="18" WidthRequest="78" HeightRequest="38" Margin="10" HorizontalOptions="Start"/>
-                            <Button Text="Delete" Command="{Binding DeleteCommand}" BackgroundColor="#F87265" TextColor="White" CornerRadius="18" WidthRequest="98" HeightRequest="38" Margin="10" HorizontalOptions="End"/>
+                            <Button
+                                Margin="10"
+                                BackgroundColor="#7B82D8"
+                                Command="{Binding CancelCommand}"
+                                CornerRadius="18"
+                                HeightRequest="38"
+                                HorizontalOptions="Start"
+                                Text="Cancel"
+                                TextColor="White"
+                                WidthRequest="78" />
+                            <Button
+                                Margin="10"
+                                BackgroundColor="#F87265"
+                                Command="{Binding DeleteCommand}"
+                                CornerRadius="18"
+                                HeightRequest="38"
+                                HorizontalOptions="End"
+                                Text="Delete"
+                                TextColor="White"
+                                WidthRequest="98" />
                         </Grid>
                     </StackLayout>
                 </StackLayout>
