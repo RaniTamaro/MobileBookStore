@@ -19,6 +19,8 @@ namespace BookStore.ViewModels.Order
             books = bookDataStore.items;
             users = userDataStore.items;
 
+            OrderDate = DateTime.Today;
+
             selectedBook = bookDataStore.items.FirstOrDefault() ?? new BookForView();
         }
 

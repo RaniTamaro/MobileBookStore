@@ -73,12 +73,6 @@
                 <Setter Property="FontSize" Value="13" />
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="TitleColor" Value="Black" />
-                <Style.Triggers>
-                    <Trigger TargetType="Picker" Property="IsFocused" Value="True">
-                        <Setter Property="TextColor" Value="Black" />
-                        <Setter Property="BackgroundColor" Value="#F8F4EF" />
-                    </Trigger>
-                </Style.Triggers>
             </Style>
             <!--  Globalne style  -->
             <!--<Style TargetType="Button">

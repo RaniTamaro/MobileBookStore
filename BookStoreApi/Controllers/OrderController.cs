@@ -49,7 +49,7 @@ namespace BookStoreApi.Controllers
                 return NotFound();
             }
             var order = await _context.Order
-                .Where(x => x.IsActive == true)
+                .Where(x => x.IsActive == true && x.Id == id)
                 .Include(x => x.OrderBooks).ThenInclude(g => g.Book).Include(x => x.User)
                 .FirstOrDefaultAsync(); ;
 
