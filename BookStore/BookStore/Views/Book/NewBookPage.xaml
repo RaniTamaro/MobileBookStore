@@ -4,9 +4,145 @@
              x:Class="BookStore.Views.Book.NewBookPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Frame
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    BackgroundColor="White">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontSize="13"
+                            HorizontalOptions="Start"
+                            Text="Title"
+                            TextColor="Black" />
+                    <Entry
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            Text="{Binding Title, Mode=TwoWay}"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand" />
+                    <!-- Label Grid.Row="2" Grid.Column="0" FontSize="13" Text="Author" TextColor="Black" -->
+                    <Picker Title="Role" TitleColor="Black" TextColor="White" BackgroundColor="#7B82D8" SelectedItem="{Binding SelectedRole}">
+                        <Picker.ItemsSource>
+                            <Binding Path="Roles" />
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Picker
+                            Title="Autor"
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            BackgroundColor="#7B82D8"
+                            TextColor="Black">
+                        <Picker.ItemsSource>
+                            <Binding Path="authors"/>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Publishing house"
+                            TextColor="Black" />
+                    <Entry
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            Text="{Binding PublishingHouse, Mode=TwoWay}"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand" />
+                    <!-- Label Grid.Row="6" Grid.Column="0" FontSize="13" Text="Category" TextColor="Black" -->
+                    <Picker
+                            Title="Category"
+                            Grid.Row="7"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            BackgroundColor="#7B82D8"
+                            TextColor="Black">
+                        <Picker.ItemsSource>
+                            <Binding Path="categories"/>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <Label
+                            Grid.Row="8"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Price"
+                            TextColor="Black" />
+                    <Entry
+                            Grid.Row="9"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                            Text="{Binding Price, Mode=TwoWay}"
+                            TextColor="Black"
+                            VerticalOptions="CenterAndExpand" />
+                    <Label
+                            Grid.Row="10"
+                            Grid.Column="0"
+                            FontSize="13"
+                            Text="Description"
+                            TextColor="Black" />
+                    <Editor
+                            Grid.Row="11"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            BackgroundColor="White"
+                            HeightRequest="150"
+                            TextColor="Black"
+                            VerticalOptions="StartAndExpand" />
+                    <Button
+                            Grid.Row="12"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Margin="0,10"
+                            BackgroundColor="#7B82D8"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            HorizontalOptions="Start"
+                            Text="Back"
+                            TextColor="White"
+                            WidthRequest="68" />
+                    <Button
+                            Grid.Row="12"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            Margin="0,10"
+                            BackgroundColor="#7BD8C2"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            HorizontalOptions="End"
+                            Text="Add book"
+                            TextColor="White"
+                            WidthRequest="98" />
+                </Grid>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
