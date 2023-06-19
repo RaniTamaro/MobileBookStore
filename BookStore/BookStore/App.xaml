@@ -17,8 +17,71 @@
             <Color x:Key="Font1">Black</Color>
             <Color x:Key="Font2">#50548A</Color>
             <Color x:Key="PlaceholderTextColor">Gray</Color>
+            <!--  Custom styles  -->
+            <!--  Label do tytułów np. Tytuł książki  -->
+            <Style x:Key="TitleLabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="Georgia" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="TextColor" Value="#7B82D8" />
+                <Setter Property="TextTransform" Value="None" />
+            </Style>
+            <!--  Zwykły Label  -->
+            <Style x:Key="NormalLabelStyle" TargetType="Label">
+                <Setter Property="FontFamily" Value="Verdana" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <!--  Label do zbindowanych Labelów  -->
+            <Style x:Key="BindableFieldStyle" TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="FontFamily" Value="Verdana" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+            <!--  Styl do Entry  -->
+            <Style x:Key="CustomEntryStyle" TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="FontFamily" Value="Verdana" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            <!--  Styl do Editor  -->
+            <Style x:Key="CustomEditorStyle" TargetType="Editor">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="HeightRequest" Value="100" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="FontFamily" Value="Verdana" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Style.Triggers>
+                    <Trigger TargetType="Editor" Property="IsFocused" Value="True">
+                        <Setter Property="BackgroundColor" Value="#7B82D8" />
+                        <Setter Property="TextColor" Value="White" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <!--  Styl do Picker  -->
+            <Style x:Key="CustomPickerStyle" TargetType="Picker">
+                <Setter Property="TitleColor" Value="Black" />
+                <Setter Property="BackgroundColor" Value="#7B82D8" />
+                <Setter Property="FontFamily" Value="Verdana" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="TitleColor" Value="Black" />
+                <Style.Triggers>
+                    <Trigger TargetType="Picker" Property="IsFocused" Value="True">
+                        <Setter Property="TextColor" Value="Black" />
+                        <Setter Property="BackgroundColor" Value="#F8F4EF" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
             <!--  Globalne style  -->
-            <Style TargetType="Button">
+            <!--<Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource LightFiolet}" />
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="VisualStateManager.VisualStateGroups">
@@ -37,7 +100,7 @@
                         </VisualStateGroup>
                     </VisualStateGroupList>
                 </Setter>
-            </Style>
+            </Style>-->
         </ResourceDictionary>
     </Application.Resources>
 </Application>
