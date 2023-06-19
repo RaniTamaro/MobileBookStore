@@ -32,7 +32,7 @@
                             <Binding Path="Authors" />
                         </Picker.ItemsSource>
                         <Picker.ItemDisplayBinding>
-                            <Binding Path="AuthorName" />
+                            <Binding Path="Nickname" />
                         </Picker.ItemDisplayBinding>
                     </Picker>
                     <Label
@@ -55,7 +55,7 @@
                             <Binding Path="Categories" />
                         </Picker.ItemsSource>
                         <Picker.ItemDisplayBinding>
-                            <Binding Path="CategoryName" />
+                            <Binding Path="Name" />
                         </Picker.ItemDisplayBinding>
                     </Picker>
                     <Picker
@@ -64,12 +64,12 @@
                         SelectedItem="{Binding SelectedGenres}"
                         TextColor="White"
                         TitleColor="Black">
-                        <!--<Picker.ItemsSource>
-                            <Binding Path="" />
+                        <Picker.ItemsSource>
+                            <Binding Path="Genres" />
                         </Picker.ItemsSource>
                         <Picker.ItemDisplayBinding>
-                            <Binding Path="" />
-                        </Picker.ItemDisplayBinding>-->
+                            <Binding Path="Name" />
+                        </Picker.ItemDisplayBinding>
                     </Picker>
                     <Label
                         FontSize="13"
