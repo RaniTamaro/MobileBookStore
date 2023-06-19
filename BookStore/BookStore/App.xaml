@@ -33,7 +33,7 @@
                 <Setter Property="TextColor" Value="Black" />
             </Style>
             <!--  Label do zbindowanych Labelów  -->
-            <Style x:Key="BindableFieldStyle" TargetType="Entry">
+            <Style x:Key="BindableLabelStyle" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="FontFamily" Value="Verdana" />
                 <Setter Property="FontAttributes" Value="Bold" />
