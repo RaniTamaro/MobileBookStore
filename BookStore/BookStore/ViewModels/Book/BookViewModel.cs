@@ -8,7 +8,7 @@ namespace BookStore.ViewModels.Book
     public class BookViewModel : AListViewModel<BookForView>
     {
         public BookViewModel()
-            : base("Książki")
+            : base("Books")
         {
         }
 
