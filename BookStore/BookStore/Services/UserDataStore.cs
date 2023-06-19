@@ -38,7 +38,7 @@ namespace BookStore.Services
 
         public override async Task RefreshListFromService()
         {
-            items = (await _service.UserAllAsync()).ToList();
+            items = _service.UserAllAsync().Result.ToList();
         }
 
         public override async Task<bool> UpdateItemInService(UserForView item)

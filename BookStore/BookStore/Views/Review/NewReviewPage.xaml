@@ -32,7 +32,7 @@
                             <Binding Path="Books" />
                         </Picker.ItemsSource>
                         <Picker.ItemDisplayBinding>
-                            <Binding Path="BookTitle" />
+                            <Binding Path="Title" />
                         </Picker.ItemDisplayBinding>
                     </Picker>
                     <Label
@@ -66,7 +66,7 @@
                             <Binding Path="Users" />
                         </Picker.ItemsSource>
                         <Picker.ItemDisplayBinding>
-                            <Binding Path="UserFullName" />
+                            <Binding Path="Nickname" />
                         </Picker.ItemDisplayBinding>
                     </Picker>
                     <Grid>
