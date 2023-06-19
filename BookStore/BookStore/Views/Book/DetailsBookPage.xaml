@@ -1,117 +1,108 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookStore.Views.Book.DetailsBookPage">
+<ContentPage
+    x:Class="BookStore.Views.Book.DetailsBookPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Book"
+    BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <StackLayout>
-            <Frame
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    BackgroundColor="White">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="auto" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                        <RowDefinition Height="auto" />
-                    </Grid.RowDefinitions>
-                    <!--  Title  -->
+        <Grid HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="335" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Frame BackgroundColor="White" HorizontalOptions="Center">
+                <StackLayout>
                     <Label
-                            Grid.Column="0"
-                            FontAttributes="Bold"
-                            FontFamily="Roboto"
-                            FontSize="18"
-                            Text="{Binding Title}"
-                            TextColor="#7B82D8"
-                            TextTransform="Uppercase" />
+                        FontSize="13"
+                        Text="Title"
+                        TextColor="Black" />
                     <Label
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Text="Author: "
-                            TextColor="Black" />
+                        HorizontalOptions="Start"
+                        Text="{Binding Title}"
+                        TextColor="Black" />
                     <Label
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            HorizontalOptions="Start"
-                            Text="{Binding Author}"
-                            TextColor="Black" />
+                        FontSize="13"
+                        Text="Author"
+                        TextColor="Black" />
                     <Label
-                            Grid.Row="2"
-                            Text="Publishing house: "
-                            TextColor="Black" />
+                        HorizontalOptions="Start"
+                        Text="{Binding AuthorName}"
+                        TextColor="Black" />
                     <Label
-                            Grid.Row="2"
-                            Grid.Column="1"
-                            HorizontalOptions="Start"
-                            Text="{Binding PublishingHouse}"
-                            TextColor="Black" />
+                        FontSize="13"
+                        Text="Publishing House"
+                        TextColor="Black" />
                     <Label
-                            Grid.Row="3"
-                            Text="Category:"
-                            TextColor="Black" />
+                        HorizontalOptions="Start"
+                        Text="{Binding PublishingHouse}"
+                        TextColor="Black" />
                     <Label
-                            Grid.Row="3"
-                            Grid.Column="1"
-                            HorizontalOptions="Start"
-                            Text="{Binding Category}"
-                            TextColor="Black" />
+                        FontSize="13"
+                        Text="Category"
+                        TextColor="Black" />
                     <Label
-                            Grid.Row="4"
-                            Text="Price:"
-                            TextColor="Black" />
+                        HorizontalOptions="Start"
+                        Text="{Binding CategoryName}"
+                        TextColor="Black" />
                     <Label
-                            Grid.Row="4"
-                            Grid.Column="1"
-                            HorizontalOptions="Start"
-                            Text="{Binding Price}"
-                            TextColor="Black" />
+                        FontSize="13"
+                        Text="Genre"
+                        TextColor="Black" />
                     <Label
-                            Grid.Row="5"
-                            Text="Description:"
-                            TextColor="Black" />
+                        HorizontalOptions="Start"
+                        Text="{Binding BookTitle}"
+                        TextColor="Black" />
                     <Label
-                            Grid.Row="5"
-                            Grid.Column="1"
-                            HorizontalOptions="Start"
-                            Text="{Binding Description}"
-                            TextColor="Black" />
-                    <Button
-                            Grid.Row="7"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="4"
-                            Margin="0,10"
-                            BackgroundColor="#707B81"
+                        FontSize="13"
+                        Text="Price"
+                        TextColor="Black" />
+                    <Label
+                        HorizontalOptions="Start"
+                        Text="{Binding Price}"
+                        TextColor="Black" />
+                    <Label
+                        FontSize="13"
+                        Text="Description"
+                        TextColor="Black" />
+                    <Label
+                        HorizontalOptions="Start"
+                        Text="{Binding Description}"
+                        TextColor="Black" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                        </Grid.RowDefinitions>
+                        <Button
+                            Margin="10"
+                            BackgroundColor="#7B82D8"
+                            Command="{Binding CancelCommand}"
                             CornerRadius="18"
                             HeightRequest="38"
                             HorizontalOptions="Start"
                             Text="Cancel"
                             TextColor="White"
-                            WidthRequest="68" 
-                            Command="{Binding CancelCommand}"/>
-                    <Button
-                            Grid.Row="7"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="4"
-                            Margin="0,10"
+                            WidthRequest="78" />
+                        <Button
+                            Margin="10"
                             BackgroundColor="#F87265"
+                            Command="{Binding DeleteCommand}"
                             CornerRadius="18"
                             HeightRequest="38"
                             HorizontalOptions="End"
-                            Text="DELETE"
+                            Text="Delete"
                             TextColor="White"
-                            WidthRequest="68" 
-                            Command="{Binding DeleteCommand}"/>
-                </Grid>
+                            WidthRequest="98" />
+                    </Grid>
+                </StackLayout>
             </Frame>
-
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
