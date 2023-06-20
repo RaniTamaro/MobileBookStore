@@ -32,30 +32,35 @@
                                 <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout Padding="10" x:DataType="model:AuthorForView">
                                         <Label
-                                            FontSize="12"
-                                            FormattedText="{Binding Id, StringFormat='# {0}'}"
-                                            LineBreakMode="NoWrap"
-                                            Text="{Binding Id}"
+                                            Style="{StaticResource NormalLabelStyle}"
+                                            Text="Name"
                                             TextColor="Black" />
-                                        <Label Text="Name" TextColor="Black" />
                                         <Label
                                             FontSize="16"
                                             LineBreakMode="NoWrap"
+                                            Style="{StaticResource BindableFieldStyle}"
                                             Text="{Binding Name}"
                                             TextColor="#7B82D8" />
-                                        <Label Text="Surname" TextColor="Black" />
+                                        <Label
+                                            Style="{StaticResource NormalLabelStyle}"
+                                            Text="Surname"
+                                            TextColor="Black" />
                                         <Label
                                             FontSize="16"
                                             LineBreakMode="NoWrap"
+                                            Style="{StaticResource BindableFieldStyle}"
                                             Text="{Binding Surname}"
                                             TextColor="#7B82D8" />
-                                        <Label Text="Nickname" TextColor="Black" />
+                                        <Label
+                                            Style="{StaticResource NormalLabelStyle}"
+                                            Text="Nickname"
+                                            TextColor="Black" />
                                         <Label
                                             FontSize="13"
                                             LineBreakMode="NoWrap"
+                                            Style="{StaticResource BindableLabelStyle}"
                                             Text="{Binding Nickname}"
                                             TextColor="#7B82D8" />
-                                        <Label FontSize="Medium" Text="Books" />
                                         <StackLayout>
                                             <Grid>
                                                 <Grid.RowDefinitions>
@@ -67,6 +72,7 @@
                                                     CornerRadius="18"
                                                     HeightRequest="38"
                                                     HorizontalOptions="End"
+                                                    InputTransparent="True"
                                                     Text="More"
                                                     TextColor="White"
                                                     WidthRequest="98" />
@@ -97,7 +103,6 @@
                     Text="Add new"
                     TextTransform="Uppercase" />
             </AbsoluteLayout>
-            <!--  Clicked="" i zamknąć ImageButton"  -->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

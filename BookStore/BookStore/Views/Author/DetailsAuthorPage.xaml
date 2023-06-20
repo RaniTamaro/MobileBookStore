@@ -27,37 +27,43 @@
                     <Label
                         FontSize="13"
                         HorizontalOptions="Start"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Name"
                         TextColor="Black" />
                     <Label
                         FontAttributes="Bold"
                         FontSize="16"
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding Name}"
                         TextColor="#7B82D8"
                         TextTransform="Uppercase" />
-
                     <Label
                         FontSize="13"
                         HorizontalOptions="Start"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Surname"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding Surname}"
                         TextColor="#7B82D8" />
 
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Nickname"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding Nickname}"
                         TextColor="#7B82D8" />
 
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Books"
                         TextColor="Black" />
 

@@ -10,8 +10,7 @@ using BookStore.ViewModels.Author;
 
 namespace BookStore.Views.Author
 {
-    //TODO: Zrobić front
-    //TODO: Front - Id nie może być wyświetlane! Przekazuje je dla dodawania książek!
+    //TODO : wyświetlanie książek przypisanych do autora
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailsAuthorPage : ContentPage
     {

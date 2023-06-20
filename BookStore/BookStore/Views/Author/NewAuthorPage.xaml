@@ -14,31 +14,37 @@
                 <StackLayout>
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Name"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Name, Mode=TwoWay}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Surname"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Surname, Mode=TwoWay}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Nickname"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Nickname, Mode=TwoWay}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />

@@ -14,11 +14,13 @@
                 <StackLayout>
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Title"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Title, Mode=TwoWay}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
@@ -26,6 +28,7 @@
                         Title="Author"
                         BackgroundColor="#7B82D8"
                         SelectedItem="{Binding SelectedAuthor}"
+                        Style="{StaticResource CustomPickerStyle}"
                         TextColor="White"
                         TitleColor="Black">
                         <Picker.ItemsSource>
@@ -37,11 +40,13 @@
                     </Picker>
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Publishing House"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding PublishingHouse, Mode=TwoWay}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
@@ -49,6 +54,7 @@
                         Title="Category"
                         BackgroundColor="#7B82D8"
                         SelectedItem="{Binding SelectedCategory}"
+                        Style="{StaticResource CustomPickerStyle}"
                         TextColor="White"
                         TitleColor="Black">
                         <Picker.ItemsSource>
@@ -62,6 +68,7 @@
                         Title="Genre"
                         BackgroundColor="#7B82D8"
                         SelectedItem="{Binding SelectedGenres}"
+                        Style="{StaticResource CustomPickerStyle}"
                         TextColor="White"
                         TitleColor="Black">
                         <Picker.ItemsSource>
@@ -73,22 +80,26 @@
                     </Picker>
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Price"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Price, Mode=TwoWay}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Description"
                         TextColor="Black" />
                     <Editor
                         BackgroundColor="White"
                         HeightRequest="100"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEditorStyle}"
                         Text="{Binding Description, Mode=TwoWay}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />

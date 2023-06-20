@@ -22,58 +22,72 @@
                 <StackLayout>
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Title"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding Title}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Author"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding AuthorName}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Publishing House"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding PublishingHouse}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Category"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding CategoryName}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Genre"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding BookTitle}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Price"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding Price}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Description"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding Description}"
                         TextColor="Black" />
                     <Grid>

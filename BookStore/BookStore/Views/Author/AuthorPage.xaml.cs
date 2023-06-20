@@ -10,7 +10,6 @@ using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.Author
 {
-    //TODO: Zrobić front + podpiąć model
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AuthorPage : ContentPage
     {

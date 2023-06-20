@@ -10,7 +10,6 @@ using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.Book
 {
-    //TODO: Zrobić front
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BookPage : ContentPage
     {
