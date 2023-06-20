@@ -1,6 +1,7 @@
 ﻿using BookStore.Services.Abstract;
 using System;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Abstract
@@ -12,12 +13,15 @@ namespace BookStore.ViewModels.Abstract
         {
             CancelCommand = new Command(OnCancel);
             DeleteCommand = new Command(OnDelete);
+            UpdateCommand = new Command(OnUpdate);
         }
 
         public IDataStore<T> DataStore => DependencyService.Get<IDataStore<T>>();
 
         public Command DeleteCommand { get; }
         public Command CancelCommand { get; }
+        public Command UpdateCommand { get; }
+
         public abstract void LoadProperties(T item);
         private async void OnDelete()
         {
@@ -32,6 +36,12 @@ namespace BookStore.ViewModels.Abstract
             await Shell.Current.GoToAsync("..");
         }
 
+        private async void OnUpdate()
+        {
+            var item = await DataStore.GetItemAsync(itemId);
+            await DataStore.UpdateItemAsync(item);
+            await Shell.Current.GoToAsync("..");
+        }
 
         private int itemId;
         public int ItemId
