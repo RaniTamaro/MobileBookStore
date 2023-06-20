@@ -31,36 +31,12 @@
                                 </Grid.RowDefinitions>
                                 <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout Padding="10" x:DataType="model:AuthorForView">
-                                        <Label
-                                            Style="{StaticResource NormalLabelStyle}"
-                                            Text="Name"
-                                            TextColor="Black" />
-                                        <Label
-                                            FontSize="16"
-                                            LineBreakMode="NoWrap"
-                                            Style="{StaticResource BindableFieldStyle}"
-                                            Text="{Binding Name}"
-                                            TextColor="#7B82D8" />
-                                        <Label
-                                            Style="{StaticResource NormalLabelStyle}"
-                                            Text="Surname"
-                                            TextColor="Black" />
-                                        <Label
-                                            FontSize="16"
-                                            LineBreakMode="NoWrap"
-                                            Style="{StaticResource BindableFieldStyle}"
-                                            Text="{Binding Surname}"
-                                            TextColor="#7B82D8" />
-                                        <Label
-                                            Style="{StaticResource NormalLabelStyle}"
-                                            Text="Nickname"
-                                            TextColor="Black" />
-                                        <Label
-                                            FontSize="13"
-                                            LineBreakMode="NoWrap"
-                                            Style="{StaticResource BindableLabelStyle}"
-                                            Text="{Binding Nickname}"
-                                            TextColor="#7B82D8" />
+                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Name" />
+                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Name}" />
+                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Surname" />
+                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Surname}" />
+                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Nickname" />
+                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Nickname}" />
                                         <StackLayout>
                                             <Grid>
                                                 <Grid.RowDefinitions>

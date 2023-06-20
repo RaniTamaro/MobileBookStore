@@ -24,48 +24,13 @@
             <!--<Button Text="Add Books" Command="{Binding AddItemCommand}" />-->
             <Frame BackgroundColor="White" HorizontalOptions="Center">
                 <StackLayout>
-                    <Label
-                        FontSize="13"
-                        HorizontalOptions="Start"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Name"
-                        TextColor="Black" />
-                    <Label
-                        FontAttributes="Bold"
-                        FontSize="16"
-                        HorizontalOptions="Start"
-                        Style="{StaticResource BindableLabelStyle}"
-                        Text="{Binding Name}"
-                        TextColor="#7B82D8"
-                        TextTransform="Uppercase" />
-                    <Label
-                        FontSize="13"
-                        HorizontalOptions="Start"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Surname"
-                        TextColor="Black" />
-                    <Label
-                        HorizontalOptions="Start"
-                        Style="{StaticResource BindableLabelStyle}"
-                        Text="{Binding Surname}"
-                        TextColor="#7B82D8" />
-
-                    <Label
-                        HorizontalOptions="Start"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Nickname"
-                        TextColor="Black" />
-                    <Label
-                        HorizontalOptions="Start"
-                        Style="{StaticResource BindableLabelStyle}"
-                        Text="{Binding Nickname}"
-                        TextColor="#7B82D8" />
-
-                    <Label
-                        HorizontalOptions="Start"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Books"
-                        TextColor="Black" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Name" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Name}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Surname" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Surname}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Nickname" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Nickname}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Books" />
 
                     <!--<RefreshView
                     x:DataType="local:DetailsAuthorViewModel"

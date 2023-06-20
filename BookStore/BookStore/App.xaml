@@ -34,11 +34,11 @@
             </Style>
             <!--  Label do zbindowanych Labelów  -->
             <Style x:Key="BindableLabelStyle" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="FontFamily" Value="Verdana" />
                 <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontFamily" Value="Verdana" />
                 <Setter Property="FontSize" Value="15" />
                 <Setter Property="TextColor" Value="Black" />
+                <Setter Property="HorizontalOptions" Value="Start" />
             </Style>
             <!--  Styl do Entry  -->
             <Style x:Key="CustomEntryStyle" TargetType="Entry">
