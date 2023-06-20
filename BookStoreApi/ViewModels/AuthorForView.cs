@@ -9,7 +9,7 @@ namespace BookStoreApi.ViewModels
         public string? Name { get; set; }
         public string? Surname { get; set; }
         public string? Nickname { get; set; }
-        public virtual List<BookForView> Books { get; set; }
+        public virtual List<BookForView>? Books { get; set; }
 
         public static explicit operator Author(AuthorForView forView)
         {

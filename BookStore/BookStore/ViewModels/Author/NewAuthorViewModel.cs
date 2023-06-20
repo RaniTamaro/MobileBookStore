@@ -13,11 +13,6 @@ namespace BookStore.ViewModels.Author
         public NewAuthorViewModel()
             : base()
         {
-            bookDataStore = new BookDataStore();
-            bookDataStore.RefreshListFromService();
-            books = bookDataStore.items;
-
-            selectedBook = bookDataStore.items.FirstOrDefault() ?? new BookForView();
         }
 
         #region Fields
@@ -25,8 +20,6 @@ namespace BookStore.ViewModels.Author
         private string name = "";
         private string surname = "";
         private string nickname = "";
-        private BookForView selectedBook;
-        private List<BookForView> books;
         #endregion
 
         #region Properties
@@ -47,17 +40,6 @@ namespace BookStore.ViewModels.Author
             get => nickname;
             set => SetProperty(ref nickname, value);
         }
-
-        public BookForView SelectedBook
-        {
-            get => selectedBook;
-            set => SetProperty(ref selectedBook, value);
-        }
-
-        public List<BookForView> Books
-        {
-            get => books;
-        }
         #endregion
 
         public override AuthorForView SetItem()
@@ -70,7 +52,6 @@ namespace BookStore.ViewModels.Author
                 Name = Name,
                 Surname = Surname,
                 Nickname = Nickname,
-                Books = new List<BookForView>() { SelectedBook }
             };
         }
 

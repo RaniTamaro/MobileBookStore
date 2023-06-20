@@ -156,7 +156,7 @@ namespace BookStoreApi.Controllers
             _context.Review.Add((Review)review);
             await _context.SaveChangesAsync();
 
-            return Ok((ReviewForView)await _context.Review.Include(x => x.User).Include(x => x.Book).Where(x => x.Id == review.Id).FirstOrDefaultAsync());
+            return Ok((ReviewForView)review);
         }
 
         // DELETE: api/Review/5

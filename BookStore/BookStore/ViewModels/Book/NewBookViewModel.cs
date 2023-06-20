@@ -26,9 +26,9 @@ namespace BookStore.ViewModels.Book
             categories = categoryDataStore.items;
             authors = authorDataStore.items;
 
-            selectedCategory = categoryDataStore.items.FirstOrDefault() ?? new CategoryForView();
-            selectedAuthor = authorDataStore.items.FirstOrDefault() ?? new AuthorForView();
-            selectedGenre = genreDataStore.items.FirstOrDefault() ?? new BookStoreApi.Genre();
+            selectedCategory = new CategoryForView();
+            selectedAuthor = new AuthorForView();
+            selectedGenre = new BookStoreApi.Genre();
         }
 
         #region Fields
