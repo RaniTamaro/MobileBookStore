@@ -3,8 +3,6 @@
     x:Class="BookStore.Views.Review.DetailsReviewPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:BookStore.ViewModels.Review"
-    xmlns:model="clr-namespace:BookStoreApi"
     Title="Review"
     BackgroundColor="#F8F4EF">
     <ContentPage.Content>
@@ -24,42 +22,52 @@
                 <StackLayout>
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Title"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding Title}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Rating"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding Rating}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Text"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding Text}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="User"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding UserFullName}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Book"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding BookTitle}"
                         TextColor="Black" />
                     <Grid>

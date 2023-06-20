@@ -22,59 +22,59 @@
             </Grid.RowDefinitions>
             <Frame BackgroundColor="White" HorizontalOptions="Center">
                 <StackLayout>
-                    <Label
+                    <Label Style="{StaticResource NormalLabelStyle}"
                         FontSize="13"
                         Text="Name"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource BindableLabelStyle}"
                         HorizontalOptions="Start"
                         Text="{Binding Name}"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource NormalLabelStyle}"
                         FontSize="13"
                         Text="Surname"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource BindableLabelStyle}"
                         HorizontalOptions="Start"
                         Text="{Binding Surname}"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource NormalLabelStyle}"
                         FontSize="13"
                         Text="Role"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource BindableLabelStyle}"
                         HorizontalOptions="Start"
                         Text="{Binding Role}"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource NormalLabelStyle}"
                         FontSize="13"
                         Text="Address"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource BindableLabelStyle}"
                         HorizontalOptions="Start"
                         Text="{Binding Address}"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource NormalLabelStyle}"
                         FontSize="13"
                         Text="Phone number"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource BindableLabelStyle}"
                         HorizontalOptions="Start"
                         Text="{Binding PhoneNumber}"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource NormalLabelStyle}"
                         FontSize="13"
                         Text="E-mail"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource BindableLabelStyle}"
                         HorizontalOptions="Start"
                         Text="{Binding Email}"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource NormalLabelStyle}"
                         FontSize="13"
                         Text="Nickname"
                         TextColor="Black" />
-                    <Label
+                    <Label Style="{StaticResource BindableLabelStyle}"
                         HorizontalOptions="Start"
                         Text="{Binding Nickname}"
                         TextColor="Black" />

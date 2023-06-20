@@ -30,17 +30,21 @@
                                 </Grid.RowDefinitions>
                                 <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout x:DataType="model:ReviewForView">
-                                        <Label Text="Title" TextColor="Black" />
                                         <Label
                                             FontFamily="Roboto"
                                             FontSize="16"
+                                            Style="{StaticResource TitleLabelStyle}"
                                             Text="{Binding Title}"
                                             TextColor="#7B82D8"
                                             TextTransform="Uppercase" />
-                                        <Label Text="Rating" TextColor="Black" />
+                                        <Label
+                                            Style="{StaticResource NormalLabelStyle}"
+                                            Text="Rating"
+                                            TextColor="Black" />
                                         <Label
                                             FontFamily="Roboto"
                                             FontSize="16"
+                                            Style="{StaticResource BindableLabelStyle}"
                                             Text="{Binding Rating}"
                                             TextColor="#7B82D8"
                                             TextTransform="Uppercase" />
@@ -55,6 +59,7 @@
                                                     CornerRadius="18"
                                                     HeightRequest="38"
                                                     HorizontalOptions="End"
+                                                    InputTransparent="True"
                                                     Text="More"
                                                     TextColor="White"
                                                     WidthRequest="98" />

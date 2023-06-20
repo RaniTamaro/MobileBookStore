@@ -11,7 +11,6 @@ using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.User
 {
-    //TODO: Zrobić front
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class UserPage : ContentPage
     {

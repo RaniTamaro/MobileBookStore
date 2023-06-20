@@ -3,8 +3,6 @@
     x:Class="BookStore.Views.Genre.DetailsGenrePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:BookStore.ViewModels.Category"
-    xmlns:model="clr-namespace:BookStoreApi"
     Title="Genre"
     BackgroundColor="#F8F4EF">
     <ContentPage.Content>
@@ -24,18 +22,22 @@
                 <StackLayout>
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Name"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding Name}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Description"
                         TextColor="Black" />
                     <Label
                         HorizontalOptions="Start"
+                        Style="{StaticResource BindableLabelStyle}"
                         Text="{Binding Description}"
                         TextColor="Black" />
                     <Grid>

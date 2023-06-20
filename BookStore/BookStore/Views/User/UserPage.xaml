@@ -30,16 +30,32 @@
                                 </Grid.RowDefinitions>
                                 <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout x:DataType="model:UserForView">
-                                        <Label Text="Name" TextColor="Black" />
+                                        <Label
+                                            Style="{StaticResource NormalLabelStyle}"
+                                            Text="Name"
+                                            TextColor="Black" />
                                         <Label
                                             FontFamily="Roboto"
                                             FontSize="16"
+                                            Style="{StaticResource BindableLabelStyle}"
                                             Text="{Binding Name}"
                                             TextColor="#7B82D8" />
-                                        <Label Text="Surname" TextColor="Black" />
-                                        <Label Text="{Binding Surname}" TextColor="#7B82D8" />
-                                        <Label Text="Role" TextColor="Black" />
-                                        <Label Text="{Binding Role}" TextColor="#7B82D8" />
+                                        <Label
+                                            Style="{StaticResource NormalLabelStyle}"
+                                            Text="Surname"
+                                            TextColor="Black" />
+                                        <Label
+                                            Style="{StaticResource BindableLabelStyle}"
+                                            Text="{Binding Surname}"
+                                            TextColor="#7B82D8" />
+                                        <Label
+                                            Style="{StaticResource NormalLabelStyle}"
+                                            Text="Role"
+                                            TextColor="Black" />
+                                        <Label
+                                            Style="{StaticResource BindableLabelStyle}"
+                                            Text="{Binding Role}"
+                                            TextColor="#7B82D8" />
                                         <StackLayout>
                                             <Grid>
                                                 <Grid.RowDefinitions>
@@ -51,6 +67,7 @@
                                                     CornerRadius="18"
                                                     HeightRequest="38"
                                                     HorizontalOptions="End"
+                                                    InputTransparent="True"
                                                     Text="More"
                                                     TextColor="White"
                                                     WidthRequest="98" />

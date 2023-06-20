@@ -5,7 +5,6 @@ using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.Category
 {
-    //TODO: Zrobić front
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewCategoryPage : ContentPage
     {

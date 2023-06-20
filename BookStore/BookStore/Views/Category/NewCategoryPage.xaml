@@ -13,21 +13,25 @@
                 <StackLayout>
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Name"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Name}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Description"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Description}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />

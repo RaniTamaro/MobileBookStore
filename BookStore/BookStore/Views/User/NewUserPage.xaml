@@ -13,21 +13,25 @@
                 <StackLayout>
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Name"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Name}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Surname"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Surname}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
@@ -35,6 +39,7 @@
                         Title="Role"
                         BackgroundColor="#7B82D8"
                         SelectedItem="{Binding SelectedRole}"
+                        Style="{StaticResource CustomPickerStyle}"
                         TextColor="White"
                         TitleColor="Black">
                         <Picker.ItemsSource>
@@ -43,52 +48,62 @@
                     </Picker>
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Address"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Address}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Phone number"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding PhoneNumber}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="E-mail"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Email}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Nickname"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Nickname}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Password"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
                         IsPassword="True"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Password}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />

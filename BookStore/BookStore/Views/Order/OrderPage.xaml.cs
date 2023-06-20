@@ -5,7 +5,6 @@ using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.Order
 {
-    //TODO: Zrobić front + podpiąć model
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OrderPage : ContentPage
     {

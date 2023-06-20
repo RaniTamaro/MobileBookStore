@@ -5,7 +5,6 @@ using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.Order
 {
-    //TODO: Zrobić front + podpiąć model
     //TODO: Front - Id nie może być wyświetlane! Przekazuje je dla dodawania książek!
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DetailsOrderPage : ContentPage

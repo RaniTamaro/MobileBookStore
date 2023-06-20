@@ -8,7 +8,6 @@
     Title="Categories"
     BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-
         <Grid HorizontalOptions="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="335" />
@@ -31,10 +30,10 @@
                                 </Grid.RowDefinitions>
                                 <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout x:DataType="model:CategoryForView">
-                                        <Label Text="Name" TextColor="Black" />
                                         <Label
                                             FontFamily="Roboto"
                                             FontSize="16"
+                                            Style="{StaticResource TitleLabelStyle}"
                                             Text="{Binding Name}"
                                             TextColor="#7B82D8"
                                             TextTransform="Uppercase" />
@@ -49,6 +48,7 @@
                                                     CornerRadius="18"
                                                     HeightRequest="38"
                                                     HorizontalOptions="End"
+                                                    InputTransparent="True"
                                                     Text="More"
                                                     TextColor="White"
                                                     WidthRequest="98" />

@@ -15,21 +15,25 @@
                 <StackLayout>
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Name"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Name, Mode=TwoWay}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
                     <Label
                         FontSize="13"
+                        Style="{StaticResource NormalLabelStyle}"
                         Text="Description"
                         TextColor="Black" />
                     <Entry
                         BackgroundColor="White"
                         HorizontalOptions="FillAndExpand"
+                        Style="{StaticResource CustomEntryStyle}"
                         Text="{Binding Description, Mode=TwoWay}"
                         TextColor="Black"
                         VerticalOptions="CenterAndExpand" />
@@ -56,7 +60,7 @@
                             Command="{Binding SaveCommand}"
                             CornerRadius="18"
                             HeightRequest="38"
-                            Text="Add"
+                            Text="Save"
                             TextColor="White"
                             WidthRequest="68" />
                     </Grid>

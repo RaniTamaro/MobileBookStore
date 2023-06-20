@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:BookStore.ViewModels.Book"
     xmlns:model="clr-namespace:BookStoreApi"
-    Title="{Binding Title}"
+    Title="Books"
     BackgroundColor="#F8F4EF">
     <ContentPage.Content>
         <Grid HorizontalOptions="Center">
@@ -131,7 +131,6 @@
                     Text="Add new"
                     TextTransform="Uppercase" />
             </AbsoluteLayout>
-            <!--  Clicked="" i zamknąć ImageButton"  -->
         </Grid>
     </ContentPage.Content>
 </ContentPage>

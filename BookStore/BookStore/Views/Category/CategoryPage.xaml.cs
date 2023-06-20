@@ -10,7 +10,6 @@ using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.Category
 {
-    //TODO: Zrobić front + podpiąć model
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CategoryPage : ContentPage
     {
