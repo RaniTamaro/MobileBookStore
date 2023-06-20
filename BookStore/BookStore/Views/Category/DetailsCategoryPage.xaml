@@ -25,20 +25,20 @@
                         Style="{StaticResource NormalLabelStyle}"
                         Text="Name"
                         TextColor="Black" />
-                    <Label
+                    <Entry
+                        Style="{StaticResource CustomEntryStyle}"
                         HorizontalOptions="Start"
-                        Style="{StaticResource BindableLabelStyle}"
-                        Text="{Binding Name}"
+                        Text="{Binding Name, Mode=TwoWay}"
                         TextColor="Black" />
                     <Label
                         FontSize="13"
                         Style="{StaticResource NormalLabelStyle}"
                         Text="Description"
                         TextColor="Black" />
-                    <Label
+                    <Entry
                         HorizontalOptions="Start"
-                        Style="{StaticResource BindableLabelStyle}"
-                        Text="{Binding Description}"
+                        Style="{StaticResource CustomEntryStyle}"
+                        Text="{Binding Description, Mode=TwoWay}"
                         TextColor="Black" />
                     <Grid>
                         <Grid.RowDefinitions>
@@ -52,6 +52,16 @@
                             HeightRequest="38"
                             HorizontalOptions="Start"
                             Text="Cancel"
+                            TextColor="White"
+                            WidthRequest="78" />
+                        <Button
+                            Margin="10"
+                            BackgroundColor="LightSeaGreen"
+                            Command="{Binding UpdateCommand}"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            HorizontalOptions="Center"
+                            Text="Update"
                             TextColor="White"
                             WidthRequest="78" />
                         <Button
