@@ -13,10 +13,5 @@ namespace BookStore.Views.Category
             InitializeComponent();
             BindingContext = new DetailsCategoryViewModel();
         }
-
-        private void Entry_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-
-        }
     }
 }
