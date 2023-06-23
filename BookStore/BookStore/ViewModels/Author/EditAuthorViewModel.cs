@@ -1,28 +1,30 @@
-﻿using BookStore.Services;
-using BookStore.ViewModels.Abstract;
+﻿using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace BookStore.ViewModels.Author
 {
-    //TODO: Klaudia - tu możliwe, że będzie zmiania book, bo w api przyjmuje coś innego!
-    public class NewAuthorViewModel : ANewViewModel<AuthorForView>
+    public class EditAuthorViewModel : AEditItemViewModel<AuthorForView>
     {
-        public NewAuthorViewModel()
+        public EditAuthorViewModel()
             : base()
         {
         }
 
         #region Fields
-        private readonly BookDataStore bookDataStore;
-        private string name = "";
-        private string surname = "";
-        private string nickname = "";
+        private int id;
+        private string name;
+        private string surname;
+        private string nickname;
         #endregion
 
         #region Properties
+        public int Id
+        {
+            get => id;
+            set => SetProperty(ref id, value);
+        }
+
         public string Name
         {
             get => name;
@@ -49,6 +51,7 @@ namespace BookStore.ViewModels.Author
                 CretionDate = DateTime.Now,
                 MmodifDate = DateTime.Now,
                 IsActive = true,
+                Id = Id,
                 Name = Name,
                 Surname = Surname,
                 Nickname = Nickname,
@@ -59,6 +62,14 @@ namespace BookStore.ViewModels.Author
         {
             return !string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(Surname)
                 || !string.IsNullOrEmpty(nickname);
+        }
+
+        public override async void LoadProperties(AuthorForView item)
+        {
+            Id = item.Id;
+            Name = item.Name;
+            Surname = item.Surname;
+            Nickname = item.Nickname;
         }
     }
 }

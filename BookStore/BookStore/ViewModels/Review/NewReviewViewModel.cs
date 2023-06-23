@@ -18,8 +18,8 @@ namespace BookStore.ViewModels.Review
             userDataStore.RefreshListFromService();
             books = bookDataStore.items;
             users = userDataStore.items;
-            selectedBook = bookDataStore.items.FirstOrDefault() ?? new BookForView();
-            selectedUser = userDataStore.items.FirstOrDefault() ?? new UserForView();
+            selectedBook = new BookForView();
+            selectedUser = new UserForView();
         }
 
         #region Fields

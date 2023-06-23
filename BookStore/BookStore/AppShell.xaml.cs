@@ -1,4 +1,7 @@
-﻿using BookStore.Views;
+﻿using BookStore.Helpers.Constants;
+using BookStore.ViewModels;
+using BookStore.ViewModels.Author;
+using BookStore.Views;
 using BookStore.Views.Author;
 using BookStore.Views.Book;
 using BookStore.Views.Category;
@@ -18,6 +21,7 @@ namespace BookStore
             InitializeComponent();
             Routing.RegisterRoute(nameof(NewAuthorPage), typeof(NewAuthorPage));
             Routing.RegisterRoute(nameof(DetailsAuthorPage), typeof(DetailsAuthorPage));
+            Routing.RegisterRoute(nameof(EditAuthorPage), typeof(EditAuthorPage));
             Routing.RegisterRoute(nameof(NewBookPage), typeof(NewBookPage));
             Routing.RegisterRoute(nameof(DetailsBookPage), typeof(DetailsBookPage));
             Routing.RegisterRoute(nameof(NewCategoryPage), typeof(NewCategoryPage));

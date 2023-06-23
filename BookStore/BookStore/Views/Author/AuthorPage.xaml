@@ -48,18 +48,24 @@
                                                     CornerRadius="18"
                                                     HeightRequest="38"
                                                     HorizontalOptions="End"
-                                                    InputTransparent="True"
                                                     Text="More"
                                                     TextColor="White"
-                                                    WidthRequest="98" />
+                                                    WidthRequest="98">
+                                                    <Button.GestureRecognizers>
+                                                        <TapGestureRecognizer
+                                                            Command="{Binding Source={RelativeSource AncestorType={x:Type local:AuthorViewModel}}, Path=ItemTapped}"
+                                                            CommandParameter="{Binding .}"
+                                                            NumberOfTapsRequired="1" />
+                                                    </Button.GestureRecognizers>
+                                                </Button>
                                             </Grid>
                                         </StackLayout>
-                                        <StackLayout.GestureRecognizers>
+                                        <!--<StackLayout.GestureRecognizers>
                                             <TapGestureRecognizer
                                                 Command="{Binding Source={RelativeSource AncestorType={x:Type local:AuthorViewModel}}, Path=ItemTapped}"
                                                 CommandParameter="{Binding .}"
                                                 NumberOfTapsRequired="1" />
-                                        </StackLayout.GestureRecognizers>
+                                        </StackLayout.GestureRecognizers>-->
                                     </StackLayout>
                                 </Frame>
                             </Grid>
