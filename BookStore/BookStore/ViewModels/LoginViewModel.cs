@@ -1,10 +1,6 @@
 ﻿using BookStore.Helpers.Constants;
-using BookStore.Models;
 using BookStore.Services;
 using BookStore.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -46,6 +42,8 @@ namespace BookStore.ViewModels
             if (!string.IsNullOrEmpty(loginRole))
             {
                 Application.Current.MainPage = new AppShell();
+
+                Application.Current.Resources.Add(RoleConstants.UserRole, loginRole);
                 MessagingCenter.Send<LoginViewModel>(this,
                     (loginRole == RoleConstants.Admin) ? RoleConstants.Admin : RoleConstants.User
                     );
