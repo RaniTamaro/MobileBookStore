@@ -20,7 +20,8 @@ namespace BookStore
             DependencyService.Register<GenreDataStore>();
             DependencyService.Register<OrderDataStore>();
             DependencyService.Register<ReviewDataStore>();
-            MainPage = new AppShell();
+            //MainPage = new AppShell();
+            MainPage = new LoginPage();
         }
 
         protected override void OnStart()

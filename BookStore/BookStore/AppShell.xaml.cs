@@ -34,10 +34,13 @@ namespace BookStore
             Routing.RegisterRoute(nameof(DetailsReviewPage), typeof(DetailsReviewPage));
             Routing.RegisterRoute(nameof(NewUserPage), typeof(NewUserPage));
             Routing.RegisterRoute(nameof(DetailsUserPage), typeof(DetailsUserPage));
+
+            BindingContext = new AppShellViewModel();
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
+            Application.Current.Resources.Remove(RoleConstants.UserRole);
             await Shell.Current.GoToAsync("//LoginPage");
         }
     }

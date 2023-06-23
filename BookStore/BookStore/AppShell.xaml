@@ -11,7 +11,13 @@
     xmlns:order="clr-namespace:BookStore.Views.Order"
     xmlns:review="clr-namespace:BookStore.Views.Review"
     xmlns:user="clr-namespace:BookStore.Views.User"
-    Title="BookStore">
+    xmlns:viewmodel="clr-namespace:BookStore.ViewModels"
+    Title="BookStore"
+    x:Name="BookStore">
+
+    <Shell.BindingContext>
+        <viewmodel:AppShellViewModel/>
+    </Shell.BindingContext>
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -98,47 +104,35 @@
     <!--  =================================================================================  -->
 
     <FlyoutItem Title="About" Icon="Icons/icon_about.png">
-        <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" Route="About" />
+        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Orders" Icon="Icons/notifications.png">
-        <ShellContent ContentTemplate="{DataTemplate order:OrderPage}" Route="OrderPage" />
+    <FlyoutItem Title="Books" Icon="Icons/local_mall.png" IsVisible="{Binding IsUser}">
+        <ShellContent Route="BooksPage" ContentTemplate="{DataTemplate book:BookPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Books" Icon="Icons/local_mall.png">
-        <ShellContent ContentTemplate="{DataTemplate book:BookPage}" Route="BooksPage" />
+    <FlyoutItem Title="Authors" Icon="Icons/bookmark.png" IsVisible="{Binding IsUser}">
+        <ShellContent Route="AuthorsPage" ContentTemplate="{DataTemplate author:AuthorPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Authors" Icon="Icons/bookmark.png">
-        <ShellContent ContentTemplate="{DataTemplate author:AuthorPage}" Route="AuthorsPage" />
+    <FlyoutItem Title="Reviews" Icon="Icons/clinical_notes.png" IsVisible="{Binding IsUser}">
+        <ShellContent Route="ReviewsPage" ContentTemplate="{DataTemplate review:ReviewPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Categories" Icon="Icons/category.png">
-        <ShellContent ContentTemplate="{DataTemplate category:CategoryPage}" Route="CategoriesPage" />
+    <FlyoutItem Title="Orders" Icon="Icons/notifications.png" IsVisible="{Binding IsAdmin}">
+        <ShellContent Route="OrderPage" ContentTemplate="{DataTemplate order:OrderPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Genres" Icon="Icons/bookmark.png">
-        <ShellContent ContentTemplate="{DataTemplate genre:GenrePage}" Route="GenrePage" />
+    <FlyoutItem Title="Categories" Icon="Icons/category.png" IsVisible="{Binding IsAdmin}">
+        <ShellContent Route="CategoriesPage" ContentTemplate="{DataTemplate category:CategoryPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Users" Icon="Icons/groups.png">
-        <ShellContent ContentTemplate="{DataTemplate user:UserPage}" Route="UsersPage" />
+    <FlyoutItem Title="Genres" Icon="Icons/bookmark.png" IsVisible="{Binding IsAdmin}">
+        <ShellContent Route="GenrePage" ContentTemplate="{DataTemplate genre:GenrePage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Reviews" Icon="Icons/clinical_notes.png">
-        <ShellContent ContentTemplate="{DataTemplate review:ReviewPage}" Route="ReviewsPage" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Reports" Icon="Icons/folder.png">
-        <ShellContent Route="ReportsPage" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Account &amp; Settings" Icon="Icons/manage_accounts.png">
-        <ShellContent Route="AccountSettingsPage" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="Notifications" Icon="Icons/notifications.png">
-        <ShellContent Route="NotificationsPage" />
+    <FlyoutItem Title="Users" Icon="Icons/groups.png" IsVisible="{Binding IsAdmin}">
+        <ShellContent Route="UsersPage" ContentTemplate="{DataTemplate user:UserPage}" />
     </FlyoutItem>
 
     <!--  When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
@@ -159,9 +153,9 @@
     <TabBar>
         <ShellContent ContentTemplate="{DataTemplate local:LoginPage}" Route="LoginPage" />
     </TabBar>
-    <TabBar>
+    <!--<TabBar>
         <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" Route="AboutPage" />
-    </TabBar>
+    </TabBar>-->
     <!-- Optional Templates
     // These may be provided inline as below or as separate classes.
 
