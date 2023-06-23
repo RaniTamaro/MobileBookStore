@@ -1,13 +1,18 @@
 ﻿using BookStore.ViewModels.Abstract;
+using BookStore.ViewModels.Genre;
+using BookStore.Views.Genre;
+using BookStore.Views.User;
 using BookStoreApi;
 using System.Collections.Generic;
 using System.Linq;
+using Xamarin.Forms;
 
 namespace BookStore.ViewModels.User
 {
     public class DetailsUserViewModel : AItemDetailsViewModel<UserForView>
     {
         #region Fields
+        private int id;
         private string name;
         private string surname;
         private string address;
@@ -19,6 +24,12 @@ namespace BookStore.ViewModels.User
         #endregion
 
         #region Properties
+        public int Id
+        {
+            get => id;
+            set => SetProperty(ref id, value);
+        }
+
         public string Name
         {
             get => name;
@@ -75,6 +86,7 @@ namespace BookStore.ViewModels.User
 
         public override void LoadProperties(UserForView item)
         {
+            Id = item.Id;
             Name = item.Name;
             Surname = item.Surname;
             Address = item.Address;
@@ -83,6 +95,11 @@ namespace BookStore.ViewModels.User
             Nickname = item.Nickname;
             Role = item.Role;
             Orders = item.Orders.ToList();
+        }
+
+        public async override void OnEdit()
+        {
+            await Shell.Current.GoToAsync($"{nameof(EditUserPage)}?{nameof(EditUserViewModel.ItemId)}={Id}");
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BookStore.ViewModels.Abstract;
 using BookStore.ViewModels.Genre;
+using BookStore.Views.Book;
 using BookStore.Views.Genre;
 using BookStoreApi;
 using System;
@@ -123,6 +124,11 @@ namespace BookStore.ViewModels.Book
             genres = item.BookGenres.ToList();
             await ExecuteLoadItemsCommand();
 
+        }
+
+        public async override void OnEdit()
+        {
+            await Shell.Current.GoToAsync($"{nameof(EditBookPage)}?{nameof(EditBookViewModel.ItemId)}={Id}");
         }
     }
 }

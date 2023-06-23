@@ -1,8 +1,6 @@
-﻿using BookStore.Views;
-using System;
+﻿using BookStore.Views.Book;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace BookStore.ViewModels
@@ -19,7 +17,7 @@ namespace BookStore.ViewModels
 
         private async Task OpenLoginPageAsync()
         {
-            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+            await Shell.Current.GoToAsync($"//{nameof(BookPage)}");
         }
     }
 }

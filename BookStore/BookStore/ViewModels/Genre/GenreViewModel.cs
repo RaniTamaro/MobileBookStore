@@ -1,6 +1,5 @@
 ﻿using BookStore.ViewModels.Abstract;
 using BookStore.Views.Genre;
-using BookStoreApi;
 using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Genre

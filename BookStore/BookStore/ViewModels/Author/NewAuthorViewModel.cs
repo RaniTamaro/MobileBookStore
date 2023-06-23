@@ -2,8 +2,6 @@
 using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace BookStore.ViewModels.Author
 {

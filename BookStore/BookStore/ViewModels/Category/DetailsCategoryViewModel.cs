@@ -1,6 +1,7 @@
 ﻿using BookStore.ViewModels.Abstract;
 using BookStore.ViewModels.Book;
 using BookStore.Views.Book;
+using BookStore.Views.Category;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
@@ -90,6 +91,11 @@ namespace BookStore.ViewModels.Category
             Description = item.Description;
             books = item.Books.ToList();
             await ExecuteLoadItemsCommand();
+        }
+
+        public async override void OnEdit()
+        {
+            await Shell.Current.GoToAsync($"{nameof(EditCategoryPage)}?{nameof(EditCategoryViewModel.ItemId)}={Id}");
         }
     }
 }

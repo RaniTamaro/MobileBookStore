@@ -16,6 +16,7 @@ namespace BookStore.ViewModels.Author
         private string name;
         private string surname;
         private string nickname;
+        private DateTime creationDate;
         #endregion
 
         #region Properties
@@ -42,13 +43,19 @@ namespace BookStore.ViewModels.Author
             get => nickname;
             set => SetProperty(ref nickname, value);
         }
+
+        public DateTime CreationDate
+        {
+            get => creationDate;
+            set => SetProperty(ref creationDate, value);
+        }
         #endregion
 
         public override AuthorForView SetItem()
         {
             return new AuthorForView
             {
-                CretionDate = DateTime.Now,
+                CretionDate = CreationDate,
                 MmodifDate = DateTime.Now,
                 IsActive = true,
                 Id = Id,
@@ -70,6 +77,7 @@ namespace BookStore.ViewModels.Author
             Name = item.Name;
             Surname = item.Surname;
             Nickname = item.Nickname;
+            CreationDate = DateTime.Parse(item.CretionDate.ToString());
         }
     }
 }
