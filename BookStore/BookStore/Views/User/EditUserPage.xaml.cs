@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookStore.ViewModels.User;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,11 @@ namespace BookStore.Views.User
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditUserPage : ContentPage
     {
+        public BookStoreApi.AuthorForView Item { get; set; }
         public EditUserPage()
         {
             InitializeComponent();
+            BindingContext = new EditUserViewModel();
         }
     }
 }

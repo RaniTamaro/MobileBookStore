@@ -1,12 +1,86 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookStore.Views.Book.EditBookPage">
+             x:Class="BookStore.Views.Book.EditBookPage"
+             Title="Edit Book"
+             BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Frame BackgroundColor="White" HorizontalOptions="Center">
+                <StackLayout>
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Title" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Title, Mode=TwoWay}" />
+                    <Picker
+                        Title="Author"
+                        SelectedItem="{Binding SelectedAuthor}"
+                        Style="{StaticResource CustomPickerStyle}">
+                        <Picker.ItemsSource>
+                            <Binding Path="Authors" />
+                        </Picker.ItemsSource>
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="Nickname" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Publishing House" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding PublishingHouse, Mode=TwoWay}" />
+                    <Picker
+                        Title="Category"
+                        SelectedItem="{Binding SelectedCategory}"
+                        Style="{StaticResource CustomPickerStyle}">
+                        <Picker.ItemsSource>
+                            <Binding Path="Categories" />
+                        </Picker.ItemsSource>
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="Name" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+                    <Picker
+                        Title="Genre"
+                        SelectedItem="{Binding SelectedGenres}"
+                        Style="{StaticResource CustomPickerStyle}">
+                        <Picker.ItemsSource>
+                            <Binding Path="Genres" />
+                        </Picker.ItemsSource>
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="Name" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Price" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Price, Mode=TwoWay}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Description" />
+                    <Editor Style="{StaticResource CustomEditorStyle}" Text="{Binding Description, Mode=TwoWay}" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="115" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            Grid.Column="0"
+                            Margin="10,10,0,0"
+                            BackgroundColor="#7B82D8"
+                            Command="{Binding CancelCommand}"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            Text="Cancel"
+                            TextColor="White"
+                            WidthRequest="68" />
+                        <Button
+                            Grid.Column="2"
+                            Margin="10,10,0,0"
+                            BackgroundColor="#7BD8C2"
+                            Command="{Binding SaveCommand}"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            Text="Add"
+                            TextColor="White"
+                            WidthRequest="68" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

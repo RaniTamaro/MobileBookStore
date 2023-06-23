@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BookStore.ViewModels.Author;
+using BookStore.ViewModels.Order;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +15,11 @@ namespace BookStore.Views.Order
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditOrderPage : ContentPage
     {
+        public BookStoreApi.OrderForView Item { get; set; }
         public EditOrderPage()
         {
             InitializeComponent();
+            BindingContext = new EditOrderViewModel();
         }
     }
 }

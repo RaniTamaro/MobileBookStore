@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookStore.ViewModels.Review;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +14,11 @@ namespace BookStore.Views.Review
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditReviewPage : ContentPage
     {
+        public BookStoreApi.ReviewForView Item { get; set; }
         public EditReviewPage()
         {
             InitializeComponent();
+            BindingContext = new EditReviewViewModel();
         }
     }
 }

@@ -1,34 +1,79 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="BookStore.Views.LoginPage"
-             Shell.NavBarIsVisible="False"> <!-- TODO Tymczasowo True aby mozna było przechodzic pomiędzy zakładkami menu, az do ukończenia projektu--> 
+<ContentPage
+    x:Class="BookStore.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="#7B82D8"
+    Shell.NavBarIsVisible="False"
+    mc:Ignorable="d">
+    <ContentPage.Resources>
+        <Style x:Key="CustomEntryStyle" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="{StaticResource Background}" />
+            <Setter Property="HeightRequest" Value="40" />
+            <Setter Property="PlaceholderColor" Value="{StaticResource PlaceholderTextColor}" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="14" />
+            <Style.Triggers>
+                <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                    <Setter Property="BackgroundColor" Value="{StaticResource LightFiolet}" />
+                    <Setter Property="TextColor" Value="White" />
+                    <Setter Property="PlaceholderColor" Value="White" />
+                </Trigger>
+                <Trigger TargetType="Entry" Property="IsFocused" Value="False">
+                    <Setter Property="BackgroundColor" Value="{StaticResource Background}" />
+                    <Setter Property="TextColor" Value="Black" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </ContentPage.Resources>
+    <!--  TODO Tymczasowo True aby mozna było przechodzic pomiędzy zakładkami menu, az do ukończenia projektu  -->
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Padding="10" BackgroundColor="{StaticResource Background}">
-            <BoxView HeightRequest="10"/>
-            <Image HorizontalOptions="Center" WidthRequest="150" Source="Icons/logo.png"/>
-            <Label HorizontalOptions="Center" TextColor="Black" Text="Admin Panel"/>
-            <Frame BackgroundColor="{StaticResource Background}" HasShadow="False">
-                <StackLayout Orientation="Vertical" Spacing="10">
-                    <Label Text="Login" TextColor="Black"/>
-                    <Entry x:Name="Login" Text="{Binding Nickname, Mode=TwoWay}" Placeholder="Your login"   
-                           PlaceholderColor="{StaticResource PlaceholderTextColor}" HeightRequest="40"   
-                           Keyboard="Email"  
-                           TextColor="Black"/>
-                    <Label Text="Password" TextColor="Black"/>
-                    <Entry x:Name="Password" Text="{Binding Password, Mode=TwoWay}" Placeholder="Password"   
-                           PlaceholderColor="{StaticResource PlaceholderTextColor}" HeightRequest="40"   
-                           IsPassword="True"  
-                           TextColor="Black"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Frame
+                Margin="0,50"
+                BackgroundColor="{StaticResource Background}"
+                BorderColor="MediumPurple"
+                HorizontalOptions="Center"
+                WidthRequest="400">
+                <StackLayout>
+                    <Image
+                        HorizontalOptions="Center"
+                        Source="Icons/logo.png"
+                        WidthRequest="150" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Style="{StaticResource TitleLabelStyle}"
+                        Text="Admin Panel" />
+                    <StackLayout Orientation="Vertical" Spacing="10">
+                        <Label Style="{StaticResource NormalLabelStyle}" Text="Login" />
+                        <Entry
+                            x:Name="Login"
+                            Placeholder="Login"
+                            Style="{StaticResource CustomEntryStyle}"
+                            Text="{Binding Nickname, Mode=TwoWay}" />
+                        <Label Text="Password" Style="{StaticResource NormalLabelStyle}" />
+                        <Entry x:Name="Password" Placeholder="Password" IsPassword="True" Style="{StaticResource CustomEntryStyle}" Text="{Binding Password, Mode=TwoWay}" />
+                    </StackLayout>
+                    <!--  TODO Podpiąć Command do buttona  -->
+                    <Button
+                        Margin="0,20"
+                        Padding="10"
+                        CornerRadius="8"
+                        BackgroundColor="{StaticResource LightFiolet}"
+                        Command="{Binding LoginCommand}"
+                        Style="{StaticResource TitleLabelStyle}"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Sign In"
+                        TextColor="White" />
+
                 </StackLayout>
             </Frame>
-            <!-- TODO Podpiąć Command do buttona -->
-            <Button Text="Sign In" TextColor="White" Command="{Binding LoginCommand}"
-                    FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="{StaticResource LightFiolet}" />
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

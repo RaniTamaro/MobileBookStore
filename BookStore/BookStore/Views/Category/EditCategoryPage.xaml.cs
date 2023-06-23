@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BookStore.ViewModels.Author;
+using BookStore.ViewModels.Category;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,9 +15,11 @@ namespace BookStore.Views.Category
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditCategoryPage : ContentPage
     {
+        public BookStoreApi.CategoryForView Item { get; set; }
         public EditCategoryPage()
         {
             InitializeComponent();
+            BindingContext = new EditCategoryViewModel();
         }
     }
 }

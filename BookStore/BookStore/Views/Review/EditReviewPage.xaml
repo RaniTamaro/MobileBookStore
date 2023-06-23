@@ -1,12 +1,70 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="BookStore.Views.Review.EditReviewPage">
+             x:Class="BookStore.Views.Review.EditReviewPage"
+             Title="New Review"
+             BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Frame BackgroundColor="White" HorizontalOptions="Center">
+                <StackLayout>
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Title" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Title, Mode=TwoWay}" />
+                    <Picker SelectedItem="{Binding SelectedBook}" Style="{StaticResource CustomPickerStyle}">
+                        <Picker.ItemsSource>
+                            <Binding Path="Books" />
+                        </Picker.ItemsSource>
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="Title" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Rating" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Rating, Mode=TwoWay}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Text" />
+                    <Editor Style="{StaticResource CustomEditorStyle}" Text="{Binding Text, Mode=TwoWay}" />
+                    <Picker
+                        Title="Customer"
+                        SelectedItem="{Binding SelectedCustomer}"
+                        Style="{StaticResource CustomPickerStyle}">
+                        <Picker.ItemsSource>
+                            <Binding Path="Users" />
+                        </Picker.ItemsSource>
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="Nickname" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="115" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button
+                            Grid.Column="0"
+                            Margin="10,10,0,0"
+                            BackgroundColor="#7B82D8"
+                            Command="{Binding CancelCommand}"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            Text="Cancel"
+                            TextColor="White"
+                            WidthRequest="68" />
+                        <Button
+                            Grid.Column="2"
+                            Margin="10,10,0,0"
+                            BackgroundColor="#7BD8C2"
+                            Command="{Binding SaveCommand}"
+                            CornerRadius="18"
+                            HeightRequest="38"
+                            Text="Save"
+                            TextColor="White"
+                            WidthRequest="68" />
+                    </Grid>
+                </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

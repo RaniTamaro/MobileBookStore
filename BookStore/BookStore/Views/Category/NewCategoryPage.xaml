@@ -3,6 +3,7 @@
     x:Class="BookStore.Views.Category.NewCategoryPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="New Category"
     BackgroundColor="#F8F4EF">
     <ContentPage.Content>
         <Grid>
