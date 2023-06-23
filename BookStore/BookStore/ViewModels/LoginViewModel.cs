@@ -55,8 +55,6 @@ namespace BookStore.ViewModels
             {
                 await Shell.Current.DisplayAlert("Login failed", "Username or Password is incorrect or not exists", "Ok");
             }
-            // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            //await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
         }
     }
 }

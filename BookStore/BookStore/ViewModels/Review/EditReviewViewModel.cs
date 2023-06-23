@@ -7,22 +7,23 @@ using System.Linq;
 
 namespace BookStore.ViewModels.Review
 {
-    public class NewReviewViewModel : ANewViewModel<ReviewForView>
+    public class EditReviewViewModel : AEditItemViewModel<ReviewForView>
     {
-        public NewReviewViewModel()
+        public EditReviewViewModel()
             : base()
         {
-            var bookDataStore = new BookDataStore();
-            var userDataStore = new UserDataStore();
+            bookDataStore = new BookDataStore();
+            userDataStore = new UserDataStore();
             bookDataStore.RefreshListFromService();
             userDataStore.RefreshListFromService();
             books = bookDataStore.items;
             users = userDataStore.items;
-            selectedBook = new BookForView();
-            selectedUser = new UserForView();
         }
 
         #region Fields
+        private BookDataStore bookDataStore;
+        private UserDataStore userDataStore;
+        private int id;
         private double rating;
         private string title;
         private string text;
@@ -30,9 +31,16 @@ namespace BookStore.ViewModels.Review
         private List<UserForView> users;
         private BookForView selectedBook;
         private List<BookForView> books;
+        private DateTime creationDate;
         #endregion
 
         #region Properties
+        public int Id
+        {
+            get => id;
+            set => SetProperty(ref id, value);
+        }
+
         public double Rating
         {
             get => rating;
@@ -76,15 +84,33 @@ namespace BookStore.ViewModels.Review
                 return books;
             }
         }
+
+        public DateTime CreationDate
+        {
+            get => creationDate;
+            set => SetProperty(ref creationDate, value);
+        }
         #endregion
+
+        public override void LoadProperties(ReviewForView item)
+        {
+            Id = item.Id;
+            Rating = item.Rating;
+            Title = item.Title;
+            Text = item.Text;
+            SelectedCustomer = userDataStore.items.Where(x => x.Id == item.IdUser).First();
+            SelectedBook = bookDataStore.items.Where(x => x.Id == item.IdBook).First();
+            CreationDate = DateTime.Parse(item.CretionDate.ToString());
+        }
 
         public override ReviewForView SetItem()
         {
             return new ReviewForView
             {
-                CretionDate = DateTime.Now,
+                CretionDate = CreationDate,
                 MmodifDate = DateTime.Now,
                 IsActive = true,
+                Id = Id,
                 Rating = Rating,
                 Title = Title,
                 Text = Text,

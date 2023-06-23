@@ -3,13 +3,13 @@ using BookStore.ViewModels.Abstract;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BookStore.ViewModels.Order
 {
-    public class NewOrderViewModel : ANewViewModel<OrderForView>
+    public class EditOrderViewModel : AEditItemViewModel<OrderForView>
     {
-        //TODO: Klaudia Podmienić userList na usera zalogowanego! Czy może dodać to do widoku?
-        public NewOrderViewModel()
+        public EditOrderViewModel()
             : base()
         {
             bookDataStore = new BookDataStore();
@@ -25,6 +25,7 @@ namespace BookStore.ViewModels.Order
         }
 
         #region Fields
+        private int id;
         private readonly BookDataStore bookDataStore;
         private readonly UserDataStore userDataStore;
         private string number = "";
@@ -37,9 +38,16 @@ namespace BookStore.ViewModels.Order
         private List<UserForView> users;
         private BookForView selectedBook;
         private List<BookForView> books;
+        private DateTime creationDate;
         #endregion
 
         #region Properties
+        public int Id
+        {
+            get => id;
+            set => SetProperty(ref id, value);
+        }
+
         public string Number
         {
             get => number;
@@ -99,15 +107,36 @@ namespace BookStore.ViewModels.Order
             get => books;
             set => SetProperty(ref books, value);
         }
+
+        public DateTime CreationDate
+        {
+            get => creationDate;
+            set => SetProperty(ref creationDate, value);
+        }
         #endregion
+
+        public override void LoadProperties(OrderForView item)
+        {
+            Id = item.Id;
+            Number = item.Number;
+            OrderDate = item.OrderDate.DateTime;
+            Amount = item.Amount;
+            Address = item.Address;
+            Status = item.Status ?? "";
+            TrackingNumber = item.Number ?? "";
+            SelectedUser = userDataStore.items.Where(x => x.Id == item.IdUser).First();
+            books = item.OrderBook.ToList();
+            CreationDate = DateTime.Parse(item.CretionDate.ToString());
+        }
 
         public override OrderForView SetItem()
         {
             return new OrderForView
             {
-                CretionDate = DateTime.Now,
+                CretionDate = CreationDate,
                 MmodifDate = DateTime.Now,
                 IsActive = true,
+                Id = Id,
                 Number = Number,
                 OrderDate = OrderDate,
                 Amount = Amount,

@@ -67,7 +67,7 @@
                     <Picker
                         Title="Genre"
                         BackgroundColor="#7B82D8"
-                        SelectedItem="{Binding SelectedGenres}"
+                        SelectedItem="{Binding SelectedGenre}"
                         Style="{StaticResource CustomPickerStyle}"
                         TextColor="White"
                         TitleColor="Black">

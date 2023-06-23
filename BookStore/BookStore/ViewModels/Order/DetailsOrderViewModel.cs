@@ -1,6 +1,7 @@
 ﻿using BookStore.ViewModels.Abstract;
 using BookStore.ViewModels.Book;
 using BookStore.Views.Book;
+using BookStore.Views.Order;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
@@ -130,6 +131,11 @@ namespace BookStore.ViewModels.Order
             UserFullName = item.UserFullName;
             books = item.OrderBook.ToList();
             await ExecuteLoadItemsCommand();
+        }
+
+        public async override void OnEdit()
+        {
+            await Shell.Current.GoToAsync($"{nameof(EditOrderPage)}?{nameof(EditOrderViewModel.ItemId)}={Id}");
         }
     }
 }
