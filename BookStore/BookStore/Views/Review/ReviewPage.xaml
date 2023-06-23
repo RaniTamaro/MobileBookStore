@@ -30,24 +30,9 @@
                                 </Grid.RowDefinitions>
                                 <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout x:DataType="model:ReviewForView">
-                                        <Label
-                                            FontFamily="Roboto"
-                                            FontSize="16"
-                                            Style="{StaticResource TitleLabelStyle}"
-                                            Text="{Binding Title}"
-                                            TextColor="#7B82D8"
-                                            TextTransform="Uppercase" />
-                                        <Label
-                                            Style="{StaticResource NormalLabelStyle}"
-                                            Text="Rating"
-                                            TextColor="Black" />
-                                        <Label
-                                            FontFamily="Roboto"
-                                            FontSize="16"
-                                            Style="{StaticResource BindableLabelStyle}"
-                                            Text="{Binding Rating}"
-                                            TextColor="#7B82D8"
-                                            TextTransform="Uppercase" />
+                                        <Label Style="{StaticResource TitleLabelStyle}" Text="{Binding Title}" />
+                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Rating" />
+                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Rating}" />
                                         <StackLayout>
                                             <Grid>
                                                 <Grid.RowDefinitions>

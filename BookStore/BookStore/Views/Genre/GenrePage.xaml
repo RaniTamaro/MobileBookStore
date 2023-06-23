@@ -25,18 +25,12 @@
                         <DataTemplate>
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="140" />
+                                    <RowDefinition Height="120" />
                                     <RowDefinition Height="10" />
                                 </Grid.RowDefinitions>
                                 <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout x:DataType="model:Genre">
-                                        <Label
-                                            FontFamily="Roboto"
-                                            FontSize="16"
-                                            Style="{StaticResource TitleLabelStyle}"
-                                            Text="{Binding Name}"
-                                            TextColor="#7B82D8"
-                                            TextTransform="Uppercase" />
+                                        <Label Style="{StaticResource TitleLabelStyle}" Text="{Binding Name}" />
                                         <StackLayout>
                                             <Grid>
                                                 <Grid.RowDefinitions>

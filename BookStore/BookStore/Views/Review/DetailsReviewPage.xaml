@@ -20,80 +20,23 @@
             </Grid.RowDefinitions>
             <Frame BackgroundColor="White" HorizontalOptions="Center">
                 <StackLayout>
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Title"
-                        TextColor="Black" />
-                    <Label
-                        HorizontalOptions="Start"
-                        Style="{StaticResource BindableLabelStyle}"
-                        Text="{Binding Title}"
-                        TextColor="Black" />
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Rating"
-                        TextColor="Black" />
-                    <Label
-                        HorizontalOptions="Start"
-                        Style="{StaticResource BindableLabelStyle}"
-                        Text="{Binding Rating}"
-                        TextColor="Black" />
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Text"
-                        TextColor="Black" />
-                    <Label
-                        HorizontalOptions="Start"
-                        Style="{StaticResource BindableLabelStyle}"
-                        Text="{Binding Text}"
-                        TextColor="Black" />
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="User"
-                        TextColor="Black" />
-                    <Label
-                        HorizontalOptions="Start"
-                        Style="{StaticResource BindableLabelStyle}"
-                        Text="{Binding UserFullName}"
-                        TextColor="Black" />
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Book"
-                        TextColor="Black" />
-                    <Label
-                        HorizontalOptions="Start"
-                        Style="{StaticResource BindableLabelStyle}"
-                        Text="{Binding BookTitle}"
-                        TextColor="Black" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Title" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Title}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Rating" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Rating}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Text" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Text}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="User" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding UserFullName}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Book" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding BookTitle}" />
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60" />
                         </Grid.RowDefinitions>
-                        <Button
-                            Margin="10"
-                            BackgroundColor="#7B82D8"
-                            Command="{Binding CancelCommand}"
-                            CornerRadius="18"
-                            HeightRequest="38"
-                            HorizontalOptions="Start"
-                            Text="Cancel"
-                            TextColor="White"
-                            WidthRequest="78" />
-                        <Button
-                            Margin="10"
-                            BackgroundColor="#F87265"
-                            Command="{Binding DeleteCommand}"
-                            CornerRadius="18"
-                            HeightRequest="38"
-                            HorizontalOptions="End"
-                            Text="Delete"
-                            TextColor="White"
-                            WidthRequest="98" />
+                        <Button Style="{StaticResource CancelButtonStyle}" />
+                        <Button Style="{StaticResource EditButtonStyle}" />
+                        <Button Style="{StaticResource DeleteButtonStyle}" />
                     </Grid>
                 </StackLayout>
             </Frame>

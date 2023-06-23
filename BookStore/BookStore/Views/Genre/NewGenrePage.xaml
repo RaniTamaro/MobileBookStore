@@ -13,32 +13,12 @@
             </Grid.RowDefinitions>
             <Frame BackgroundColor="White" HorizontalOptions="Center">
                 <StackLayout>
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Name"
-                        TextColor="Black" />
-                    <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding Name, Mode=TwoWay}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Description"
-                        TextColor="Black" />
-                    <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding Description, Mode=TwoWay}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Name" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Name, Mode=TwoWay}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Description" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Description, Mode=TwoWay}" />
                     <Grid>
-                        <Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions> 
                             <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="115" />
                             <ColumnDefinition Width="auto" />

@@ -63,36 +63,9 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="60" />
                             </Grid.RowDefinitions>
-                            <Button
-                                Margin="10"
-                                BackgroundColor="#7B82D8"
-                                Command="{Binding CancelCommand}"
-                                CornerRadius="18"
-                                HeightRequest="38"
-                                HorizontalOptions="Start"
-                                Text="Cancel"
-                                TextColor="White"
-                                WidthRequest="78" />
-                            <Button
-                                Margin="10"
-                                BackgroundColor="LightSeaGreen"
-                                Command="{Binding EditCommand}"
-                                CornerRadius="18"
-                                HeightRequest="38"
-                                HorizontalOptions="Center"
-                                Text="Edit"
-                                TextColor="White"
-                                WidthRequest="78" />
-                            <Button
-                                Margin="10"
-                                BackgroundColor="#F87265"
-                                Command="{Binding DeleteCommand}"
-                                CornerRadius="18"
-                                HeightRequest="38"
-                                HorizontalOptions="End"
-                                Text="Delete"
-                                TextColor="White"
-                                WidthRequest="98" />
+                            <Button Style="{StaticResource CancelButtonStyle}" />
+                            <Button Style="{StaticResource EditButtonStyle}" />
+                            <Button Style="{StaticResource DeleteButtonStyle}" />
                         </Grid>
                     </StackLayout>
                 </StackLayout>

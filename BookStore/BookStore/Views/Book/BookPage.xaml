@@ -30,65 +30,15 @@
                                 </Grid.RowDefinitions>
                                 <Frame BackgroundColor="White" CornerRadius="20">
                                     <StackLayout x:DataType="model:BookForView">
-                                        <!--  Title  -->
-                                        <Label
-                                            Grid.Column="0"
-                                            FontAttributes="Bold"
-                                            FontFamily="Roboto"
-                                            FontSize="18"
-                                            Style="{StaticResource TitleLabelStyle}"
-                                            Text="{Binding Title}"
-                                            TextColor="#7B82D8"
-                                            TextTransform="Uppercase" />
-                                        <Label
-                                            Grid.Row="1"
-                                            Grid.Column="0"
-                                            Style="{StaticResource NormalLabelStyle}"
-                                            Text="Author: "
-                                            TextColor="Black" />
-                                        <Label
-                                            Grid.Row="1"
-                                            Grid.Column="1"
-                                            HorizontalOptions="Start"
-                                            Style="{StaticResource BindableLabelStyle}"
-                                            Text="{Binding AuthorName}"
-                                            TextColor="Black" />
-                                        <Label
-                                            Grid.Row="2"
-                                            Style="{StaticResource NormalLabelStyle}"
-                                            Text="Publishing house: "
-                                            TextColor="Black" />
-                                        <Label
-                                            Grid.Row="2"
-                                            Grid.Column="1"
-                                            HorizontalOptions="Start"
-                                            Style="{StaticResource BindableLabelStyle}"
-                                            Text="{Binding PublishingHouse}"
-                                            TextColor="Black" />
-                                        <Label
-                                            Grid.Row="3"
-                                            Style="{StaticResource NormalLabelStyle}"
-                                            Text="Category:"
-                                            TextColor="Black" />
-                                        <Label
-                                            Grid.Row="3"
-                                            Grid.Column="1"
-                                            HorizontalOptions="Start"
-                                            Style="{StaticResource BindableLabelStyle}"
-                                            Text="{Binding CategoryName}"
-                                            TextColor="Black" />
-                                        <Label
-                                            Grid.Row="4"
-                                            Style="{StaticResource NormalLabelStyle}"
-                                            Text="Price:"
-                                            TextColor="Black" />
-                                        <Label
-                                            Grid.Row="4"
-                                            Grid.Column="1"
-                                            HorizontalOptions="Start"
-                                            Style="{StaticResource BindableLabelStyle}"
-                                            Text="{Binding Price}"
-                                            TextColor="Black" />
+                                        <Label Style="{StaticResource TitleLabelStyle}" Text="{Binding Title}" />
+                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Author: " />
+                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding AuthorName}" />
+                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Publishing house: " />
+                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding PublishingHouse}" />
+                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Category:" />
+                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding CategoryName}" />
+                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Price:" />
+                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Price}" />
                                         <StackLayout>
                                             <Grid>
                                                 <Grid.RowDefinitions>

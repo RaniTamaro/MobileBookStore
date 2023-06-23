@@ -22,86 +22,27 @@
             </Grid.RowDefinitions>
             <Frame BackgroundColor="White" HorizontalOptions="Center">
                 <StackLayout>
-                    <Label Style="{StaticResource NormalLabelStyle}"
-                        FontSize="13"
-                        Text="Name"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource BindableLabelStyle}"
-                        HorizontalOptions="Start"
-                        Text="{Binding Name}"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource NormalLabelStyle}"
-                        FontSize="13"
-                        Text="Surname"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource BindableLabelStyle}"
-                        HorizontalOptions="Start"
-                        Text="{Binding Surname}"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource NormalLabelStyle}"
-                        FontSize="13"
-                        Text="Role"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource BindableLabelStyle}"
-                        HorizontalOptions="Start"
-                        Text="{Binding Role}"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource NormalLabelStyle}"
-                        FontSize="13"
-                        Text="Address"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource BindableLabelStyle}"
-                        HorizontalOptions="Start"
-                        Text="{Binding Address}"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource NormalLabelStyle}"
-                        FontSize="13"
-                        Text="Phone number"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource BindableLabelStyle}"
-                        HorizontalOptions="Start"
-                        Text="{Binding PhoneNumber}"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource NormalLabelStyle}"
-                        FontSize="13"
-                        Text="E-mail"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource BindableLabelStyle}"
-                        HorizontalOptions="Start"
-                        Text="{Binding Email}"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource NormalLabelStyle}"
-                        FontSize="13"
-                        Text="Nickname"
-                        TextColor="Black" />
-                    <Label Style="{StaticResource BindableLabelStyle}"
-                        HorizontalOptions="Start"
-                        Text="{Binding Nickname}"
-                        TextColor="Black" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Name" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Name}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Surname" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Surname}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Role" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Role}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Address" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Address}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Phone number" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding PhoneNumber}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="E-mail" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Email}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Nickname" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Nickname}" />
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="60" />
                         </Grid.RowDefinitions>
-                        <Button
-                            Margin="10"
-                            BackgroundColor="#7B82D8"
-                            Command="{Binding CancelCommand}"
-                            CornerRadius="18"
-                            HeightRequest="38"
-                            HorizontalOptions="Start"
-                            Text="Cancel"
-                            TextColor="White"
-                            WidthRequest="78" />
-                        <Button
-                            Margin="10"
-                            BackgroundColor="#F87265"
-                            Command="{Binding DeleteCommand}"
-                            CornerRadius="18"
-                            HeightRequest="38"
-                            HorizontalOptions="End"
-                            Text="Delete"
-                            TextColor="White"
-                            WidthRequest="98" />
+                        <Button Style="{StaticResource CancelButtonStyle}" />
+                        <Button Style="{StaticResource EditButtonStyle}" />
+                        <Button Style="{StaticResource DeleteButtonStyle}" />
                     </Grid>
                 </StackLayout>
             </Frame>

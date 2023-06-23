@@ -21,7 +21,7 @@
             <!--  Label do tytułów np. Tytuł książki  -->
             <Style x:Key="TitleLabelStyle" TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="FontFamily" Value="Georgia" />
+                <Setter Property="FontFamily" Value="Roboto" />
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="TextColor" Value="#7B82D8" />
                 <Setter Property="TextTransform" Value="None" />
@@ -74,6 +74,43 @@
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="TitleColor" Value="Black" />
             </Style>
+            <!--  Styl do CancelButton  -->
+            <Style x:Key="CancelButtonStyle" TargetType="Button">
+                <Setter Property="Margin" Value="0,10" />
+                <Setter Property="BackgroundColor" Value="#7B82D8" />
+                <Setter Property="Command" Value="{Binding CancelCommand}" />
+                <Setter Property="CornerRadius" Value="18" />
+                <Setter Property="HeightRequest" Value="38" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="Text" Value="Cancel" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="WidthRequest" Value="78" />
+            </Style>
+            <!--  Styl do EditButton  -->
+            <Style x:Key="EditButtonStyle" TargetType="Button">
+                <Setter Property="Margin" Value="10" />
+                <Setter Property="BackgroundColor" Value="LightSeaGreen" />
+                <Setter Property="Command" Value="{Binding EditCommand}" />
+                <Setter Property="CornerRadius" Value="18" />
+                <Setter Property="HeightRequest" Value="38" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="Text" Value="Edit" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="WidthRequest" Value="68" />
+            </Style>
+            <!--  Styl do DeleteButton  -->
+            <Style x:Key="DeleteButtonStyle" TargetType="Button">
+                <Setter Property="Margin" Value="0,10" />
+                <Setter Property="BackgroundColor" Value="#F87265" />
+                <Setter Property="Command" Value="{Binding DeleteCommand}" />
+                <Setter Property="CornerRadius" Value="18" />
+                <Setter Property="HeightRequest" Value="38" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="Text" Value="Delete" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="WidthRequest" Value="88" />
+            </Style>
+
             <!--  Globalne style  -->
             <!--<Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource LightFiolet}" />

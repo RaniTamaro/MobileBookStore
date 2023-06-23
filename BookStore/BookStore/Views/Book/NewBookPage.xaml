@@ -12,25 +12,12 @@
             </Grid.RowDefinitions>
             <Frame BackgroundColor="White" HorizontalOptions="Center">
                 <StackLayout>
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Title"
-                        TextColor="Black" />
-                    <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding Title, Mode=TwoWay}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Title" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Title, Mode=TwoWay}" />
                     <Picker
                         Title="Author"
-                        BackgroundColor="#7B82D8"
                         SelectedItem="{Binding SelectedAuthor}"
-                        Style="{StaticResource CustomPickerStyle}"
-                        TextColor="White"
-                        TitleColor="Black">
+                        Style="{StaticResource CustomPickerStyle}">
                         <Picker.ItemsSource>
                             <Binding Path="Authors" />
                         </Picker.ItemsSource>
@@ -38,25 +25,12 @@
                             <Binding Path="Nickname" />
                         </Picker.ItemDisplayBinding>
                     </Picker>
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Publishing House"
-                        TextColor="Black" />
-                    <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding PublishingHouse, Mode=TwoWay}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Publishing House" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding PublishingHouse, Mode=TwoWay}" />
                     <Picker
                         Title="Category"
-                        BackgroundColor="#7B82D8"
                         SelectedItem="{Binding SelectedCategory}"
-                        Style="{StaticResource CustomPickerStyle}"
-                        TextColor="White"
-                        TitleColor="Black">
+                        Style="{StaticResource CustomPickerStyle}">
                         <Picker.ItemsSource>
                             <Binding Path="Categories" />
                         </Picker.ItemsSource>
@@ -66,11 +40,8 @@
                     </Picker>
                     <Picker
                         Title="Genre"
-                        BackgroundColor="#7B82D8"
                         SelectedItem="{Binding SelectedGenres}"
-                        Style="{StaticResource CustomPickerStyle}"
-                        TextColor="White"
-                        TitleColor="Black">
+                        Style="{StaticResource CustomPickerStyle}">
                         <Picker.ItemsSource>
                             <Binding Path="Genres" />
                         </Picker.ItemsSource>
@@ -78,31 +49,10 @@
                             <Binding Path="Name" />
                         </Picker.ItemDisplayBinding>
                     </Picker>
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Price"
-                        TextColor="Black" />
-                    <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding Price, Mode=TwoWay}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Description"
-                        TextColor="Black" />
-                    <Editor
-                        BackgroundColor="White"
-                        HeightRequest="100"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEditorStyle}"
-                        Text="{Binding Description, Mode=TwoWay}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Price" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Price, Mode=TwoWay}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Description" />
+                    <Editor Style="{StaticResource CustomEditorStyle}" Text="{Binding Description, Mode=TwoWay}" />
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />

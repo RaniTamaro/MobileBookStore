@@ -11,102 +11,31 @@
             </Grid.RowDefinitions>
             <Frame BackgroundColor="White" HorizontalOptions="Center">
                 <StackLayout>
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Name"
-                        TextColor="Black" />
-                    <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding Name}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Surname"
-                        TextColor="Black" />
-                    <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding Surname}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Name" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Name}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Surname" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Surname}" />
                     <Picker
                         Title="Role"
-                        BackgroundColor="#7B82D8"
                         SelectedItem="{Binding SelectedRole}"
-                        Style="{StaticResource CustomPickerStyle}"
-                        TextColor="White"
-                        TitleColor="Black">
+                        Style="{StaticResource CustomPickerStyle}">
                         <Picker.ItemsSource>
                             <Binding Path="Roles" />
                         </Picker.ItemsSource>
                     </Picker>
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Address"
-                        TextColor="Black" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Address" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Address}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Phone number" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding PhoneNumber}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="E-mail" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Email}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Nickname" />
+                    <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Nickname}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Password" />
                     <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding Address}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Phone number"
-                        TextColor="Black" />
-                    <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding PhoneNumber}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="E-mail"
-                        TextColor="Black" />
-                    <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding Email}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Nickname"
-                        TextColor="Black" />
-                    <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
-                        Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding Nickname}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
-                    <Label
-                        FontSize="13"
-                        Style="{StaticResource NormalLabelStyle}"
-                        Text="Password"
-                        TextColor="Black" />
-                    <Entry
-                        BackgroundColor="White"
-                        HorizontalOptions="FillAndExpand"
                         IsPassword="True"
                         Style="{StaticResource CustomEntryStyle}"
-                        Text="{Binding Password}"
-                        TextColor="Black"
-                        VerticalOptions="CenterAndExpand" />
+                        Text="{Binding Password}" />
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
