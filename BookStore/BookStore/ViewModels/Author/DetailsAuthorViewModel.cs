@@ -1,5 +1,6 @@
 ﻿using BookStore.ViewModels.Abstract;
 using BookStore.ViewModels.Book;
+using BookStore.Views.Author;
 using BookStore.Views.Book;
 using BookStoreApi;
 using System;
@@ -93,11 +94,17 @@ namespace BookStore.ViewModels.Author
 
         public override async void LoadProperties(AuthorForView item)
         {
+            Id = item.Id;
             Name = item.Name;
             Surname = item.Surname;
             Nickname = item.Nickname;
             books = item.Books.ToList();
             await ExecuteLoadItemsCommand();
+        }
+
+        public async override void OnEdit()
+        {
+            await Shell.Current.GoToAsync($"{nameof(EditAuthorPage)}?{nameof(EditAuthorViewModel.ItemId)}={Id}");
         }
     }
 }

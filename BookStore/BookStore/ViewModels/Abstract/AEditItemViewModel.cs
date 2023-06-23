@@ -1,43 +1,37 @@
 ﻿using BookStore.Services.Abstract;
 using System;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Abstract
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
-    public abstract class AItemDetailsViewModel<T> : BaseViewModel
+    public abstract class AEditItemViewModel<T> : BaseViewModel
     {
-        protected AItemDetailsViewModel()
-        {
-            CancelCommand = new Command(OnCancel);
-            DeleteCommand = new Command(OnDelete);
-            EditCommand = new Command(OnEdit);
-        }
-
         public IDataStore<T> DataStore => DependencyService.Get<IDataStore<T>>();
-
-        public Command DeleteCommand { get; }
-        public Command CancelCommand { get; }
-        public Command EditCommand { get; }
-
-        public abstract void LoadProperties(T item);
-        private async void OnDelete()
+        protected AEditItemViewModel()
         {
-            await DataStore.DeleteItemAsync(itemId);
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
+            SaveCommand = new Command(OnSave, ValidateSave);
+            CancelCommand = new Command(OnCancel);
+            PropertyChanged +=
+                (_, __) => SaveCommand.ChangeCanExecute();
         }
+
+        public Command SaveCommand { get; }
+        public Command CancelCommand { get; }
+
+        public abstract bool ValidateSave();
+        public abstract T SetItem();
+        public abstract void LoadProperties(T item);
 
         private async void OnCancel()
         {
-            // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");
         }
 
-        public async virtual void OnEdit()
+        private async void OnSave()
         {
+            await DataStore.UpdateItemAsync(SetItem());
             await Shell.Current.GoToAsync("..");
         }
 
