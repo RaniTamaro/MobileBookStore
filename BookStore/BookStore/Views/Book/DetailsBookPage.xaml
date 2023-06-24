@@ -3,6 +3,8 @@
     x:Class="BookStore.Views.Book.DetailsBookPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:BookStore.ViewModels.Book"
+    xmlns:model="clr-namespace:BookStoreApi"
     Title="Book"
     BackgroundColor="#F8F4EF">
     <ContentPage.Content>
@@ -25,8 +27,33 @@
                     <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding PublishingHouse}" />
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Category" />
                     <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding CategoryName}" />
-                    <Label Style="{StaticResource NormalLabelStyle}" Text="Genre" />
-                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Items.Name}" />
+                    <Label Style="{StaticResource NormalLabelStyle}" Text="Genre:" />
+                    <RefreshView
+                        x:DataType="local:DetailsBookViewModel"
+                        Command="{Binding LoadItemsCommand}"
+                        IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+                        <CollectionView
+                            x:Name="ItemsListView"
+                            ItemsSource="{Binding Items}"
+                            SelectionMode="None">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <Frame BorderColor="{StaticResource LightFiolet}" CornerRadius="5">
+                                        <StackLayout Padding="1" x:DataType="model:Genre">
+                                            <Label
+                                                FontSize="16"
+                                                LineBreakMode="NoWrap"
+                                                Style="{DynamicResource ListItemTextStyle}"
+                                                Text="{Binding Name}" />
+                                        </StackLayout>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                            <CollectionView.ItemsLayout>
+                                <LinearItemsLayout Orientation="Vertical" />
+                            </CollectionView.ItemsLayout>
+                        </CollectionView>
+                    </RefreshView>
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Price" />
                     <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Price}" />
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Description" />
@@ -40,19 +67,22 @@
                     </Grid>
                 </StackLayout>
             </Frame>
-            <Frame Grid.Row="1" HorizontalOptions="Center" BackgroundColor="White">
+            <Frame
+                Grid.Row="1"
+                BackgroundColor="White"
+                HorizontalOptions="Center">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="300" />
                     </Grid.ColumnDefinitions>
                     <Grid IsVisible="{Binding IsAdmin}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                </Grid.RowDefinitions>
-                <Button Style="{StaticResource EditButtonStyle}" HorizontalOptions="Start"/>
-                <Button Style="{StaticResource DeleteButtonStyle}" />
-            </Grid>
-            </Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                        </Grid.RowDefinitions>
+                        <Button HorizontalOptions="Start" Style="{StaticResource EditButtonStyle}" />
+                        <Button Style="{StaticResource DeleteButtonStyle}" />
+                    </Grid>
+                </Grid>
             </Frame>
         </Grid>
     </ContentPage.Content>

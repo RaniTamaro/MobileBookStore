@@ -23,8 +23,9 @@ namespace BookStore.ViewModels.Book
         private string description;
         private string publishingHouse;
         private double price;
-        private List<BookStoreApi.Genre> genres;
-        private string authorName;
+		//private List<BookStoreApi.Genre> genres;
+		private List<BookStoreApi.Genre> bookGenres;
+		private string authorName;
         private string categoryName;
         #endregion
 
@@ -70,8 +71,13 @@ namespace BookStore.ViewModels.Book
             get => categoryName;
             set => SetProperty(ref categoryName, value);
         }
+		public List<BookStoreApi.Genre> BookGenres
+		{
+			get => bookGenres;
+			set => SetProperty(ref bookGenres, value);
+		}
 
-        public ObservableCollection<BookStoreApi.Genre> Items
+		public ObservableCollection<BookStoreApi.Genre> Items
         {
             get;
         }
@@ -90,29 +96,30 @@ namespace BookStore.ViewModels.Book
             GetReviewCommand = new Command(Review);
         }
 
-        async Task ExecuteLoadItemsCommand()
-        {
-            IsBusy = true;
-            try
-            {
-                Items.Clear();
-                var items = genres;
-                foreach (var item in items)
-                {
-                    Items.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }
+		async Task ExecuteLoadItemsCommand()
+		{
+			IsBusy = true;
+			try
+			{
+				Items.Clear();
+				var items = bookGenres; // Zmieniono z genres na bookGenres
+				foreach (var item in items)
+				{
+					Items.Add(item);
+				}
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine(ex);
+			}
+			finally
+			{
+				IsBusy = false;
+			}
+		}
 
-        public async void NewGenre()
+
+		public async void NewGenre()
         {
             await Shell.Current.GoToAsync($"{nameof(NewGenrePage)}?{nameof(NewGenreViewModel)}");
         }
@@ -127,18 +134,31 @@ namespace BookStore.ViewModels.Book
             await Shell.Current.GoToAsync($"{nameof(BookReviewPage)}?{nameof(BookReviewViewModel.ItemId)}={Id}");
         }
 
-        public override async void LoadProperties(BookForView item)
-        {
-            Id = item.Id;
-            Title = item.Title;
-            Description = item.Description;
-            PublishingHouse = item.PublishingHouse;
-            Price = item.Price;
-            CategoryName = item.CategoryName;
-            AuthorName = item.AuthorName;
-            genres = item.BookGenres.ToList();
-            await ExecuteLoadItemsCommand();
+        //public override async void LoadProperties(BookForView item)
+        //{
+        //    Id = item.Id;
+        //    Title = item.Title;
+        //    Description = item.Description;
+        //    PublishingHouse = item.PublishingHouse;
+        //    Price = item.Price;
+        //    CategoryName = item.CategoryName;
+        //    AuthorName = item.AuthorName;
+        //    genres = item?.BookGenres.ToList();
+        //    await ExecuteLoadItemsCommand();
 
-        }
-    }
+        //}
+		public override async void LoadProperties(BookForView item)
+		{
+			Id = item.Id;
+			Title = item.Title;
+			Description = item.Description;
+			PublishingHouse = item.PublishingHouse;
+			Price = item.Price;
+			CategoryName = item.CategoryName;
+			AuthorName = item.AuthorName;
+            BookGenres = item?.BookGenres?.ToList(); // Przypisz bezpośrednio do BookGenres
+			await ExecuteLoadItemsCommand();
+		}
+
+	}
 }
