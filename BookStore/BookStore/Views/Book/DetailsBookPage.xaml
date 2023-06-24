@@ -14,9 +14,6 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <Frame BackgroundColor="White" HorizontalOptions="Center">
                 <StackLayout>
@@ -41,14 +38,21 @@
                         <Button Style="{StaticResource CancelButtonStyle}" />
                         <Button Style="{StaticResource ReviewButtonStyle}" />
                     </Grid>
-                    <Grid IsVisible="{Binding IsAdmin}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                        </Grid.RowDefinitions>
-                        <Button Style="{StaticResource EditButtonStyle}" />
-                        <Button Style="{StaticResource DeleteButtonStyle}" />
-                    </Grid>
                 </StackLayout>
+            </Frame>
+            <Frame Grid.Row="1" HorizontalOptions="Center" BackgroundColor="White">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="300" />
+                    </Grid.ColumnDefinitions>
+                    <Grid IsVisible="{Binding IsAdmin}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Button Style="{StaticResource EditButtonStyle}" HorizontalOptions="Start"/>
+                <Button Style="{StaticResource DeleteButtonStyle}" />
+            </Grid>
+            </Grid>
             </Frame>
         </Grid>
     </ContentPage.Content>
