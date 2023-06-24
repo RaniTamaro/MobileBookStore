@@ -95,7 +95,7 @@ namespace BookStoreApi.Controllers
             }
 
             userDb.Orders = orderList;
-            _context.Entry(user).State = EntityState.Modified;
+            _context.Entry(userDb).State = EntityState.Modified;
 
             try
             {
