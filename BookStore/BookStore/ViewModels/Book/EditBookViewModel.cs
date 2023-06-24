@@ -23,10 +23,6 @@ namespace BookStore.ViewModels.Book
             genres = genreDataStore.items;
             categories = categoryDataStore.items;
             authors = authorDataStore.items;
-
-            //selectedCategory = new CategoryForView();
-            //selectedAuthor = new AuthorForView();
-            //selectedGenre = new BookStoreApi.Genre();
         }
 
         #region Fields

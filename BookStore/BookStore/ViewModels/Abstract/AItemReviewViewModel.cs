@@ -7,22 +7,29 @@ using Xamarin.Forms;
 
 namespace BookStore.ViewModels.Abstract
 {
-    public abstract class AListViewModel<T> : BaseViewModel
+    public abstract class AItemReviewViewModel<T> : BaseViewModel
     {
         public IDataStore<T> DataStore => DependencyService.Get<IDataStore<T>>();
         private T _selectedItem;
+        private int itemId;
+        public int ItemId
+        {
+            get => itemId;
+            set => itemId = value;
+        }
         public ObservableCollection<T> Items { get; }
         public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get; }
         public Command<T> ItemTapped { get; }
+        public Command ReviewItemsCommand { get; set; }
 
-        public AListViewModel(string title)
+        public abstract void LoadProperties(T item);
+
+        public AItemReviewViewModel(string title)
         {
             Title = title;
             Items = new ObservableCollection<T>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             ItemTapped = new Command<T>(OnItemSelected);
-            AddItemCommand = new Command(OnAddItem);
         }
 
         public async virtual Task ExecuteLoadItemsCommand()
@@ -46,6 +53,7 @@ namespace BookStore.ViewModels.Abstract
                 IsBusy = false;
             }
         }
+
         public void OnAppearing()
         {
             IsBusy = true;
@@ -61,17 +69,11 @@ namespace BookStore.ViewModels.Abstract
                 OnItemSelected(value);
             }
         }
-        public abstract void GoToAddPage();
-        public async void OnAddItem(object obj)
-        {
-            GoToAddPage();
-        }
 
         public async virtual void OnItemSelected(T item)
         {
             if (item == null)
                 return;
-            //await Shell.Current.GoToAsync($"{nameof(ClientDetailPage)}?{nameof(ClientDetailViewModel.ItemId)}={item.IdClient}");
         }
     }
 }

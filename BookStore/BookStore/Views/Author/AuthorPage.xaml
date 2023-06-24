@@ -83,7 +83,8 @@
                     FontAttributes="Bold"
                     FontSize="16"
                     Text="Add new"
-                    TextTransform="Uppercase" />
+                    TextTransform="Uppercase" 
+                    IsVisible="{Binding IsAdmin}"/>
             </AbsoluteLayout>
         </Grid>
     </ContentPage.Content>

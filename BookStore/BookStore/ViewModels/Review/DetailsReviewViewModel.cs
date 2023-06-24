@@ -66,7 +66,7 @@ namespace BookStore.ViewModels.Review
             Title = item.Title;
             Text = item.Text;
             UserFullName = item.UserFullName;
-            BookTitle = item.Title;
+            BookTitle = item.BookTitle;
         }
 
         public async override void OnEdit()

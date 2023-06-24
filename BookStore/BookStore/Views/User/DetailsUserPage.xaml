@@ -41,6 +41,12 @@
                             <RowDefinition Height="60" />
                         </Grid.RowDefinitions>
                         <Button Style="{StaticResource CancelButtonStyle}" />
+                        <Button Style="{StaticResource ReviewButtonStyle}" />
+                    </Grid>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                        </Grid.RowDefinitions>
                         <Button Style="{StaticResource EditButtonStyle}" />
                         <Button Style="{StaticResource DeleteButtonStyle}" />
                     </Grid>

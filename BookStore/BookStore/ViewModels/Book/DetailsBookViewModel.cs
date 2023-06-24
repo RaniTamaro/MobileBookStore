@@ -1,7 +1,9 @@
 ﻿using BookStore.ViewModels.Abstract;
 using BookStore.ViewModels.Genre;
+using BookStore.ViewModels.Review;
 using BookStore.Views.Book;
 using BookStore.Views.Genre;
+using BookStore.Views.Review;
 using BookStoreApi;
 using System;
 using System.Collections.Generic;
@@ -76,6 +78,7 @@ namespace BookStore.ViewModels.Book
 
         public Command LoadItemsCommand { get; }
         public Command AddItemCommand { get; }
+        public Command GetReviewCommand { get; }
         #endregion
 
         public DetailsBookViewModel()
@@ -84,6 +87,7 @@ namespace BookStore.ViewModels.Book
             Items = new ObservableCollection<BookStoreApi.Genre>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
             AddItemCommand = new Command(NewGenre);
+            GetReviewCommand = new Command(Review);
         }
 
         async Task ExecuteLoadItemsCommand()
@@ -113,6 +117,16 @@ namespace BookStore.ViewModels.Book
             await Shell.Current.GoToAsync($"{nameof(NewGenrePage)}?{nameof(NewGenreViewModel)}");
         }
 
+        public async override void OnEdit()
+        {
+            await Shell.Current.GoToAsync($"{nameof(EditBookPage)}?{nameof(EditBookViewModel.ItemId)}={Id}");
+        }
+
+        public async void Review()
+        {
+            await Shell.Current.GoToAsync($"{nameof(BookReviewPage)}?{nameof(BookReviewViewModel.ItemId)}={Id}");
+        }
+
         public override async void LoadProperties(BookForView item)
         {
             Id = item.Id;
@@ -125,11 +139,6 @@ namespace BookStore.ViewModels.Book
             genres = item.BookGenres.ToList();
             await ExecuteLoadItemsCommand();
 
-        }
-
-        public async override void OnEdit()
-        {
-            await Shell.Current.GoToAsync($"{nameof(EditBookPage)}?{nameof(EditBookViewModel.ItemId)}={Id}");
         }
     }
 }

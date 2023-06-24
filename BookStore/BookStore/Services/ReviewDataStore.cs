@@ -37,5 +37,15 @@ namespace BookStore.Services
         {
             return await _service.ReviewPUTAsync(item.Id, item).HandleRequest();
         }
+
+        public async Task GetReviewForBook(int bookId)
+        {
+            items = _service.GetBookReviewAsync(bookId).Result.ToList();
+        }
+
+        public async Task GetReviewForUser (int userId)
+        {
+            items = _service.GetCustomerReviewAsync(userId).Result.ToList();
+        }
     }
 }

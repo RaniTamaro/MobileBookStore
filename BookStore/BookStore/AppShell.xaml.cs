@@ -37,6 +37,8 @@ namespace BookStore
             Routing.RegisterRoute(nameof(NewReviewPage), typeof(NewReviewPage));
             Routing.RegisterRoute(nameof(DetailsReviewPage), typeof(DetailsReviewPage));
             Routing.RegisterRoute(nameof(EditReviewPage), typeof(EditReviewPage));
+            Routing.RegisterRoute(nameof(BookReviewPage), typeof(BookReviewPage));
+            Routing.RegisterRoute(nameof(UserReviewPage), typeof(UserReviewPage));
             Routing.RegisterRoute(nameof(NewUserPage), typeof(NewUserPage));
             Routing.RegisterRoute(nameof(DetailsUserPage), typeof(DetailsUserPage));
             Routing.RegisterRoute(nameof(EditUserPage), typeof(EditUserPage));

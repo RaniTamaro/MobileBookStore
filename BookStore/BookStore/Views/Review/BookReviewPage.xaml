@@ -1,12 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="BookStore.Views.Book.BookPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:BookStore.ViewModels.Book"
-    xmlns:model="clr-namespace:BookStoreApi"
-    Title="Books"
-    BackgroundColor="#F8F4EF">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BookStore.Views.Review.BookReviewPage"
+             xmlns:local="clr-namespace:BookStore.ViewModels.Review"
+            xmlns:model="clr-namespace:BookStoreApi"
+            Title="Reviews"
+            BackgroundColor="#F8F4EF">
     <ContentPage.Content>
         <Grid HorizontalOptions="Center">
             <Grid.ColumnDefinitions>
@@ -14,8 +13,8 @@
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <RefreshView
-                x:DataType="local:BookViewModel"
-                Command="{Binding LoadItemsCommand}"
+                x:DataType="local:BookReviewViewModel"
+                Command="{Binding ReviewItemsCommand }"
                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
                 <CollectionView
                     x:Name="ItemsListView"
@@ -25,20 +24,14 @@
                         <DataTemplate>
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto" />
+                                    <RowDefinition Height="190" />
                                     <RowDefinition Height="10" />
                                 </Grid.RowDefinitions>
                                 <Frame BackgroundColor="White" CornerRadius="20">
-                                    <StackLayout x:DataType="model:BookForView">
+                                    <StackLayout x:DataType="model:ReviewForView">
                                         <Label Style="{StaticResource TitleLabelStyle}" Text="{Binding Title}" />
-                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Author: " />
-                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding AuthorName}" />
-                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Publishing house: " />
-                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding PublishingHouse}" />
-                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Category:" />
-                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding CategoryName}" />
-                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Price:" />
-                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Price}" />
+                                        <Label Style="{StaticResource NormalLabelStyle}" Text="Rating" />
+                                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Rating}" />
                                         <StackLayout>
                                             <Grid>
                                                 <Grid.RowDefinitions>
@@ -58,7 +51,7 @@
                                         </StackLayout>
                                         <StackLayout.GestureRecognizers>
                                             <TapGestureRecognizer
-                                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:BookViewModel}}, Path=ItemTapped}"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:BookReviewViewModel}}, Path=ItemTapped}"
                                                 CommandParameter="{Binding .}"
                                                 NumberOfTapsRequired="1" />
                                         </StackLayout.GestureRecognizers>
@@ -69,19 +62,6 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </RefreshView>
-            <AbsoluteLayout Grid.Column="1">
-                <Button
-                    AbsoluteLayout.LayoutBounds=".90,.95,100,48"
-                    AbsoluteLayout.LayoutFlags="PositionProportional"
-                    BackgroundColor="{StaticResource LightFiolet}"
-                    Command="{Binding AddItemCommand}"
-                    CornerRadius="18"
-                    FontAttributes="Bold"
-                    FontSize="16"
-                    Text="Add new"
-                    TextTransform="Uppercase" 
-                    IsVisible="{Binding IsAdmin}"/>
-            </AbsoluteLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

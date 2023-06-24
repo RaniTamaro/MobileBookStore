@@ -29,7 +29,7 @@
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Category" />
                     <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding CategoryName}" />
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Genre" />
-                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding BookTitle}" />
+                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Items.Name}" />
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Price" />
                     <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Price}" />
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Description" />
@@ -39,6 +39,12 @@
                             <RowDefinition Height="60" />
                         </Grid.RowDefinitions>
                         <Button Style="{StaticResource CancelButtonStyle}" />
+                        <Button Style="{StaticResource ReviewButtonStyle}" />
+                    </Grid>
+                    <Grid IsVisible="{Binding IsAdmin}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60" />
+                        </Grid.RowDefinitions>
                         <Button Style="{StaticResource EditButtonStyle}" />
                         <Button Style="{StaticResource DeleteButtonStyle}" />
                     </Grid>

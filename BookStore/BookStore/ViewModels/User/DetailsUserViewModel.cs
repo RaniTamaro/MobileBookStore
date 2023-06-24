@@ -1,6 +1,8 @@
 ﻿using BookStore.ViewModels.Abstract;
 using BookStore.ViewModels.Genre;
+using BookStore.ViewModels.Review;
 using BookStore.Views.Genre;
+using BookStore.Views.Review;
 using BookStore.Views.User;
 using BookStoreApi;
 using System.Collections.Generic;
@@ -77,11 +79,24 @@ namespace BookStore.ViewModels.User
             get => orders;
             set => SetProperty(ref orders, value);
         }
+
+        public Command GetReviewCommand { get; }
         #endregion
 
         public DetailsUserViewModel()
             : base()
         {
+            GetReviewCommand = new Command(Review);
+        }
+
+        public async override void OnEdit()
+        {
+            await Shell.Current.GoToAsync($"{nameof(EditUserPage)}?{nameof(EditUserViewModel.ItemId)}={Id}");
+        }
+
+        public async void Review()
+        {
+            await Shell.Current.GoToAsync($"{nameof(UserReviewPage)}?{nameof(UserReviewViewModel.ItemId)}={Id}");
         }
 
         public override void LoadProperties(UserForView item)
@@ -95,11 +110,6 @@ namespace BookStore.ViewModels.User
             Nickname = item.Nickname;
             Role = item.Role;
             Orders = item.Orders.ToList();
-        }
-
-        public async override void OnEdit()
-        {
-            await Shell.Current.GoToAsync($"{nameof(EditUserPage)}?{nameof(EditUserViewModel.ItemId)}={Id}");
         }
     }
 }

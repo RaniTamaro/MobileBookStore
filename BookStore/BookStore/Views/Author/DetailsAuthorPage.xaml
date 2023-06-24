@@ -64,8 +64,8 @@
                                 <RowDefinition Height="60" />
                             </Grid.RowDefinitions>
                             <Button Style="{StaticResource CancelButtonStyle}" />
-                            <Button Style="{StaticResource EditButtonStyle}" />
-                            <Button Style="{StaticResource DeleteButtonStyle}" />
+                            <Button Style="{StaticResource EditButtonStyle}" IsVisible="{Binding IsAdmin}"/>
+                            <Button Style="{StaticResource DeleteButtonStyle}" IsVisible="{Binding IsAdmin}"/>
                         </Grid>
                     </StackLayout>
                 </StackLayout>
