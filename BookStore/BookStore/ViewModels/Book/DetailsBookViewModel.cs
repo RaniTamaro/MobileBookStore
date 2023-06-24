@@ -115,6 +115,7 @@ namespace BookStore.ViewModels.Book
 
         public override async void LoadProperties(BookForView item)
         {
+            Id = item.Id;
             Title = item.Title;
             Description = item.Description;
             PublishingHouse = item.PublishingHouse;

@@ -87,6 +87,7 @@ namespace BookStore.ViewModels.Category
 
         public override async void LoadProperties(CategoryForView item)
         {
+            Id = item.Id;
             Name = item.Name;
             Description = item.Description;
             books = item.Books.ToList();
