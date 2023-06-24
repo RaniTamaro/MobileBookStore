@@ -39,7 +39,7 @@
                             Command="{Binding SaveCommand}"
                             CornerRadius="18"
                             HeightRequest="38"
-                            Text="Add"
+                            Text="Save"
                             TextColor="White"
                             WidthRequest="68" />
                     </Grid>

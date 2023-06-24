@@ -17,7 +17,7 @@ namespace BookStore.ViewModels
 
         private async Task OpenLoginPageAsync()
         {
-            await Shell.Current.GoToAsync($"//{nameof(BookPage)}");
+            await Shell.Current.GoToAsync($"//BooksPage");
         }
     }
 }

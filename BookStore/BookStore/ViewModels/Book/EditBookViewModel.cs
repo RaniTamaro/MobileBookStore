@@ -31,7 +31,6 @@ namespace BookStore.ViewModels.Book
 
         #region Fields
         private int id;
-        private int? itemId;
         private readonly GenreDataStore genreDataStore;
         private readonly CategoryDataStore categoryDataStore;
         private readonly AuthorDataStore authorDataStore;
@@ -118,18 +117,6 @@ namespace BookStore.ViewModels.Book
             set => SetProperty(ref creationDate, value);
         }
 
-        public int? ItemId
-        {
-            get
-            {
-                return itemId;
-            }
-            set
-            {
-                itemId = value;
-            }
-        }
-
         public ICommand ItemSelectedCommand { get; }
         #endregion
 
@@ -166,7 +153,7 @@ namespace BookStore.ViewModels.Book
                 Price = Price,
                 IdCategory = selectedCategory.Id,
                 CategoryName = selectedCategory.Name,
-                IdAuthor = ItemId ?? selectedAuthor.Id,
+                IdAuthor = selectedAuthor.Id,
                 AuthorName = string.IsNullOrEmpty(selectedAuthor.Nickname) ? $"{selectedAuthor.Name} {selectedAuthor.Surname}" : selectedAuthor.Nickname,
                 BookGenres = bookGenresToSet,
             };
