@@ -20,8 +20,6 @@ namespace BookStore.ViewModels.Order
             users = userDataStore.items;
 
             OrderDate = DateTime.Today;
-
-            selectedBook = new BookForView();
         }
 
         #region Fields
@@ -125,6 +123,7 @@ namespace BookStore.ViewModels.Order
             Status = item.Status ?? "";
             TrackingNumber = item.Number ?? "";
             SelectedUser = userDataStore.items.Where(x => x.Id == item.IdUser).First();
+            SelectedBook = bookDataStore.items.Where(x => x.Id == item.OrderBook.Select(y => y.Id).First()).First();
             books = item.OrderBook.ToList();
             CreationDate = DateTime.Parse(item.CretionDate.ToString());
         }

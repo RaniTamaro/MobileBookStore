@@ -122,6 +122,7 @@ namespace BookStore.ViewModels.Order
 
         public override async void LoadProperties(OrderForView item)
         {
+            Id = item.Id;
             Number = item.Number;
             OrderDate = item.OrderDate.DateTime;
             Amount = item.Amount;

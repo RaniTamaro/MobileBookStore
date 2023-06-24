@@ -30,6 +30,17 @@
                     <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Address, Mode=TwoWay}" />
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Status" />
                     <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Status, Mode=TwoWay}" />
+                    <Picker
+                        Title="Book"
+                        SelectedItem="{Binding SelectedBook}"
+                        Style="{StaticResource CustomPickerStyle}">
+                        <Picker.ItemsSource>
+                            <Binding Path="Books" />
+                        </Picker.ItemsSource>
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="Title" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Amount" />
                     <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Amount, Mode=TwoWay}" />
 
