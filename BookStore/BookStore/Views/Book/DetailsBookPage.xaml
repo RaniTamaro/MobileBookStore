@@ -8,82 +8,84 @@
     Title="Book"
     BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <Grid HorizontalOptions="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="335" />
-                <ColumnDefinition Width="auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
-                <RowDefinition Height="auto" />
-            </Grid.RowDefinitions>
-            <Frame BackgroundColor="White" HorizontalOptions="Center">
-                <StackLayout>
-                    <Label Style="{StaticResource NormalLabelStyle}" Text="Title" />
-                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Title}" />
-                    <Label Style="{StaticResource NormalLabelStyle}" Text="Author" />
-                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding AuthorName}" />
-                    <Label Style="{StaticResource NormalLabelStyle}" Text="Publishing House" />
-                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding PublishingHouse}" />
-                    <Label Style="{StaticResource NormalLabelStyle}" Text="Category" />
-                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding CategoryName}" />
-                    <Label Style="{StaticResource NormalLabelStyle}" Text="Genre:" />
-                    <RefreshView
+        <ScrollView HorizontalOptions="Center">
+            <Grid HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="335" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Frame BackgroundColor="White" HorizontalOptions="Center">
+                    <StackLayout>
+                        <Label Style="{StaticResource NormalLabelStyle}" Text="Title" />
+                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Title}" />
+                        <Label Style="{StaticResource NormalLabelStyle}" Text="Author" />
+                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding AuthorName}" />
+                        <Label Style="{StaticResource NormalLabelStyle}" Text="Publishing House" />
+                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding PublishingHouse}" />
+                        <Label Style="{StaticResource NormalLabelStyle}" Text="Category" />
+                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding CategoryName}" />
+                        <Label Style="{StaticResource NormalLabelStyle}" Text="Genre:" />
+                        <RefreshView
                         x:DataType="local:DetailsBookViewModel"
                         Command="{Binding LoadItemsCommand}"
                         IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
-                        <CollectionView
+                            <CollectionView
                             x:Name="ItemsListView"
                             ItemsSource="{Binding Items}"
-                            SelectionMode="None">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate>
-                                    <Frame BorderColor="{StaticResource LightFiolet}" CornerRadius="5">
-                                        <StackLayout Padding="1" x:DataType="model:Genre">
-                                            <Label
+                            SelectionMode="None" HeightRequest="100">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame BorderColor="{StaticResource LightFiolet}" CornerRadius="5">
+                                            <StackLayout Padding="1" x:DataType="model:Genre">
+                                                <Label
                                                 FontSize="16"
                                                 LineBreakMode="NoWrap"
                                                 Style="{DynamicResource ListItemTextStyle}"
                                                 Text="{Binding Name}" />
-                                        </StackLayout>
-                                    </Frame>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                            <CollectionView.ItemsLayout>
-                                <LinearItemsLayout Orientation="Vertical" />
-                            </CollectionView.ItemsLayout>
-                        </CollectionView>
-                    </RefreshView>
-                    <Label Style="{StaticResource NormalLabelStyle}" Text="Price" />
-                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Price}" />
-                    <Label Style="{StaticResource NormalLabelStyle}" Text="Description" />
-                    <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Description}" />
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                        </Grid.RowDefinitions>
-                        <Button Style="{StaticResource CancelButtonStyle}" />
-                        <Button Style="{StaticResource ReviewButtonStyle}" />
-                    </Grid>
-                </StackLayout>
-            </Frame>
-            <Frame
+                                            </StackLayout>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Vertical" />
+                                </CollectionView.ItemsLayout>
+                            </CollectionView>
+                        </RefreshView>
+                        <Label Style="{StaticResource NormalLabelStyle}" Text="Price" />
+                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Price}" />
+                        <Label Style="{StaticResource NormalLabelStyle}" Text="Description" />
+                        <Label Style="{StaticResource BindableLabelStyle}" Text="{Binding Description}" />
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60" />
+                            </Grid.RowDefinitions>
+                            <Button Style="{StaticResource CancelButtonStyle}" />
+                            <Button Style="{StaticResource ReviewButtonStyle}" />
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <Frame
                 Grid.Row="1"
                 BackgroundColor="White"
                 HorizontalOptions="Center">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="300" />
-                    </Grid.ColumnDefinitions>
-                    <Grid IsVisible="{Binding IsAdmin}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="60" />
-                        </Grid.RowDefinitions>
-                        <Button HorizontalOptions="Start" Style="{StaticResource EditButtonStyle}" />
-                        <Button Style="{StaticResource DeleteButtonStyle}" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300" />
+                        </Grid.ColumnDefinitions>
+                        <Grid IsVisible="{Binding IsAdmin}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="60" />
+                            </Grid.RowDefinitions>
+                            <Button HorizontalOptions="Start" Style="{StaticResource EditButtonStyle}" />
+                            <Button Style="{StaticResource DeleteButtonStyle}" />
+                        </Grid>
                     </Grid>
-                </Grid>
-            </Frame>
-        </Grid>
+                </Frame>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
