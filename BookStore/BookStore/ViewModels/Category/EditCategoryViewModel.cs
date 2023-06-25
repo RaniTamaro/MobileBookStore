@@ -56,7 +56,7 @@ namespace BookStore.ViewModels.Category
         {
             return new CategoryForView
             {
-                CretionDate = CreationDate,
+                CretionDate = CreationDate == new DateTime() ? DateTime.Now : CreationDate,
                 MmodifDate = DateTime.Now,
                 IsActive = true,
                 Id = Id,

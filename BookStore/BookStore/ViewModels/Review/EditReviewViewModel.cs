@@ -107,7 +107,7 @@ namespace BookStore.ViewModels.Review
         {
             return new ReviewForView
             {
-                CretionDate = CreationDate,
+                CretionDate = CreationDate == new DateTime() ? DateTime.Now : CreationDate,
                 MmodifDate = DateTime.Now,
                 IsActive = true,
                 Id = Id,

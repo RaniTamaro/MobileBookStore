@@ -145,9 +145,11 @@ namespace BookStore.ViewModels.Book
                 }
             }
 
+            var createDate = (CreationDate == new DateTime()) ? DateTime.Now : CreationDate;
+
             return new BookForView
             {
-                CretionDate = CreationDate,
+                CretionDate = CreationDate == new DateTime() ? DateTime.Now : CreationDate,
                 MmodifDate = DateTime.Now,
                 IsActive = true,
                 Id = Id,

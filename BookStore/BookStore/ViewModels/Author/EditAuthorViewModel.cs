@@ -55,7 +55,7 @@ namespace BookStore.ViewModels.Author
         {
             return new AuthorForView
             {
-                CretionDate = CreationDate,
+                CretionDate = CreationDate == new DateTime() ? DateTime.Now : CreationDate,
                 MmodifDate = DateTime.Now,
                 IsActive = true,
                 Id = Id,

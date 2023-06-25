@@ -54,7 +54,7 @@ namespace BookStore.ViewModels.Genre
         {
             return new BookStoreApi.Genre
             {
-                CretionDate = CreationDate,
+                CretionDate = CreationDate == new DateTime() ? DateTime.Now : CreationDate,
                 MmodifDate = DateTime.Now,
                 IsActive = true,
                 Id = Id,

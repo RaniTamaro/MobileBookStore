@@ -113,7 +113,7 @@ namespace BookStore.ViewModels.User
         {
             return new UserForView
             {
-                CretionDate = CreationDate,
+                CretionDate = CreationDate == new DateTime() ? DateTime.Now : CreationDate,
                 MmodifDate = DateTime.Now,
                 IsActive = true,
                 Id = Id,

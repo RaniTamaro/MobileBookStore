@@ -132,7 +132,7 @@ namespace BookStore.ViewModels.Order
         {
             return new OrderForView
             {
-                CretionDate = CreationDate,
+                CretionDate = CreationDate == new DateTime() ? DateTime.Now : CreationDate,
                 MmodifDate = DateTime.Now,
                 IsActive = true,
                 Id = Id,
