@@ -36,11 +36,11 @@
                             <CollectionView
                             x:Name="ItemsListView"
                             ItemsSource="{Binding Items}"
-                            SelectionMode="None" HeightRequest="100">
+                            SelectionMode="None" HeightRequest="150">
                                 <CollectionView.ItemTemplate>
                                     <DataTemplate>
-                                        <Frame BorderColor="{StaticResource LightFiolet}" CornerRadius="5">
-                                            <StackLayout Padding="1" x:DataType="model:Genre">
+                                        <Frame BorderColor="{StaticResource LightFiolet}" CornerRadius="20">
+                                            <StackLayout Padding="2" x:DataType="model:Genre">
                                                 <Label
                                                 FontSize="16"
                                                 LineBreakMode="NoWrap"

@@ -5,8 +5,16 @@
              Title="Edit Book"
              BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <Grid>
+        <Grid HorizontalOptions="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="335" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
             <Frame BackgroundColor="White" HorizontalOptions="Center">
@@ -44,7 +52,7 @@
                             HeightRequest="100">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <Label Text="{Binding Name, Mode=TwoWay}" TextColor="Black"/>
+                                <Label Text="{Binding Name, Mode=TwoWay}" TextColor="Black" Margin="4" Padding="10"  FontAttributes="Bold" HorizontalTextAlignment="Start"/>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                         <CollectionView.ItemsLayout>

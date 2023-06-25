@@ -6,9 +6,14 @@
     Title="New Book"
     BackgroundColor="#F8F4EF">
     <ContentPage.Content>
-        <ScrollView>
-            <Grid>
+        <ScrollView HorizontalOptions="Center">
+            <Grid HorizontalOptions="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="335" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <Frame BackgroundColor="White" HorizontalOptions="Center">
@@ -41,13 +46,13 @@
                         </Picker>
                         <Label Style="{StaticResource NormalLabelStyle}" Text="Genre" />
                         <CollectionView
+                            HeightRequest="110"
                             ItemsSource="{Binding Genres}"
                             SelectedItems="{Binding SelectedGenres, Mode=TwoWay}"
-                            SelectionMode="Multiple"
-                            HeightRequest="100">
+                            SelectionMode="Multiple">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding Name, Mode=TwoWay}" TextColor="Black" />
+                                    <Label Text="{Binding Name, Mode=TwoWay}" TextColor="Black" Margin="4" Padding="10" FontAttributes="Bold" HorizontalTextAlignment="Start"/>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                             <CollectionView.ItemsLayout>

@@ -37,7 +37,8 @@
                         <CollectionView
                             x:Name="ItemsListView"
                             ItemsSource="{Binding Items}"
-                            SelectionMode="None">
+                            SelectionMode="None"
+                            HeightRequest="150">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
                                     <StackLayout Padding="10" x:DataType="model:BookForView">
