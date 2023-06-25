@@ -1,6 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using BookStoreApi.Data;
-using System.Text.Json.Serialization;
+﻿using BookStoreApi.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<BookStoreContext>(options =>

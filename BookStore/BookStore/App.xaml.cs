@@ -1,8 +1,6 @@
 ﻿using BookStore.Services;
 using BookStore.Views;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace BookStore
 {
@@ -20,7 +18,6 @@ namespace BookStore
             DependencyService.Register<GenreDataStore>();
             DependencyService.Register<OrderDataStore>();
             DependencyService.Register<ReviewDataStore>();
-            //MainPage = new AppShell();
             MainPage = new LoginPage();
         }
 

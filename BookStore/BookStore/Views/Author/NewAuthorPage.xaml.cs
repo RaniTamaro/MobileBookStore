@@ -1,6 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using BookStore.ViewModels.Author;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using BookStore.ViewModels.Author;
 
 namespace BookStore.Views.Author
 {

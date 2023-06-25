@@ -60,12 +60,6 @@
                                                 </Button>
                                             </Grid>
                                         </StackLayout>
-                                        <!--<StackLayout.GestureRecognizers>
-                                            <TapGestureRecognizer
-                                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:AuthorViewModel}}, Path=ItemTapped}"
-                                                CommandParameter="{Binding .}"
-                                                NumberOfTapsRequired="1" />
-                                        </StackLayout.GestureRecognizers>-->
                                     </StackLayout>
                                 </Frame>
                             </Grid>

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using BookStoreApi.Models;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace BookStoreApi.Data
 {
@@ -26,7 +21,6 @@ namespace BookStoreApi.Data
 
         public DbSet<BookStoreApi.Models.Order>? Order { get; set; }
 
-        public DbSet<BookStoreApi.Models.Report>? Report { get; set; }
         public DbSet<BookStoreApi.Models.Review>? Review { get; set; }
 
         public DbSet<BookStoreApi.Models.BookGenre>? BookGenre { get; set; }

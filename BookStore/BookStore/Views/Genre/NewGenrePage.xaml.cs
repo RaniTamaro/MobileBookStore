@@ -1,6 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using BookStore.ViewModels.Genre;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using BookStore.ViewModels.Genre;
 
 namespace BookStore.Views.Genre
 {

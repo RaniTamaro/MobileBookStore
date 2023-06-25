@@ -1,11 +1,9 @@
 ﻿using BookStore.ViewModels.Review;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace BookStore.Views.Review
 {
-    //TODO: Zrobić front 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class NewReviewPage : ContentPage
     {

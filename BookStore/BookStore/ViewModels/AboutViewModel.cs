@@ -1,5 +1,4 @@
-﻿using BookStore.Views.Book;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 

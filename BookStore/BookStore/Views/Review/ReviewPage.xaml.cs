@@ -1,11 +1,4 @@
-﻿using BookStore.ViewModels.Author;
-using BookStore.ViewModels.Review;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using BookStore.ViewModels.Review;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

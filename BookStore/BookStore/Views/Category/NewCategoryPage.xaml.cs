@@ -1,5 +1,4 @@
 ﻿using BookStore.ViewModels.Category;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

@@ -33,7 +33,6 @@ namespace BookStore.ViewModels
         {
             LoginCommand = new Command(OnLoginClicked);
         }
-        // TODO zmienić AboutPage na Home, gdy bedzie gotowa
         private async void OnLoginClicked(object obj)
         {
             var userDataService = new UserDataStore();

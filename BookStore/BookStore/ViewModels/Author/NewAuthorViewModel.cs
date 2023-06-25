@@ -5,7 +5,6 @@ using System;
 
 namespace BookStore.ViewModels.Author
 {
-    //TODO: Klaudia - tu możliwe, że będzie zmiania book, bo w api przyjmuje coś innego!
     public class NewAuthorViewModel : ANewViewModel<AuthorForView>
     {
         public NewAuthorViewModel()

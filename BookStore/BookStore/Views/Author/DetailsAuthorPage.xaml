@@ -21,7 +21,6 @@
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
-            <!--<Button Text="Add Books" Command="{Binding AddItemCommand}" />-->
             <Frame BackgroundColor="White" HorizontalOptions="Center">
                 <StackLayout>
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Name" />
@@ -46,7 +45,8 @@
                                             FontSize="16"
                                             LineBreakMode="NoWrap"
                                             Style="{DynamicResource ListItemTextStyle}"
-                                            Text="{Binding Title}" />
+                                            Text="{Binding Title}" 
+                                            TextColor="Black"/>
                                     </StackLayout>
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>

@@ -8,7 +8,6 @@ namespace BookStore.ViewModels.Order
 {
     public class NewOrderViewModel : ANewViewModel<OrderForView>
     {
-        //TODO: Klaudia Podmienić userList na usera zalogowanego! Czy może dodać to do widoku?
         public NewOrderViewModel()
             : base()
         {

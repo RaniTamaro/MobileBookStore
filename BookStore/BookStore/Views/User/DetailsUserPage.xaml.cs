@@ -1,5 +1,4 @@
 ﻿using BookStore.ViewModels.User;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

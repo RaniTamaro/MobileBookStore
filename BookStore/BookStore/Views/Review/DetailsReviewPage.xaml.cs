@@ -1,5 +1,4 @@
 ﻿using BookStore.ViewModels.Review;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

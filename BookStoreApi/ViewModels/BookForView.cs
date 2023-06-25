@@ -1,6 +1,5 @@
 ﻿using BookStoreApi.Models;
 using BookStoreApi.ViewModels.Helpers;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookStoreApi.ViewModels
 {

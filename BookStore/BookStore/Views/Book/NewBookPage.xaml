@@ -47,7 +47,7 @@
                             HeightRequest="100">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate>
-                                    <Label Text="{Binding Name, Mode=TwoWay}" />
+                                    <Label Text="{Binding Name, Mode=TwoWay}" TextColor="Black" />
                                 </DataTemplate>
                             </CollectionView.ItemTemplate>
                             <CollectionView.ItemsLayout>

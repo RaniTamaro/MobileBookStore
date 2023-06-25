@@ -1,7 +1,5 @@
 ﻿using BookStore.ViewModels.Abstract;
-using BookStore.ViewModels.Genre;
 using BookStore.ViewModels.Review;
-using BookStore.Views.Genre;
 using BookStore.Views.Review;
 using BookStore.Views.User;
 using BookStoreApi;

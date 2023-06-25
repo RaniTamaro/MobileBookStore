@@ -45,7 +45,8 @@
                                                 FontSize="16"
                                                 LineBreakMode="NoWrap"
                                                 Style="{DynamicResource ListItemTextStyle}"
-                                                Text="{Binding Name}" />
+                                                Text="{Binding Name}" 
+                                                TextColor="Black"/>
                                             </StackLayout>
                                         </Frame>
                                     </DataTemplate>

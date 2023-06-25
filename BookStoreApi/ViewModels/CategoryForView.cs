@@ -1,6 +1,5 @@
 ﻿using BookStoreApi.Models;
 using BookStoreApi.ViewModels.Helpers;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BookStoreApi.ViewModels
 {

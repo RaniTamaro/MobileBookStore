@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BookStore.ViewModels;
-using BookStore.ViewModels.Author;
+﻿using BookStore.ViewModels.Author;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

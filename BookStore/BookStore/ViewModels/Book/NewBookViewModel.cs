@@ -28,7 +28,6 @@ namespace BookStore.ViewModels.Book
 
             selectedCategory = new CategoryForView();
             selectedAuthor = new AuthorForView();
-            selectedGenre = new BookStoreApi.Genre();
         }
 
         #region Fields
@@ -42,7 +41,7 @@ namespace BookStore.ViewModels.Book
         private double price = 0;
         private CategoryForView selectedCategory;
         private AuthorForView selectedAuthor;
-        private BookStoreApi.Genre selectedGenre;
+        private IList<object> selectedGenres;
         private List<BookStoreApi.Genre> genres;
         private List<CategoryForView> categories;
         private List<AuthorForView> authors;
@@ -85,10 +84,14 @@ namespace BookStore.ViewModels.Book
             set => SetProperty(ref selectedAuthor, value);
         }
 
-        public BookStoreApi.Genre SelectedGenre
+        public IList<object> SelectedGenres
         {
-            get => selectedGenre;
-            set => SetProperty(ref selectedGenre, value);
+            get { return selectedGenres; }
+            set
+            {
+                selectedGenres = value;
+                OnPropertyChanged(nameof(SelectedGenres));
+            }
         }
 
         public List<BookStoreApi.Genre> Genres
@@ -124,9 +127,12 @@ namespace BookStore.ViewModels.Book
         public override BookForView SetItem()
         {
             List<BookStoreApi.Genre> bookGenresToSet = new List<BookStoreApi.Genre>();
-            if (genreDataStore.items.Contains(SelectedGenre))
+            foreach (BookStoreApi.Genre genre in SelectedGenres.ToList())
             {
-                bookGenresToSet.Add(genreDataStore.items.Where(x => x.Id == SelectedGenre.Id).First());
+                if (genreDataStore.items.Contains(genre))
+                {
+                    bookGenresToSet.Add(genreDataStore.items.Where(x => x.Id == genre.Id).First());
+                }
             }
 
             return new BookForView

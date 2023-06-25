@@ -37,17 +37,36 @@
                             <Binding Path="Name" />
                         </Picker.ItemDisplayBinding>
                     </Picker>
-                    <Picker
-                        Title="Genre"
-                        SelectedItem="{Binding SelectedGenres}"
-                        Style="{StaticResource CustomPickerStyle}">
-                        <Picker.ItemsSource>
-                            <Binding Path="Genres" />
-                        </Picker.ItemsSource>
-                        <Picker.ItemDisplayBinding>
-                            <Binding Path="Name" />
-                        </Picker.ItemDisplayBinding>
-                    </Picker>
+                    <CollectionView
+                            ItemsSource="{Binding Genres}"
+                            SelectedItems="{Binding SelectedGenres, Mode=TwoWay}"
+                            SelectionMode="Multiple"
+                            HeightRequest="100">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Label Text="{Binding Name, Mode=TwoWay}" TextColor="Black"/>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical" Span="2" />
+                        </CollectionView.ItemsLayout>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroupList>
+                                <VisualStateGroup>
+                                    <VisualState Name="Normal">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="White" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="LightBlue" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateGroupList>
+                        </VisualStateManager.VisualStateGroups>
+                    </CollectionView>
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Price" />
                     <Entry Style="{StaticResource CustomEntryStyle}" Text="{Binding Price, Mode=TwoWay}" />
                     <Label Style="{StaticResource NormalLabelStyle}" Text="Description" />

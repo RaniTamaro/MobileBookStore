@@ -1,5 +1,4 @@
 ﻿using BookStore.ViewModels.Order;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
